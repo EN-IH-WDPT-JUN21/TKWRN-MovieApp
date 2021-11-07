@@ -3,7 +3,6 @@
    JDBC URL: jdbc:h2:~/movies;AUTO_SERVER=TRUE
    username: knights
    password: ni
-   
 ```
 ### Service ports
 | Port | Service
