@@ -3,7 +3,6 @@
    JDBC URL: jdbc:h2:~/movies;AUTO_SERVER=TRUE
    username: knights
    password: ni
-   
 ```
 ### Service ports
 | Port | Service
@@ -13,6 +12,7 @@
 | 8100 | movie-service
 | 8200 | playlist-service
 | 8300 | user-service
+| 8400 | search-service
 
 ### movie-service
 
@@ -43,3 +43,23 @@
 | /api/users/new | `POST` | Add new user | None
 | /api/users/update/{id} | `PUT` | Update user | `id=[long]`
 | /api/users/delete/{id} | `DELETE` | Delete user | `id=[long]`
+
+### search-service 
+
+| Endpoint | Method | Description | Path Params
+| :--- | :--- | :--- | :--- 
+| /api/search/get/{X} | `GET` | Get movie by X | None
+
+### APIs
+
+- [IMDB](https://imdb-api.com/api)
+- [RandomUser](https://randomuser.me/api)
+
+### Extra Resources
+1. Sending email & SMS from spring app
+- [Spring email](https://www.baeldung.com/spring-email)
+- [Mailtrap&Spring](https://mailtrap.io/blog/spring-send-email/)
+- [Twillio&Spring](https://www.baeldung.com/java-sms-twilio)
+
+
+
