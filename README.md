@@ -14,6 +14,11 @@
 | 8300 | user-service
 | 8400 | search-service
 
+### APIs
+
+- [IMDB](https://imdb-api.com/api)
+- [RandomUser](https://randomuser.me/api)
+
 ### movie-service
 
 | Endpoint | Method | Description | Path Params
@@ -49,11 +54,6 @@
 | Endpoint | Method | Description | Path Params
 | :--- | :--- | :--- | :--- 
 | /api/search/get/{X} | `GET` | Get movie by X | None
-
-### APIs
-
-- [IMDB](https://imdb-api.com/api)
-- [RandomUser](https://randomuser.me/api)
 
 ### Extra Resources
 1. Sending email & SMS from spring app
