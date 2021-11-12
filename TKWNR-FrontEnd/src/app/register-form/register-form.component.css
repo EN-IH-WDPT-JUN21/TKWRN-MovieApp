@@ -1,0 +1,101 @@
+
+.bg {
+  /* The image used */
+  background-image: url("src/assets/images/powrot-krola.jpg");
+
+  /* Full height */
+  height: 100%;
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: fixed;
+}
+
+.container{
+
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+ 
+    padding: 20px;
+    
+    max-width: 500px;
+
+    height: 100%;
+ 
+}
+
+h1 {
+    padding: 20px;  
+    background-color: rebeccapurple;
+    color: whitesmoke;
+
+    text-align: center;
+
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+
+
+
+
+    margin-top: 0px;
+
+    margin-bottom: 15px;
+  
+}
+
+
+
+
+
+.form{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+
+
+.form-group {
+
+    margin-bottom: 20px;
+
+
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+}
+
+.form-group label {
+    margin-bottom: 15px;
+  }
+
+  textarea {
+
+    height: 200px;
+  }
+  
+
+.error-msg {
+    color: red;
+    font-size: 12px;
+  }
+  
+  input.ng-invalid.ng-touched,
+  select.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  .ng-valid[required], .ng-valid.required  {
+    border: 2px solid green; 
+  }

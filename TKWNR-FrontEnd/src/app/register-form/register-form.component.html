@@ -1,0 +1,54 @@
+<div class="bg">
+<div class="container">
+    <h1>Register form</h1>
+    <a href="#" class="image main"><img src="assets/images/black.jfif" alt="" width=100% /></a>
+    
+    <!-- <div [hidden]="submitted" style="width: 400px;"> -->
+        <form class ="form" (ngSubmit)="onSubmit()" #form="ngForm">
+
+            <div class="form-group">
+                <label for="name">Username*: </label>
+                <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" [disabled]="form.submitted">
+                <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write your username</p>
+            </div>
+            <div class="form-group">
+                <label for="name">Email*: </label>
+                <input ngModel required email [(ngModel)]="user.email" name="email" type="text" placeholder="Email..." #emailInput="ngModel" [disabled]="form.submitted">
+                <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">Please use a proper email address</p>
+            </div>
+            <div class="form-group">
+                <label for="password">Password*: </label>
+                <input ngModel required password [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" [disabled]="form.submitted">
+                <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">The password must be between 4 and 20 characters</p>
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirm">Password confirmation*: </label>
+                <input ngModel required passwordConfirm minlength="4" maxlength="20" value=form.password name="passwordConfirm" type="password" placeholder="Password confirmation..." #passwordConfirmInput="ngModel" pattern="{{ passwordInput.value }}" [disabled]="form.submitted">
+                <p class="error-msg" *ngIf="passwordConfirmInput.invalid && passwordConfirmInput.touched">The password doesn't match</p>
+            </div>
+            <div class="form-group">
+                <label for="role">User type*: </label>
+                <select ngModel name="role" required role [(ngModel)]="user.role" #roleInput="ngModel" [disabled]="form.submitted">
+                  <option value="USER">Standard User</option>
+                  <option value="PREMIUM">Premium User</option>
+                  <!-- <option value="ADMIN">Admin</option> -->
+                </select>
+                <p class="error-msg" *ngIf="roleInput.invalid && roleInput.touched">Please select a user type</p>
+            </div>
+        
+ 
+            <div class="buttons">
+                <button type="submit" [disabled]="form.invalid" [disabled]="form.submitted" class="btn btn-success">Register</button>
+                <button class="btn btn-warning" (click)="sendToLogin()">Back to Login</button>
+            </div>
+            <p>* fields required</p>
+        </form>
+    <!-- </div> -->
+
+    <div [hidden]="!submitted">
+        <h4>You submitted successfully!</h4>  
+    </div>
+</div>
+
+
+</div>

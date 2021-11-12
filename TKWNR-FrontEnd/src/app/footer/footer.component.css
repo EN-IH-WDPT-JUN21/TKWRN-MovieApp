@@ -1,0 +1,13 @@
+h1{
+    background-color: blueviolet;
+    color: whitesmoke;
+    padding-left: 10px;
+}
+
+.footer {
+    position: fixed; 
+    bottom: -10px;
+    left: 0;
+    right: 0;
+
+}
