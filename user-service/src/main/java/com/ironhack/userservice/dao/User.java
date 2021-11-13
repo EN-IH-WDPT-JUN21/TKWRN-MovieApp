@@ -22,8 +22,16 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private String userRole;
-    private String name;
+    private String role;
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+    /*private String name;
     private String email;
-    private String phoneNumber;
+    private String phoneNumber;*/
+
+
 }

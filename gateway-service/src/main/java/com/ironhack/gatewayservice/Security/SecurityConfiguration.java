@@ -1,48 +1,65 @@
 package com.ironhack.gatewayservice.Security;
 
-import com.ironhack.gatewayservice.repository.UserRepository;
 import com.ironhack.gatewayservice.service.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@EnableWebFluxSecurity
-public class SecurityConfiguration {
+//@EnableWebFluxSecurity
+@Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true)
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+   /* @Autowired
+    private PasswordEncoder passwordEncoder;*/
 
-    @Autowired
-    private UserRepository userRepository;
+    /*@Autowired
+    private UserRepository userRepository;*/
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-    @Bean
-    public SecurityWebFilterChain securityWebFilterChain(
-            ServerHttpSecurity http) {
-        http.csrf().disable();
+    /*@Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }*/
 
-        http.authorizeExchange()
-                .pathMatchers("/admin/**").hasRole("ADMIN")
-                .pathMatchers( "/api/authorities/**").permitAll()
-                .pathMatchers("/api/authorities**").permitAll()
-                .pathMatchers("/**").permitAll()
-                .and().httpBasic();
-        return http.build();
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .userDetailsService(customUserDetailsService);
+                //.passwordEncoder(passwordEncoder);
     }
 
-    @Bean
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.formLogin();
+        http.httpBasic();
+        http.csrf().disable();
+        http.authorizeRequests()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers( "/api/authorities/**").hasRole("ADMIN")
+                .antMatchers("/api/authorities**").hasRole("ADMIN")
+                .antMatchers("/**").hasRole("ADMIN")
+                .anyRequest().authenticated();
+    }
+
+    /*@Bean
     public MapReactiveUserDetailsService userDetailsService() {
         List<UserDetails> myUsers = new ArrayList<>();
         UserDetails user1 = User
@@ -73,7 +90,7 @@ public class SecurityConfiguration {
         System.out.println(myUsers);
 
         return new MapReactiveUserDetailsService(myUsers);
-    }
+    }*/
 
 
 }

@@ -11,7 +11,7 @@ public class GatewayCofiguration {
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(p -> p.path("api/authorities/**")
+                .route(p -> p.path("/api/authorities/**")
                         .uri("lb://GATEWAY-SERVICE"))
                 .route(p -> p.path("/api/authorities**")
                         .uri("lb://GATEWAY-SERVICE"))

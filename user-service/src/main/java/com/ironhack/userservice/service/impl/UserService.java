@@ -1,10 +1,10 @@
-package com.ironhack.gatewayservice.service.impl;
+package com.ironhack.userservice.service.impl;
 
-import com.ironhack.gatewayservice.dao.User;
-import com.ironhack.gatewayservice.dto.UserReceiptDTO;
-import com.ironhack.gatewayservice.dto.UserRequestDTO;
-import com.ironhack.gatewayservice.repository.UserRepository;
-import com.ironhack.gatewayservice.service.interfaces.IUserService;
+import com.ironhack.userservice.dao.User;
+import com.ironhack.userservice.dto.UserReceiptDTO;
+import com.ironhack.userservice.dto.UserRequestDTO;
+import com.ironhack.userservice.repository.UserRepository;
+import com.ironhack.userservice.service.interfaces.IUserService;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

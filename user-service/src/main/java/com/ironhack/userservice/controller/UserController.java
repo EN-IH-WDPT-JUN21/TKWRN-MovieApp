@@ -1,11 +1,10 @@
-package com.ironhack.gatewayservice.controller;
+package com.ironhack.userservice.controller;
 
-import com.ironhack.gatewayservice.dao.User;
-import com.ironhack.gatewayservice.dto.UserReceiptDTO;
-import com.ironhack.gatewayservice.dto.UserRequestDTO;
-import com.ironhack.gatewayservice.repository.UserRepository;
-import com.ironhack.gatewayservice.service.interfaces.IUserService;
-import com.netflix.discovery.converters.Auto;
+import com.ironhack.userservice.dao.User;
+import com.ironhack.userservice.dto.UserReceiptDTO;
+import com.ironhack.userservice.dto.UserRequestDTO;
+import com.ironhack.userservice.repository.UserRepository;
+import com.ironhack.userservice.service.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("api/authorities")
+@RequestMapping("/api/authorities")
 public class UserController {
 
     @Autowired

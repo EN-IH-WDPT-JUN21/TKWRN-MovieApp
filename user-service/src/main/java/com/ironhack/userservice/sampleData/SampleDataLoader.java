@@ -1,13 +1,11 @@
-package com.ironhack.gatewayservice.sampleData;
+package com.ironhack.userservice.sampleData;
 
-import com.ironhack.gatewayservice.dao.User;
-import com.ironhack.gatewayservice.repository.UserRepository;
+
+import com.ironhack.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class SampleDataLoader implements CommandLineRunner {
