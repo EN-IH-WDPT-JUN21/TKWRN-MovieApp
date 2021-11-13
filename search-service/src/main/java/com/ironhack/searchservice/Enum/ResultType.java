@@ -1,5 +1,5 @@
 package com.ironhack.searchservice.Enum;
 
-public enum ResponseType {
+public enum ResultType {
     TITLE,
 }
