@@ -30,12 +30,12 @@ export class LoginFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
 
-  ) { 
+  ) {
     this.user = {
       username: '',
       email: '',
       password: '',
-      role: ''
+      userType: ''
 
     }
 
@@ -79,7 +79,7 @@ export class LoginFormComponent implements OnInit {
     console.log(this.form.value);
     console.log(this.form.value.username);
     if(this.form.value.username)
-    this.getUser(this.form.value.username); 
+    this.getUser(this.form.value.username);
 
   }
 

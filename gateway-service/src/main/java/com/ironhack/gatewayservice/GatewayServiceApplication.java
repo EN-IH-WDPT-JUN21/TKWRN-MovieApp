@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableEurekaClient
 @SpringBootApplication
-@EnableFeignClients
 public class GatewayServiceApplication {
 
 	public static void main(String[] args) {

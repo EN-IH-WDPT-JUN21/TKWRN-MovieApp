@@ -1264,15 +1264,19 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="312" parent="309" name="password">
+    <column id="312" parent="309" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="313" parent="309" name="role">
+    <column id="313" parent="309" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="314" parent="309" name="PRIMARY">
+    <column id="314" parent="309" name="userType">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <key id="315" parent="309" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

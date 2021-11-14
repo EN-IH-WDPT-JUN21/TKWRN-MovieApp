@@ -22,12 +22,12 @@ export class RegisterFormComponent implements OnInit {
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { 
+  ) {
     this.user = {
       username: '',
       email: '',
       password: '',
-      role: ''
+      userType: ''
 
     }
   }
@@ -45,7 +45,7 @@ export class RegisterFormComponent implements OnInit {
     .createUser(this.user).subscribe(data => {
       console.log(data)
       this.user = new User();
-    }, 
+    },
     error => console.log(error));
   }
 
@@ -54,7 +54,7 @@ export class RegisterFormComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     console.log(this.form.value);
-    this.save();    
+    this.save();
   }
 
   sendToLogin(): void {

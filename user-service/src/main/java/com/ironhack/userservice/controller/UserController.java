@@ -1,8 +1,7 @@
 package com.ironhack.userservice.controller;
 
 import com.ironhack.userservice.dao.User;
-import com.ironhack.userservice.dto.UserReceiptDTO;
-import com.ironhack.userservice.dto.UserRequestDTO;
+import com.ironhack.userservice.dto.UserDTO;
 import com.ironhack.userservice.repository.UserRepository;
 import com.ironhack.userservice.service.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/authorities")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
@@ -25,22 +24,32 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<User> findAll(){
-
-        return userService.getUsers();
+    public List<User> findAllUsers(){
+        return userService.getAllUsers();
     }
 
     @GetMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
-    public User findUserByUsername (@PathVariable(name="username") String username){
+    public UserDTO findUserByUsername (@PathVariable(name="username") String username){
         return userService.findUserByUsername(username);
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserReceiptDTO createUser(@RequestBody @Valid UserRequestDTO userRequestDTO){
-        return userService.createUser(userRequestDTO);
+    public User createUser(@RequestBody @Valid User user){
+        return userRepository.save(user);
     }
 
+    @PatchMapping("/update/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDTO updateUser(@PathVariable String username, @RequestBody UserDTO userDTO) {
+        return userService.updateUser(username, userDTO);
+    }
+
+    @DeleteMapping("/delete/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteUser(@PathVariable String username) {
+        userService.deleteUser(username);
+    }
 
 }
