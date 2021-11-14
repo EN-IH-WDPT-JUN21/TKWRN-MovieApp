@@ -1,6 +1,6 @@
-package com.ironhack.gatewayservice.repository;
+package com.ironhack.userservice.repository;
 
-import com.ironhack.gatewayservice.dao.User;
+import com.ironhack.userservice.dao.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.ironhack.gatewayservice;
+package com.ironhack.userservice;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
