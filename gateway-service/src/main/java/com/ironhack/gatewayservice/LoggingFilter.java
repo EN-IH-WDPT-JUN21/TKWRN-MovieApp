@@ -1,3 +1,4 @@
+/*
 package com.ironhack.gatewayservice;
 
 import org.slf4j.Logger;
@@ -20,3 +21,4 @@ public class LoggingFilter implements GlobalFilter {
     }
 
 }
+*/

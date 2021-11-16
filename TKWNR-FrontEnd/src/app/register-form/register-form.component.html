@@ -2,7 +2,7 @@
 <div class="container">
     <h1>Register form</h1>
     <a href="#" class="image main"><img src="assets/images/black.jfif" alt="" width=100% /></a>
-    
+
     <!-- <div [hidden]="submitted" style="width: 400px;"> -->
         <form class ="form" (ngSubmit)="onSubmit()" #form="ngForm">
 
@@ -27,16 +27,16 @@
                 <p class="error-msg" *ngIf="passwordConfirmInput.invalid && passwordConfirmInput.touched">The password doesn't match</p>
             </div>
             <div class="form-group">
-                <label for="role">User type*: </label>
-                <select ngModel name="role" required role [(ngModel)]="user.role" #roleInput="ngModel" [disabled]="form.submitted">
+                <label for="userType">User type*: </label>
+                <select ngModel name="userType" required userType [(ngModel)]="user.userType" #userTypeInput="ngModel" [disabled]="form.submitted">
                   <option value="USER">Standard User</option>
                   <option value="PREMIUM">Premium User</option>
                   <!-- <option value="ADMIN">Admin</option> -->
                 </select>
-                <p class="error-msg" *ngIf="roleInput.invalid && roleInput.touched">Please select a user type</p>
+                <p class="error-msg" *ngIf="userTypeInput.invalid && userTypeInput.touched">Please select a user type</p>
             </div>
-        
- 
+
+
             <div class="buttons">
                 <button type="submit" [disabled]="form.invalid" [disabled]="form.submitted" class="btn btn-success">Register</button>
                 <button class="btn btn-warning" (click)="sendToLogin()">Back to Login</button>
@@ -46,7 +46,7 @@
     <!-- </div> -->
 
     <div [hidden]="!submitted">
-        <h4>You submitted successfully!</h4>  
+        <h4>You submitted successfully!</h4>
     </div>
 </div>
 

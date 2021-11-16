@@ -1,3 +1,4 @@
+/*
 package com.ironhack.gatewayservice.service.impl;
 
 import com.ironhack.gatewayservice.Security.CustomUserDetails;
@@ -29,3 +30,4 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
 }
+*/
