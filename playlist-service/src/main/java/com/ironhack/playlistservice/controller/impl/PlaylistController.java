@@ -1,7 +1,5 @@
 package com.ironhack.playlistservice.controller.impl;
 
-import com.ironhack.playlistservice.controller.dto.MovieDetailDTO;
-import com.ironhack.playlistservice.controller.dto.PlaylistReceiptDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.controller.interfaces.IPlaylistController;
 import com.ironhack.playlistservice.dao.Playlist;
@@ -15,12 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/playlists")
-@CrossOrigin(origins = "http://localhost:4200")
 public class PlaylistController implements IPlaylistController {
 
-    final PlaylistService playlistService;
+    private PlaylistService playlistService;
 
-    final PlaylistRepository playlistRepository;
+    private PlaylistRepository playlistRepository;
 
     public PlaylistController(PlaylistService playlistService, PlaylistRepository playlistRepository) {
         this.playlistService = playlistService;
@@ -33,41 +30,29 @@ public class PlaylistController implements IPlaylistController {
         return playlistRepository.findAll();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Playlist getPlaylistById(@PathVariable(name = "id") long id) {
         return playlistRepository.findById(id).orElse(null);
     }
 
-//    @GetMapping("/{userId}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public List<Playlist> getByUserId(@PathVariable(name = "userId") long userId) {
-//        return playlistService.getByUser(userId);
-//    }
-
-    @Override
-    public List<Playlist> getByUserId(long id) {
-        return null;
+    @GetMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Playlist> getByUserId(@PathVariable(name = "userId") long userId) {
+        return playlistService.getByUser(userId);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/{name}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Playlist> getByName(@RequestParam(value="name") String name) {
-        return playlistService.getByPlaylistName(name);
+    public List<Playlist> getByName(@PathVariable(name = "name") String name) {
+        return playlistService.getByName(name);
     }
 
     @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Playlist updatePlaylistName(@PathVariable(name = "id") long id,
-                                       @RequestBody PlaylistRequestDTO playlistRequestDTO) {
-        return playlistService.updateName(id, playlistRequestDTO);
-    }
-
-    @PutMapping("/update/{id}/add")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public PlaylistReceiptDTO addNewMovie(@PathVariable(name = "id") long id,
-                                          @RequestBody MovieDetailDTO movieDetailDTO) {
-        return playlistService.addMovie(id, movieDetailDTO);
+    public Playlist updatePlaylist(@PathVariable(name = "id") long id,
+                                   @RequestBody PlaylistRequestDTO playlistRequestDTO) {
+        return playlistService.update(id, playlistRequestDTO);
     }
 
     @PostMapping("/new")
@@ -82,4 +67,3 @@ public class PlaylistController implements IPlaylistController {
         playlistRepository.deleteById(id);
     }
 }
-

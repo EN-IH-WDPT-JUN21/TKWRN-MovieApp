@@ -10,9 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { PlaylistArrayComponent } from './playlist-array/playlist-array.component';
-import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.component';
-import { PlaylistMovieComponent } from './playlist-movie/playlist-movie.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +18,7 @@ import { PlaylistMovieComponent } from './playlist-movie/playlist-movie.componen
     RegisterFormComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent,
-    PlaylistArrayComponent,
-    PlaylistDetailComponent,
-    PlaylistMovieComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
