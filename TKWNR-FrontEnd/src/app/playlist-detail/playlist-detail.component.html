@@ -1,0 +1,10 @@
+<div class="container">
+    <span class="remove">
+        <button type="button" class="btn btn-dark btn-sm"(click)='delete(playlist.id)'>X</button>
+    </span>
+    <a  [routerLink]="['/playlists', playlist.id]">{{ playlist.id }}. {{ playlist.name }}</a>
+    <span class="remove">
+        <button type="button" class="btn btn-dark btn-sm"(click)='addMovie(playlist.id)'>+</button>
+    </span>
+</div>
+

@@ -1,0 +1,11 @@
+<h1>Playlists</h1>
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="creation">
+        <input class="form-control form-control-lg" ngModel required minlength="1" name="name" type="text" [(ngModel)]="playlist.name" placeholder="Playlist name..." #nameInput="ngModel">
+        <button type="submit" id="create" class="btn btn-success">Create Playlist</button>
+      </div>
+    </form>
+    <app-playlist-detail class="row" *ngFor="let playlist of playlists; let i = index" [playlist]="playlist">
+    </app-playlist-detail>
+</div>
