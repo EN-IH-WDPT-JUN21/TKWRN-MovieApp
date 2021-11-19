@@ -1,14 +1,12 @@
 package com.ironhack.playlistservice.dao;
 
+import com.ironhack.playlistservice.enums.PlaylistType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -24,14 +22,22 @@ public class Playlist {
 
     private int length;
 
-    private long userId;
+    private String username;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private PlaylistType type;
 
-    public Playlist(String name, int length, long userId, String type) {
+    public Playlist(String name, String username) {
         this.name = name;
-        this.length = length;
-        this.userId = userId;
+        this.length = 0;
+        this.username = username;
+        this.type = PlaylistType.PUBLIC;
+    }
+
+    public Playlist(String name, String username, PlaylistType type) {
+        this.name = name;
+        this.length = 0;
+        this.username = username;
         this.type = type;
     }
 }

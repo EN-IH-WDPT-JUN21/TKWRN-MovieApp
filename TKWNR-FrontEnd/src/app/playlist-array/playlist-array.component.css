@@ -1,0 +1,56 @@
+#create {
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+#add {
+    background-color: #D61A1F;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+input {
+    width: 50%;
+    display: inline;
+    margin-right: 15px;
+} 
+
+button {
+    height: 45px;
+}
+
+#add {
+    width: 125px;
+}
+
+.creation, .select {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+select {
+    position: relative;
+    /* left: -10px; */
+    width: 50%;
+    margin-right: 15px;
+}
+
+.row {
+    display: inline-flex;
+}
+
+/* .bg-img
+{
+    background-image: url("./assets/wallp.jpg");
+    background-position: center;
+    background-repeat: no-repeat; 
+} */
+  
+
+
+
+
