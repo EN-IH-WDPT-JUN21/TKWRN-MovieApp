@@ -9,6 +9,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { SearchComponent } from './search/search.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes: Routes = [
   {
@@ -44,10 +45,10 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'search',
+    path: 'search-results',
     component: HomeComponent,
     children: [
-      { path: '', component: SearchComponent }
+      { path: '', component: SearchResultsComponent }
     ]
   },
   {

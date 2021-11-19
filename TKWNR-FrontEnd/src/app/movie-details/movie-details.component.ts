@@ -16,13 +16,14 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private searchService:SearchService) { }
 
   ngOnInit(){
-    this.id = this.route.snapshot.params['id'];
+    // this.id = this.route.snapshot.params['id'];
 
-    this.searchService.getMovieDetail(this.id)
-      .subscribe(data => {
-        this.movie = data;
-      }, error => console.log(error))
-
+    // this.searchService.getMovieDetail(this.id)
+    //   .subscribe(data => {
+    //     this.movie = data;
+    //     console.log(this.movie.starList)
+    //   }, error => console.log(error))
+    this.movie = new MovieDetail();
   }
 
 

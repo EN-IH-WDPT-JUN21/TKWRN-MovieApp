@@ -47,7 +47,7 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule,
-    HttpClientModule,
+    MatMenuModule,
     NgbModule
   ],
   providers: [],
