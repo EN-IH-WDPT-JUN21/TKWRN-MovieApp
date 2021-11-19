@@ -1,3 +1,4 @@
+import { NameSearchResult } from './../models/name-search-result.model';
 
 import { Star } from './../models/star.model';
 import { Router } from '@angular/router';
@@ -13,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class SearchResultsComponent implements OnInit {
 
   movieList: TitleSearchResult[] = []
-  personList: Star[] = []
+  personList: NameSearchResult[] = []
   searchType: string;
   titleType: string;
   searchString: string;
@@ -41,7 +42,8 @@ export class SearchResultsComponent implements OnInit {
         this.personList = [];
       }, error => console.log(error))
     } else {
-      this.searchService.getPersonSearchResultDetail(this.searchString)
+      console.log("here")
+      this.searchService.getPersonSearchResult(searchString)
       .subscribe(data => {
         this.personList = data;
         this.movieList = [];
@@ -49,8 +51,12 @@ export class SearchResultsComponent implements OnInit {
     }
   }
 
-  showDetails(id: string):void {
+  showMovieDetails(id: string):void {
     this.router.navigate(['movie', id]);
+  }
+
+  showPersonDetails(id: string):void {
+    this.router.navigate(['person', id])
   }
 
 

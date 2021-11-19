@@ -1,3 +1,4 @@
+import { PersonDetailsComponent } from './person-details/person-details.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -33,6 +34,13 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: MovieDetailsComponent }
+    ]
+  },
+  {
+    path: 'person/:id',
+    component: HomeComponent,
+    children: [
+      { path: '', component: PersonDetailsComponent }
     ]
   },
   {
