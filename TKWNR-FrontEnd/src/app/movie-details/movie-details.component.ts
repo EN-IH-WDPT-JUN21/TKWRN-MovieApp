@@ -21,7 +21,6 @@ export class MovieDetailsComponent implements OnInit {
     this.searchService.getMovieDetail(this.id)
       .subscribe(data => {
         this.movie = data;
-        console.log(this.movie.starList)
       }, error => console.log(error))
 
   }
