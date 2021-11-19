@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -13,19 +16,52 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginFormComponent
+    component: HomeComponent,
+    children: [
+      { path: '', component: LoginFormComponent }
+    ]
   },
   {
     path: 'register',
-    component: RegisterFormComponent
+    component: HomeComponent,
+    children: [
+      { path: '', component: RegisterFormComponent }
+    ]
   },
   {
     path: 'movie-detail',
-    component: MovieDetailsComponent
+    component: HomeComponent,
+    children: [
+      { path: '', component: MovieDetailsComponent }
+    ]
   },
   {
     path: 'search',
-    component: SearchComponent
+    component: HomeComponent,
+    children: [
+      { path: '', component: SearchComponent }
+    ]
+  },
+  {
+    path: 'users',
+    component: HomeComponent,
+    children: [
+      { path: '', component: UserListComponent }
+    ]
+  },
+  {
+    path: 'user-details/:username',
+    component: HomeComponent,
+    children: [
+      { path: '', component: UserDetailsComponent }
+    ]
+  },
+  {
+    path: 'user-update/:username',
+    component: HomeComponent,
+    children: [
+      { path: '', component: UserUpdateComponent }
+    ]
   }
 ];
 

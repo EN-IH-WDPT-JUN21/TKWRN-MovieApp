@@ -11,11 +11,16 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchResultsComponent } from './search-results/search-results.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +28,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterFormComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent,
+    NavigationComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    UserUpdateComponent,
     MovieDetailsComponent,
-    SearchResultsComponent,
-    SearchComponent
+    SearchComponent,
+    SearchResultsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -36,6 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

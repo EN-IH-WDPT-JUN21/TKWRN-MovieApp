@@ -28,7 +28,6 @@ export class RegisterFormComponent implements OnInit {
       email: '',
       password: '',
       userType: ''
-
     }
   }
 
@@ -49,15 +48,13 @@ export class RegisterFormComponent implements OnInit {
     error => console.log(error));
   }
 
-
-
   onSubmit(): void {
     this.submitted = true;
     console.log(this.form.value);
     this.save();
   }
 
-  sendToLogin(): void {
+  goToLogin(): void {
     this.router.navigate(['/login']);
   }
 

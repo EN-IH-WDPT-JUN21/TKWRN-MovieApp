@@ -21,5 +21,5 @@ public class PlaylistReceiptDTO {
 
     private String type;
 
-    private List<MovieReceiptDTO> playlistMovies;
+//    private List<MovieReceiptDTO> playlistMovies;
 }
