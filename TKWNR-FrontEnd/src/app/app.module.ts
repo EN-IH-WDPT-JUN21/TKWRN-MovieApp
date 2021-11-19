@@ -14,6 +14,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { SearchComponent } from './search/search.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavigationComponent,
     UserListComponent,
     UserDetailsComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    MovieDetailsComponent,
+    SearchComponent,
+    SearchResultsComponent
+
   ],
   imports: [
     BrowserModule,

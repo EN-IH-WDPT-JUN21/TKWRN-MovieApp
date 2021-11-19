@@ -23,18 +23,23 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterFormComponent
-  },
-  {
-    path: 'movie-detail',
-    component: MovieDetailsComponent
-  },
-  {
-    path: 'search',
-    component: SearchComponent
     component: HomeComponent,
     children: [
       { path: '', component: RegisterFormComponent }
+    ]
+  },
+  {
+    path: 'movie-detail',
+    component: HomeComponent,
+    children: [
+      { path: '', component: MovieDetailsComponent }
+    ]
+  },
+  {
+    path: 'search',
+    component: HomeComponent,
+    children: [
+      { path: '', component: SearchComponent }
     ]
   },
   {
