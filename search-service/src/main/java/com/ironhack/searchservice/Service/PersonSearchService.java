@@ -2,6 +2,8 @@ package com.ironhack.searchservice.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
+import com.ironhack.searchservice.dao.NameSearchResult;
 import com.ironhack.searchservice.dao.PersonIdResult;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
 
 @Service
 public class PersonSearchService {
@@ -24,10 +25,10 @@ public class PersonSearchService {
     private final String apiKey = "/k_nqs3pkmh/";
     private HttpClient client = HttpClient.newHttpClient();
 
-    public String searchByNameId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
+    public PersonIdResult searchByNameId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
 
         var request = HttpRequest.newBuilder(
-                URI.create(baseURL + "Name" + apiKey + id))
+                        URI.create(baseURL + "Name" + apiKey + id))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
@@ -41,14 +42,14 @@ public class PersonSearchService {
 
         PersonIdResult person = new PersonIdResult(responseNodeTree);
 
-        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(person);
+        return person;
 
     }
 
-    public String searchByName(String name) throws ExecutionException, InterruptedException, JsonProcessingException {
+    public List<NameSearchResult> searchByName(String name) throws ExecutionException, InterruptedException, JsonProcessingException {
 
         var request = HttpRequest.newBuilder(
-                URI.create(baseURL + "SearchName" + apiKey + name.replace(" ", "%20")))
+                        URI.create(baseURL + "SearchName" + apiKey + name.replace(" ", "%20")))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
@@ -66,6 +67,6 @@ public class PersonSearchService {
             nameSearchResultList.add(new NameSearchResult(personObj));
         }
 
-        return nameSearchResultList.toString();
+        return nameSearchResultList;
     }
 }
