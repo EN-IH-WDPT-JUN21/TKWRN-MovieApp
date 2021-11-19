@@ -25,6 +25,14 @@ export class MovieDetailsComponent implements OnInit {
 
   }
 
+  showMovieDetails(id: string):void {
+    this.router.navigate(['movie', id]);
+  }
+
+  showPersonDetails(id: string):void {
+    this.router.navigate(['person', id])
+  }
+
 
 
 }

@@ -19,6 +19,15 @@
     <div> Stars
         <div *ngFor="let star of movie.starList">
             <img [src] = "star.imageURI">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="showPersonDetails(star.personId)">
+                    <mat-icon>remove_red_eye</mat-icon>
+                    <span>Details</span>
+                </button>
+                </mat-menu>
             <p>{{star.name}}</p>
             <p>{{star.asCharacter}}</p>
         </div>
@@ -27,6 +36,19 @@
     <div> Similar Titles
         <div *ngFor="let title of movie.similarList">
             <img [src] = "title.titleImage">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="showMovieDetails(title.titleId)">
+                    <mat-icon>remove_red_eye</mat-icon>
+                    <span>Movie Details</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>dialpad</mat-icon>
+                    <span>Add to Playlist</span>
+                </button>
+                </mat-menu>
             <p>{{title.title}}</p>
         </div>
     </div>
