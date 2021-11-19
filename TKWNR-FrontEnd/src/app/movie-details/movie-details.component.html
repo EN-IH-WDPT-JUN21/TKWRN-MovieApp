@@ -1,0 +1,33 @@
+<div>
+    <img [src] = "movie.imageURI" style="max-width: 256px;">
+    <p>{{movie.title}}</p>
+    <p>{{movie.releaseDate}}</p>
+    <p>{{movie.runtime}}</p>
+    <p>{{movie.plot}}</p>
+    <p>{{movie.genres}}</p>
+    <p>{{movie.companies}}</p>
+    <p>{{movie.contentRating}}</p>
+    <p>{{movie.imdbRating}}</p>
+    <p>{{movie.imdbRatingVotes}}</p>
+
+    <ul> Directors
+        <li *ngFor="let CD of movie.creatorDirectorList">
+            <p>{{CD.name}}</p>
+        </li>
+    </ul>
+
+    <div> Stars
+        <div *ngFor="let star of movie.starList")>
+            <img [src] = "star.imageURI">
+            <p>{{star.name}}</p>
+            <p>{{star.asCharacter}}</p>
+        </div>
+    </div>
+
+    <div> Similar Titles
+        <div *ngFor="let title of movie.similarList">
+            <img [src] = "title.titleImage">
+            <p>{{title.title}}</p>
+        </div>
+    </div>
+</div>

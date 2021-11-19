@@ -1,3 +1,4 @@
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -6,6 +7,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,15 @@ const routes: Routes = [
   },
   {
     path: 'register',
+    component: RegisterFormComponent
+  },
+  {
+    path: 'movie-detail',
+    component: MovieDetailsComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
     component: HomeComponent,
     children: [
       { path: '', component: RegisterFormComponent }
