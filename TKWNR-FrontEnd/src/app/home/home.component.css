@@ -17,15 +17,18 @@
 
 header {
     background-color: #131313;
-    padding: 5px;
+    padding: 10px 5px;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    align-items: center;
 }
 
 .logo {
-    max-width: 5%;
+    max-width: 10%;
 }
 
 .navbar-left {
-    width: 25%;
+    width: 15%;
 }
 
 .main {

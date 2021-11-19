@@ -1,4 +1,4 @@
-<div class="form-control">
+<div class="form-group">
     <div class="input-group">
         <div *ngIf="this.searchType == 'movies'" class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Title</span>
@@ -24,11 +24,11 @@
             <option value="movie">Movie</option>
             <option value="series">Series</option>
         </select>
-    </div>
 
-    <button class="btn btn-primary" [disabled]="this.searchType == '' || (this.searchType == 'movies' && this.titleType == '') || this.searchString == ''" (click)="searchComponent.performSearch(this.searchType, this.titleType, this.searchString)">Search</button>
+        <button class="btn btn-primary" [disabled]="this.searchType == '' || (this.searchType == 'movies' && this.titleType == '') || this.searchString == ''" (click)="searchComponent.performSearch(this.searchType, this.titleType, this.searchString)">Search</button>
+    </div>  
 </div>
 
 
-<movie-list></movie-list>
+<!-- <movie-list></movie-list> -->
 
