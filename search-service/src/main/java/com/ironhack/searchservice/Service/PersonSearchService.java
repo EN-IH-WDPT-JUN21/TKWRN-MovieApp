@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
 import com.ironhack.searchservice.dao.NameSearchResult;
 import com.ironhack.searchservice.dao.PersonIdResult;
-import com.ironhack.searchservice.dao.TitleIdResult;
-import com.ironhack.searchservice.dao.TitleSearchResult;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -27,7 +25,7 @@ public class PersonSearchService {
     private final String apiKey = "/k_nqs3pkmh/";
     private HttpClient client = HttpClient.newHttpClient();
 
-    public String searchByNameId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
+    public PersonIdResult searchByNameId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
 
         var request = HttpRequest.newBuilder(
                 URI.create(baseURL + "Name" + apiKey + id))
@@ -44,11 +42,11 @@ public class PersonSearchService {
 
         PersonIdResult person = new PersonIdResult(responseNodeTree);
 
-        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(person);
+        return person;
 
     }
 
-    public String searchByName(String name) throws ExecutionException, InterruptedException, JsonProcessingException {
+    public List<NameSearchResult> searchByName(String name) throws ExecutionException, InterruptedException, JsonProcessingException {
 
         var request = HttpRequest.newBuilder(
                 URI.create(baseURL + "SearchName" + apiKey + name.replace(" ", "%20")))
@@ -69,6 +67,6 @@ public class PersonSearchService {
             nameSearchResultList.add(new NameSearchResult(personObj));
         }
 
-        return nameSearchResultList.toString();
+        return nameSearchResultList;
     }
 }

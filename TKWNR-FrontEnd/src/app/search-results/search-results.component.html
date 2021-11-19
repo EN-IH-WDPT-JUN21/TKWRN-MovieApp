@@ -1,0 +1,14 @@
+<div *ngIf="movieList.length > 0" class="container">
+    <div *ngFor = "let movie of movieList">
+        <p>{{movie.title}}</p>
+        <img src = "{{movie.imageURI}}">
+        <p>{{movie.description}}</p>
+    </div>
+</div>
+
+<div *ngIf="personList.length > 0" class="container">
+    <div *ngFor="let person of personList">
+        <p>{{person.name}}</p>
+        <img src = "{{person.imageURI}}">
+    </div>
+</div>

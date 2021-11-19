@@ -33,7 +33,7 @@ public class MovieSearchService {
     private final String apiKey = "/k_nqs3pkmh/";
     private HttpClient client = HttpClient.newHttpClient();
 
-    public String searchByMovieTitle(String type, String title) throws ExecutionException, InterruptedException, JsonProcessingException {
+    public List<TitleSearchResult> searchByMovieTitle(String type, String title) throws ExecutionException, InterruptedException, JsonProcessingException {
 
         String searchType = type.equals("movie") ? "SearchMovie" : "SearchSeries";
 
@@ -58,12 +58,12 @@ public class MovieSearchService {
 
         titleSearchResultRepository.saveAll(titleSearchResultList);
 
-        return titleSearchResultList.size() + " movies found";
+        return titleSearchResultRepository.findAll();
 
     }
 
 
-    public String searchByTitleId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
+    public TitleIdResult searchByTitleId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
         var request = HttpRequest.newBuilder(
                 URI.create(baseURL + "Title" + apiKey + id))
                 .build();
@@ -79,7 +79,7 @@ public class MovieSearchService {
 
         TitleIdResult movieObj = new TitleIdResult(responseNodeTree);
 
-        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(movieObj);
+        return movieObj;
 
     }
 

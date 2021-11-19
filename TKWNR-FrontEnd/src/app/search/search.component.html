@@ -1,0 +1,17 @@
+
+<input type="text" placeholder="Title/Name" [(ngModel)] = "searchString">
+
+<select [(ngModel)] = "searchType">
+    <option value="person">Actor/Actress</option>
+    <option value="movies">Movie</option>
+</select>
+
+<select [(ngModel)] = "titleType">
+    <option value="movie">Movie</option>
+    <option value="series">Series</option>
+</select>
+
+<button class="btn btn-primary" (click)="searchComponent.performSearch(this.searchType, this.titleType, this.searchString)">Search</button>
+
+<movie-list></movie-list>
+
