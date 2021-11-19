@@ -1,0 +1,8 @@
+#result-image {
+    width: 10vh;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Create 2 columns and auto-place rows */
+}
