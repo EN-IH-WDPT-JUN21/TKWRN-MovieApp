@@ -6,3 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Create 2 columns and auto-place rows */
 }
+
+img {
+    max-width: 256px !important;
+}

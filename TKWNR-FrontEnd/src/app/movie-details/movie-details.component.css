@@ -1,0 +1,13 @@
+img {
+    max-width: 256px;
+}
+
+.movie-details-box {
+    display: flex;
+    column-gap: 20px;
+    padding: 20px;
+}
+
+.movie-details {
+    padding-right: 50px;
+}

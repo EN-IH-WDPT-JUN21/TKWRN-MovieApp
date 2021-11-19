@@ -1,14 +1,20 @@
 <div>
-    <img [src] = "movie.imageURI" style="max-width: 256px;">
-    <p>{{movie.title}}</p>
-    <p>{{movie.releaseDate}}</p>
-    <p>{{movie.runtime}}</p>
-    <p>{{movie.plot}}</p>
-    <p>{{movie.genres}}</p>
-    <p>{{movie.companies}}</p>
-    <p>{{movie.contentRating}}</p>
-    <p>{{movie.imdbRating}}</p>
-    <p>{{movie.imdbRatingVotes}}</p>
+    <div class="movie-details-box">
+        <img [src] = "movie.imageURI" style="max-width: 256px;">
+        <div class="movie-details">
+            <p>{{movie.title}}</p>
+            <p>{{movie.releaseDate}}</p>
+            <p>{{movie.runtime}}</p>
+            <p>{{movie.plot}}</p>
+            <p>{{movie.genres}}</p>
+            <p>{{movie.companies}}</p>
+            <p>{{movie.contentRating}}</p>
+            <p>{{movie.imdbRating}}</p>
+            <p>{{movie.imdbRatingVotes}}</p>
+        </div>
+    </div>
+    
+    
 
     <ul> Directors
         <li *ngFor="let CD of movie.creatorDirectorList">
