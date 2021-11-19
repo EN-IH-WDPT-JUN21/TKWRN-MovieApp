@@ -1,6 +1,9 @@
 package com.ironhack.searchservice.dao;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ironhack.searchservice.Models.CastMovie;
+import com.ironhack.searchservice.Models.KnownFor;
+import com.ironhack.searchservice.Models.Similar;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

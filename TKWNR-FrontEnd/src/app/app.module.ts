@@ -13,6 +13,10 @@ import { HeaderComponent } from './header/header.component';
 import { PlaylistArrayComponent } from './playlist-array/playlist-array.component';
 import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.component';
 import { PlaylistMovieComponent } from './playlist-movie/playlist-movie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchComponent } from './search/search.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { PlaylistMovieComponent } from './playlist-movie/playlist-movie.componen
     PlaylistArrayComponent,
     PlaylistDetailComponent,
     PlaylistMovieComponent
+    MovieDetailsComponent,
+    SearchResultsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
