@@ -1,14 +1,15 @@
-<div *ngIf="movieList.length > 0" class="container">
-    <div *ngFor = "let movie of movieList">
-        <p>{{movie.title}}</p>
-        <img src = "{{movie.imageURI}}">
-        <p>{{movie.description}}</p>
+<div class="container">
+    <div *ngIf="movieList.length > 0" class="grid">
+        <div class="col" *ngFor = "let movie of movieList">
+            <p>{{movie.title}} - {{movie.description}}</p>
+            <img id="result-image" src = "{{movie.imageURI}}">
+        </div>
     </div>
-</div>
 
-<div *ngIf="personList.length > 0" class="container">
-    <div *ngFor="let person of personList">
-        <p>{{person.name}}</p>
-        <img src = "{{person.imageURI}}">
+    <div *ngIf="personList.length > 0" class="container">
+        <div *ngFor="let person of personList">
+            <p>{{person.name}}</p>
+            <img id="result-image" src = "{{person.imageURI}}">
+        </div>
     </div>
 </div>

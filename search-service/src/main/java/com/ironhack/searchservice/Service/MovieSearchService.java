@@ -56,9 +56,11 @@ public class MovieSearchService {
             titleSearchResultList.add(new TitleSearchResult(movieObj));
         }
 
-        titleSearchResultRepository.saveAll(titleSearchResultList);
+        return titleSearchResultList;
 
-        return titleSearchResultRepository.findAll();
+//        titleSearchResultRepository.saveAll(titleSearchResultList);
+//
+//        return titleSearchResultRepository.findAll();
 
     }
 

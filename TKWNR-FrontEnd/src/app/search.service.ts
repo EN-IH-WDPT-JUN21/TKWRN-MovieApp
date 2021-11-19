@@ -16,7 +16,6 @@ export class SearchService {
   }
 
   getMovieOrSeriesSearchResult(type: string, name: string): Observable<any>{
-    console.log(type, name);
     return this.http.get(`${this.baseURL}/title/${type}/${name}`);
   }
 
