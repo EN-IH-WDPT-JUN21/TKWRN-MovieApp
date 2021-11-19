@@ -9,6 +9,8 @@
     display: grid;
     align-items: center;
     margin-top: auto 0;
+    width: 60%;
+    flex: 1 1 auto;
 }
 
 .input-group {
@@ -16,17 +18,28 @@
     display: flex; 
 }
 
+.input-group-text {
+    padding: 0.375rem 0.75rem 0.075rem 0.75rem;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+}
+
+.input-group-box {
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    width: 6%
+}
+
 .form-control {
     height: 100%;
 }
 
 .form-select {
-    height: 100%;
     padding: 0.375rem 2.25rem 0.075rem 0.75rem;
 }
 
-.input-group-text {
-    padding: 0.375rem 0.75rem 0.075rem 0.75rem;
+.type {
+    flex-shrink: 1;
 }
 
 .btn {
