@@ -20,6 +20,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     UserUpdateComponent,
     MovieDetailsComponent,
     SearchComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    PersonDetailsComponent
 
   ],
   imports: [

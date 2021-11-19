@@ -20,10 +20,10 @@ export class SearchService {
   }
 
   getPersonDetail(id: number): Observable<any>{
-    return this.http.get(`${this.baseURL}/person/${id}`);
+    return this.http.get(`${this.baseURL}/personId/${id}`);
   }
 
-  getPersonSearchResultDetail(name: string): Observable<any>{
+  getPersonSearchResult(name: string): Observable<any>{
     return this.http.get(`${this.baseURL}/person/${name}`);
   }
 }
