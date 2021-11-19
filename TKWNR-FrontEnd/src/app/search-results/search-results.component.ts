@@ -18,7 +18,7 @@ export class SearchResultsComponent implements OnInit {
   titleType: string;
   searchString: string;
 
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService, private router: Router) {
     this.searchType = "";
     this.titleType = "";
     this.searchString = "";
@@ -49,8 +49,8 @@ export class SearchResultsComponent implements OnInit {
     }
   }
 
-  openMenu():void {
-    
+  showDetails(id: string):void {
+    this.router.navigate(['movie', id]);
   }
 
 

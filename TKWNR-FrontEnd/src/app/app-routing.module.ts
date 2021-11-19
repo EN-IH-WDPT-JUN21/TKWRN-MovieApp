@@ -29,7 +29,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'movie-detail',
+    path: 'movie/:id',
     component: HomeComponent,
     children: [
       { path: '', component: MovieDetailsComponent }

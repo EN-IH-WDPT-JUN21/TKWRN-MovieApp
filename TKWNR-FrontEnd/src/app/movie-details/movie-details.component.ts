@@ -4,7 +4,7 @@ import { MovieDetail } from './../models/movie-detail.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-movie-details',
+  selector: 'movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
@@ -21,7 +21,9 @@ export class MovieDetailsComponent implements OnInit {
     this.searchService.getMovieDetail(this.id)
       .subscribe(data => {
         this.movie = data;
+        console.log(this.movie.starList)
       }, error => console.log(error))
+
   }
 
 
