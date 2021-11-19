@@ -3,8 +3,6 @@ package com.ironhack.searchservice.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ironhack.searchservice.Repository.TitleSearchResultRepository;
-import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
-import com.ironhack.searchservice.dao.TitleIdResult;
 import com.ironhack.searchservice.dao.TitleSearchResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,11 +2,7 @@ package com.ironhack.searchservice.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
-import com.ironhack.searchservice.dao.NameSearchResult;
 import com.ironhack.searchservice.dao.PersonIdResult;
-import com.ironhack.searchservice.dao.TitleIdResult;
-import com.ironhack.searchservice.dao.TitleSearchResult;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -18,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
 
 @Service
 public class PersonSearchService {

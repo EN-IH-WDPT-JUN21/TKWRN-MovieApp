@@ -1,7 +1,6 @@
 package com.ironhack.searchservice.dao;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ironhack.searchservice.Enum.ResultType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

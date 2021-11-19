@@ -3,7 +3,9 @@ package com.ironhack.playlistservice.service;
 import com.ironhack.playlistservice.controller.dto.MovieDetailDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistReceiptDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
+import com.ironhack.playlistservice.dao.Movie;
 import com.ironhack.playlistservice.dao.Playlist;
+import com.ironhack.playlistservice.repository.MovieRepository;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,13 +20,13 @@ public class PlaylistService {
 
     private PlaylistRepository playlistRepository;
 
-    public PlaylistService(PlaylistRepository playlistRepository) {
-        this.playlistRepository = playlistRepository;
-    }
+    private MovieRepository movieRepository;
 
-//    public List<Playlist> getByUsername(String username) {
-//        return null;
-//    }
+    public PlaylistService(PlaylistRepository playlistRepository, MovieRepository movieRepository) {
+
+        this.playlistRepository = playlistRepository;
+        this.movieRepository = movieRepository;
+    }
 
     public List<Playlist> getByPlaylistName(String name) {
         List<Playlist> playlists = playlistRepository.getByName(name);
@@ -49,31 +51,25 @@ public class PlaylistService {
         }
         Playlist playlistStored = optionalPlaylist.get();
         List<MovieDetailDTO> movies = new ArrayList<>();
-        MovieDetailDTO newMovie = new MovieDetailDTO(movieDetailDTO.getTitleId(), movieDetailDTO.getImageURI(),
+        MovieDetailDTO newMovieDTO = new MovieDetailDTO(movieDetailDTO.getTitleId(), movieDetailDTO.getImageURI(),
                 movieDetailDTO.getTitle(), movieDetailDTO.getDescription());
-        movies.add(newMovie);
+        movies.add(newMovieDTO);
+        Movie newMovie = new Movie(movieDetailDTO.getTitle(), movieDetailDTO.getImageURI(),movieDetailDTO.getTitle(), movieDetailDTO.getDescription());
         PlaylistReceiptDTO playlistReceiptDTO = new PlaylistReceiptDTO(playlistStored.getName(),
                 playlistStored.getLength(),
                 playlistStored.getUsername(),
                 playlistStored.getType().toString(),
                 movies);
         playlistRepository.save(playlistStored);
+        movieRepository.save(newMovie);
         return playlistReceiptDTO;
     }
-
-//    public Playlist create(PlaylistRequestDTO playlistRequestDTO) {
-//        Playlist playlist = new Playlist(playlistRequestDTO.getName(), playlistRequestDTO.getLength(), playlistRequestDTO.getUserId());
-//        playlistRepository.save(playlist);
-//        PlaylistReceiptDTO playlistReceiptDTO = new PlaylistReceiptDTO(playlist.getName(), playlist.getLength(), playlist.getUserId());
-//        return playlist;
-//    }
 
     public Playlist create(PlaylistRequestDTO playlistRequestDTO) {
         Playlist playlist = new Playlist(playlistRequestDTO.getName(), playlistRequestDTO.getUsername());
         if(playlistRepository.count() <= 10) {
             playlistRepository.save(playlist);
         }
-//        PlaylistReceiptDTO playlistReceiptDTO = new PlaylistReceiptDTO(playlist.getName(), playlist.getLength());
         return playlist;
     }
 }

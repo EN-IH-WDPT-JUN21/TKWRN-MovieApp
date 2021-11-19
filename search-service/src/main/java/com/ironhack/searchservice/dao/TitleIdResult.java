@@ -2,9 +2,6 @@ package com.ironhack.searchservice.dao;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.ironhack.searchservice.Models.CreatorDirector;
-import com.ironhack.searchservice.Models.Similar;
-import com.ironhack.searchservice.Models.Star;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

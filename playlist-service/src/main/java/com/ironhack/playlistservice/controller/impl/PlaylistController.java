@@ -3,7 +3,6 @@ package com.ironhack.playlistservice.controller.impl;
 import com.ironhack.playlistservice.controller.dto.MovieDetailDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistReceiptDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
-import com.ironhack.playlistservice.controller.interfaces.IPlaylistController;
 import com.ironhack.playlistservice.dao.Playlist;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
 import com.ironhack.playlistservice.service.PlaylistService;
@@ -16,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/playlists")
 @CrossOrigin(origins = "http://localhost:4200")
-public class PlaylistController implements IPlaylistController {
+public class PlaylistController {
 
     final PlaylistService playlistService;
 
@@ -45,7 +44,6 @@ public class PlaylistController implements IPlaylistController {
 //        return playlistService.getByUser(userId);
 //    }
 
-    @Override
     public List<Playlist> getByUserId(long id) {
         return null;
     }
