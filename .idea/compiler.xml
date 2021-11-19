@@ -18,8 +18,8 @@
     <bytecodeTargetLevel>
       <module name="discovery-service" target="17" />
       <module name="gateway-service" target="17" />
-      <module name="movie-service" target="1.5" />
-      <module name="playlist-service" target="1.5" />
+      <module name="movie-service" target="17" />
+      <module name="playlist-service" target="17" />
       <module name="search-service" target="17" />
       <module name="user-service" target="17" />
     </bytecodeTargetLevel>
