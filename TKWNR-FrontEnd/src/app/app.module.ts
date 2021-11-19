@@ -45,6 +45,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule,
+    MatMenuModule,
     NgbModule
   ],
   providers: [],
