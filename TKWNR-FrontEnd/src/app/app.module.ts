@@ -1,3 +1,5 @@
+import { MatIconModule} from '@angular/material/icon';
+import { MatMenuModule} from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +18,7 @@ import { UserUpdateComponent } from './user-update/user-update.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchComponent } from './search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
@@ -38,6 +41,10 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatMenuModule
     HttpClientModule,
     NgbModule
   ],
