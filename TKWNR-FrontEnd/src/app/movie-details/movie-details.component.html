@@ -2,7 +2,7 @@
     <div class="movie-details-box">
         <img [src] = "movie.imageURI" style="max-width: 256px;">
         <div class="movie-details">
-            <p style="font-size:22px; color: hsla(47, 92%, 53%)">{{movie.title}}</p>
+            <p style="font-size:20px">{{movie.title}}</p>
             <p>Release date: {{movie.releaseDate}}</p>
             <p>Duration: {{movie.runtime}}</p>
             <p>Description:<br>{{movie.plot}}</p>
@@ -25,16 +25,17 @@
         <div class="stars">
             <div *ngFor="let star of movie.starList">
                 <p>{{star.name}} - {{star.asCharacter}}</p>
-                <a (click)="showPersonDetails(star.personId)"><img [src] = "star.imageURI" ></a>
-                <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <img [src] = "star.imageURI">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                     <mat-icon>more_vert</mat-icon>
                 </button>
-                <mat-menu #menu="matMenu">
+                    <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="showPersonDetails(star.personId)">
                         <mat-icon>remove_red_eye</mat-icon>
                         <span>Details</span>
                     </button>
-                </mat-menu> -->
+                    </mat-menu>
+                
             </div>
         </div>
     </div>
@@ -44,7 +45,7 @@
         <div class="similar">
             <div *ngFor="let title of movie.similarList">
                 <p>{{title.title}}</p>
-                <a (click)="showMovieDetails(title.titleId)"><img [src] = "title.titleImage"></a>
+                <img [src] = "title.titleImage">
                 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                     <mat-icon>more_vert</mat-icon>
                     </button>
