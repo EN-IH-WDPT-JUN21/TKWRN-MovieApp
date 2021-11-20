@@ -12,6 +12,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth.guard';
+import { Auth2Guard } from './auth2.guard';
 
 
 const routes: Routes = [
@@ -34,65 +37,83 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'logout',
+    component: HomeComponent,
+    children: [
+      { path: '', component: LogoutComponent }
+    ]
+  },
+  {
     path: 'playlists',
     component: HomeComponent,
     children: [
       { path: '', component: PlaylistArrayComponent }
-    ]
+    ],
+    component: PlaylistArrayComponent,
+    canActivate: [AuthGuard]
   },
     {
     path: 'playlists/:playlistId',
-    component: PlaylistMovieComponent
+    component: PlaylistMovieComponent,
+    canActivate: [AuthGuard]
 },
 {
     path: 'movie-detail',
-    component: MovieDetailsComponent
+    component: MovieDetailsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'search',
-    component: SearchComponent
+    component: SearchComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'movie/:id',
     component: HomeComponent,
     children: [
       { path: '', component: MovieDetailsComponent }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'person/:id',
     component: HomeComponent,
     children: [
       { path: '', component: PersonDetailsComponent }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'search-results',
     component: HomeComponent,
     children: [
       { path: '', component: SearchResultsComponent }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'users',
     component: HomeComponent,
     children: [
       { path: '', component: UserListComponent }
-    ]
+    ],
+    canActivate: [Auth2Guard]
   },
   {
     path: 'user-details/:username',
     component: HomeComponent,
     children: [
       { path: '', component: UserDetailsComponent }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'user-update/:username',
     component: HomeComponent,
     children: [
       { path: '', component: UserUpdateComponent }
-    ]
+    ],
+    canActivate: [AuthGuard]
   }
 ];
 

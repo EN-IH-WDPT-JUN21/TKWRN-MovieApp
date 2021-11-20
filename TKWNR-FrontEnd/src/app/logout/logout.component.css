@@ -1,0 +1,32 @@
+.bg {
+
+    /* Full height */
+    height: 100%;
+    width: 100%;
+  
+    /* Center and scale the image nicely */
+    background-image: url(../../assets/images/jabberwocky.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .container {
+    background-color: #f6f7f8;
+    border: 1px solid #d6d9dc;
+    border-radius: 3px;
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+  }
+  
+  h1 {
+    padding: 20px;
+    background-color: rebeccapurple;
+    color: whitesmoke;
+    text-align: center;
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }

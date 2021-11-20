@@ -23,6 +23,8 @@ import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthService } from './auth.service';
 
 
 
@@ -43,7 +45,8 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     MovieDetailsComponent,
     SearchComponent,
     SearchResultsComponent,
-    PersonDetailsComponent
+    PersonDetailsComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +59,9 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     MatMenuModule,
     NgbModule
   ],
+
   exports:[MatIconModule],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
