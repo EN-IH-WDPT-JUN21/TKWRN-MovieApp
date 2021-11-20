@@ -46,7 +46,6 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     SearchComponent,
     SearchResultsComponent,
     PersonDetailsComponent
-
   ],
   imports: [
     BrowserModule,
