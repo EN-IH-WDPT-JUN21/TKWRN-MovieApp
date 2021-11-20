@@ -1,5 +1,6 @@
 <div class="form-group">
     <div class="input-group">
+        <div class="input-group-box">
         <div *ngIf="this.searchType == 'movies'" class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Title</span>
         </div>
@@ -13,6 +14,7 @@
                 </svg>
             </span>
         </div>
+    </div>
         <input [disabled]="this.searchType == '' || (this.searchType == 'movies' && this.titleType == '')" type="text" class="form-control" placeholder="Search..." id="text-input" [(ngModel)] = "searchString">
 
         <select class="form-select" id="inline-dropdown" [(ngModel)] = "searchType">
@@ -20,7 +22,7 @@
             <option value="movies">Title</option>
         </select>
     
-        <select [disabled]="this.searchType != 'movies'" class="form-select" id="inline-dropdown" [(ngModel)] = "titleType">
+        <select [disabled]="this.searchType != 'movies'" class="form-select type" id="inline-dropdown" [(ngModel)] = "titleType">
             <option value="movie">Movie</option>
             <option value="series">Series</option>
         </select>
