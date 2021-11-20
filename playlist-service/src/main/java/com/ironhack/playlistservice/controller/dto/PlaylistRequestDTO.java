@@ -15,16 +15,9 @@ public class PlaylistRequestDTO {
 
     private int length;
 
-    private String username;
+    private long userId;
 
     private String type;
 
-    public PlaylistRequestDTO(String name, String username) {
-        this.name = name;
-        this.username = username;
-    }
 
-    public PlaylistRequestDTO(String name) {
-        this.name = name;
-    }
 }
