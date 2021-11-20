@@ -28,7 +28,7 @@ public class PersonSearchService {
     public PersonIdResult searchByNameId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
 
         var request = HttpRequest.newBuilder(
-                URI.create(baseURL + "Name" + apiKey + id))
+                        URI.create(baseURL + "Name" + apiKey + id))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
@@ -49,7 +49,7 @@ public class PersonSearchService {
     public List<NameSearchResult> searchByName(String name) throws ExecutionException, InterruptedException, JsonProcessingException {
 
         var request = HttpRequest.newBuilder(
-                URI.create(baseURL + "SearchName" + apiKey + name.replace(" ", "%20")))
+                        URI.create(baseURL + "SearchName" + apiKey + name.replace(" ", "%20")))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())

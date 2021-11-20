@@ -1,0 +1,55 @@
+#create {
+    background-color: #FEAB02;
+    color: black;
+    border: none;
+    font-weight: bold;
+    position: relative;
+    top: 20px;
+}
+
+#add {
+    background-color: #D61A1F;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.dark {
+    border: 2px solid #161B22;
+}
+
+input {
+    width: 50%;
+    display: inline;
+    margin-right: 15px;
+    margin-top: 30px;
+} 
+
+button {
+    height: 45px;
+}
+
+.creation, .select {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+select {
+    position: relative;
+    /* left: -10px; */
+    width: 50%;
+    margin-right: 15px;
+}
+
+.row {
+    display: inline-flex;
+}
+
+
+
+  
+
+
+
+

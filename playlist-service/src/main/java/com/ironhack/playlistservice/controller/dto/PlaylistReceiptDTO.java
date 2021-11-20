@@ -17,9 +17,10 @@ public class PlaylistReceiptDTO {
 
     private int length;
 
-    private long userId;
+    private String username;
 
     private String type;
 
-//    private List<MovieReceiptDTO> playlistMovies;
+    private List<MovieDetailDTO> playlistMovies;
+
 }
