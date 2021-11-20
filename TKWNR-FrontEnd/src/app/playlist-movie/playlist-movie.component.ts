@@ -1,9 +1,11 @@
 import { PlaylistsService } from './../playlists.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Playlist } from 'src/playlist';
-import { Movie } from '../movie';
+import { MovieDetail } from './../models/movie-detail.model';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist-movie',
@@ -11,41 +13,38 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./playlist-movie.component.css']
 })
 export class PlaylistMovieComponent implements OnInit {
-  playlist: Playlist;
-  //  movies: Movie[] = [];
-  movie!: Movie;
+  playlist!: Playlist;
+  movies!: MovieDetail[];
+  movie!: MovieDetail;
   
     @ViewChild('form')
     form!: NgForm;
     submitted = false;
     constructor(private playlistService: PlaylistsService,
-                private activatedRoute: ActivatedRoute) {
-      this.playlist = {
-        id: 0,
-        name: '',
-        length: 0,
-        type: "PUBLIC",
-        userName: '',
-        movies: []
-      }
+                private movieService: MovieService) {
+
+      this.movies = [];
     }
   
     ngOnInit(): void {
-      this.showMovies();
+      
     }
   
     showMovies() {
-      const playlistId: number = this.activatedRoute.snapshot.params['playlistId'];
-      this.playlistService.getPlaylist(playlistId).subscribe(
+      this.playlistService.getPlaylist(this.playlist.id).subscribe(
         result => {
           this.playlist = result;
+          // this.movies = this.playlist.movies!;
         }
       );
     }
 
-    //get playlist by name
-    //show name
-    //get movies from playlist
-    //show movie title, movie poster, link to movie?
-  
+    delete(id: number) {
+      this.movieService.deleteMovie(id)
+        .subscribe(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error));
+    }
 }

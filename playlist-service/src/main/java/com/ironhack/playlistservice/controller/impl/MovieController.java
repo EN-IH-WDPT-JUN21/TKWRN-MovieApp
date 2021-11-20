@@ -38,9 +38,14 @@ public class MovieController {
     @GetMapping("/get")
     @ResponseStatus(HttpStatus.OK)
     public MovieDetailDTO getByName(@RequestParam(value="title") String title) {
-//        return movieRepository.getByTitle(title);
         return movieService.getMovieByTitle(title);
     }
+
+//    @GetMapping("/get")
+//    @ResponseStatus(HttpStatus.OK)
+//    public List<MovieDetailDTO> getMoviesByPlaylist(@RequestParam(value="id") long id) {
+//        return movieService.getByPlaylist(id);
+//    }
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)

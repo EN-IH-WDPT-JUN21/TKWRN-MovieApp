@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.net.URI;
 
 @Getter
@@ -17,6 +14,7 @@ import java.net.URI;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name=" TITLE_SEARCH_RESULT")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +22,8 @@ public class Movie {
 
     private String titleId;
 
-    private ResultType resultType;
+    @Column(name = "result_type")
+    private ResultType type;
 
     private URI imageURI;
 

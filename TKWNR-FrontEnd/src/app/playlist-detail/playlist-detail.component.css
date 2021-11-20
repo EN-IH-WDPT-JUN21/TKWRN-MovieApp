@@ -1,8 +1,8 @@
 a {
     text-decoration: none;
-    color: #FEAB02;
+    color: black;
     /* display: inline; */
-    top: 40%;
+    top: 10%;
     position: relative;
     display: block;
     font-weight: bold;
@@ -10,12 +10,26 @@ a {
 
 .remove {
     position: relative;
-    top: -5%;
-    left: 89%;
+    top: -15%;
+    left: 85%;
 }
 
 .remove button {
     background-color: black;
+    border: none;
+}
+
+.add {
+    font-weight: bold;
+    font-size: 2em;
+    position: relative;
+    border: none;
+    left: 30%;
+    top: 10%;
+}
+
+.add button {
+    background-color: #D61A1F;
     border: none;
 }
 
@@ -24,8 +38,8 @@ a {
     padding: 20px;
     width: 200px;
     height: 200px;
-
-    background-color: black;
-    border: 10px solid white;
+    color: black;
+    border: 10px solid #FEAB02;
 }
+
   

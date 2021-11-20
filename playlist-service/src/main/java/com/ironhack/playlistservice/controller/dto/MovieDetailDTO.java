@@ -16,18 +16,14 @@ public class MovieDetailDTO {
 
     private String titleId;
 
-    private ResultType resultType;
-
     private URI imageURI;
 
     private String title;
 
     private String description;
 
-    public MovieDetailDTO(String titleId, URI imageURI, String title, String description) {
-        this.titleId = titleId;
+    public MovieDetailDTO(URI imageURI, String title) {
         this.imageURI = imageURI;
         this.title = title;
-        this.description = description;
     }
 }

@@ -28,7 +28,7 @@ import { SearchComponent } from './search/search.component';
     HeaderComponent,
     PlaylistArrayComponent,
     PlaylistDetailComponent,
-    PlaylistMovieComponent
+    PlaylistMovieComponent,
     MovieDetailsComponent,
     SearchResultsComponent,
     SearchComponent

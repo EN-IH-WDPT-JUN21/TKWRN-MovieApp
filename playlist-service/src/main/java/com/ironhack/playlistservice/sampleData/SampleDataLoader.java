@@ -19,8 +19,8 @@ public class SampleDataLoader implements CommandLineRunner {
     }
 
     public void run(String... args) throws Exception {
-        this.playlistRepository.saveAll(List.of(new Playlist("My awesome playlist", "user1", PlaylistType.PUBLIC),
-                new Playlist("Another awesome list", "user2", PlaylistType.PUBLIC),
+        this.playlistRepository.saveAll(List.of(new Playlist("My  playlist", "user1", PlaylistType.PUBLIC),
+                new Playlist("Another  list", "user2", PlaylistType.PUBLIC),
                 new Playlist("And a third one",  "user3", PlaylistType.PRIVATE)));
     }
 }

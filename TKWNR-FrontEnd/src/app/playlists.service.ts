@@ -13,7 +13,7 @@ export class PlaylistsService {
   constructor(private http: HttpClient) { }
 
   getPlaylist(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/get/${id}`);
+    return this.http.get(`${this.baseUrl}/get/${id}`, { responseType: 'text' });
   }
 
   getAllPlaylists(): Observable<Playlist[]> {
@@ -21,7 +21,7 @@ export class PlaylistsService {
   }
 
   getPlaylistByName(name: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/get?name=name`);
+    return this.http.get(`${this.baseUrl}/get?name=name`, { responseType: 'text' });
   }
 
   createPlaylist(playlist: Object): Observable<Object> {

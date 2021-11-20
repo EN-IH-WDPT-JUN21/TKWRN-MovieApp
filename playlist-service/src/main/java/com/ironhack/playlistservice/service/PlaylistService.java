@@ -33,6 +33,11 @@ public class PlaylistService {
         return playlists;
     }
 
+    public Playlist getByPlaylistId(long id) {
+        Playlist playlist = playlistRepository.findById(id).orElse(null);
+        return playlist;
+    }
+
     public Playlist updateName(long id, PlaylistRequestDTO playlistRequestDTO) {
         Optional<Playlist> optionalPlaylist = playlistRepository.findById(id);
         if (optionalPlaylist.isEmpty()) {

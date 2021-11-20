@@ -1,4 +1,5 @@
-import { Movie } from "./app/movie";
+import { MovieDetail } from './app/models/movie-detail.model';
+
 
 export class Playlist {
     id!: number;
@@ -6,5 +7,5 @@ export class Playlist {
     length!: number;
     type!: any;
     userName!: string;
-    movies?: Movie[];
+    movies?: MovieDetail[];
   }

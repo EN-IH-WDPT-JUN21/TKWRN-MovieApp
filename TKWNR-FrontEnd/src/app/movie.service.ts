@@ -29,7 +29,7 @@ export class MovieService {
     return this.http.post(`${this.baseUrl}/new`, movie);
   }
 
-  deleteMoviet(id: number): Observable<any> {
+  deleteMovie(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete/${id}`, { responseType: 'text' });
   }
 

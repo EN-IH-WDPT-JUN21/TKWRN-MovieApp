@@ -38,12 +38,6 @@ public class PlaylistController {
         return playlistRepository.findById(id).orElse(null);
     }
 
-//    @GetMapping("/{userId}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public List<Playlist> getByUserId(@PathVariable(name = "userId") long userId) {
-//        return playlistService.getByUser(userId);
-//    }
-
     public List<Playlist> getByUserId(long id) {
         return null;
     }
