@@ -1,0 +1,23 @@
+<div class="bg">
+    <div class="container">
+        <h1>Logout page</h1>
+        <a href="#" class="image main"><img src="assets/images/black.jfif" alt="" width=100% /></a>
+
+        <div *ngIf="isLogged()!=true">
+            <br>
+            <h4>You are not logged in. Do you want to login?</h4>  
+            <button class="btn btn-danger" (click)="login()">Login</button>
+        </div>
+        <div *ngIf="isLogged()==true">
+            <br>
+            <h4>You are logged in. Do you want to logout?</h4>  
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+        </div>
+        
+    </div>
+    
+    
+    
+    
+    </div>
+

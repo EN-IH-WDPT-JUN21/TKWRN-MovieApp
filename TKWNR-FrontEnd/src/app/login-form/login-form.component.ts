@@ -12,11 +12,13 @@ import { UserService } from '../user.service';
 })
 export class LoginFormComponent implements OnInit {
 
+ 
   @ViewChild('form')
   form!: NgForm;
 
   submitted = false;
   wrong = false;
+  isLoggedIn = false;
 
   user: User;
 
@@ -43,6 +45,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = new User();
+    this.isLogged();
     this.reloadData();
   }
 
@@ -55,18 +58,31 @@ export class LoginFormComponent implements OnInit {
     this.submitted = false;
     this.userService.getUser(this.form.value.username)
     .subscribe(data => {
-      console.log(data)
       if(data == null){
         this.submitted=false;
           this.wrong=true;
       }
       this.user = data;
 
-      if(this.user.password === this.form.value.password){
+      if(this.form.value.password  === this.user.password){
+        this.wrong=false;
         this.submitted=true;
+        localStorage.setItem(
+          'username',
+          (this.user.username)
+        );
+        localStorage.setItem(
+          'role',
+          (this.user.userType)
+        );
+        this.router.navigate(['/']);
+
       }else{
         this.submitted=false;
         this.wrong=true;
+        this.form.value.username='';
+        this.form.value.password='';
+        this.user = new User();
       }
     }, error => console.log(error));
 
@@ -78,15 +94,31 @@ export class LoginFormComponent implements OnInit {
     this.wrong=true;
     console.log(this.form.value);
     console.log(this.form.value.username);
-    if(this.form.value.username)
-    this.getUser(this.form.value.username);
 
+    this.getUser(this.form.value.username); 
+    
+
+
+
+  }
+
+  isLogged(): boolean {
+    if (localStorage.getItem('username')) {
+      return true;
+
+    }else{
+      return false;
+    }
+
+  }
+
+  logout(): void {
+    this.router.navigate(['/logout'])
   }
 
   sendToRegister(): void {
     this.router.navigate(['/register']);
   }
-
 
 
 }
