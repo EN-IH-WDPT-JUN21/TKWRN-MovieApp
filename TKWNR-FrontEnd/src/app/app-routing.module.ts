@@ -45,6 +45,10 @@ const routes: Routes = [
   },
   {
     path: 'playlists',
+    component: HomeComponent,
+    children: [
+      { path: '', component: PlaylistArrayComponent }
+    ],
     component: PlaylistArrayComponent,
     canActivate: [AuthGuard]
   },

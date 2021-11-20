@@ -3,7 +3,7 @@
         <div class="col" *ngFor = "let movie of movieList">
             <p>{{movie.title}} - {{movie.description}}</p>
             <img id="result-image" src = "{{movie.imageURI}}"> 
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
                 <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
@@ -11,7 +11,7 @@
                     <mat-icon>remove_red_eye</mat-icon>
                     <span>Movie Details</span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="addToPlaylist(movie)">
                     <mat-icon>dialpad</mat-icon>
                     <span>Add to Playlist</span>
                 </button>
@@ -23,7 +23,7 @@
         <div class="col" *ngFor="let person of personList">
             <p>{{person.title}}</p>
             <img id="result-image" src = "{{person.imageURI}}">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
                 <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">

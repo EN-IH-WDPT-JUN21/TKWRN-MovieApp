@@ -1,9 +1,12 @@
 package com.ironhack.playlistservice.controller.dto;
 
+import com.ironhack.playlistservice.dao.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +21,8 @@ public class PlaylistRequestDTO {
     private long userId;
 
     private String type;
+
+    private List<Movie> movies;
 
 
 }

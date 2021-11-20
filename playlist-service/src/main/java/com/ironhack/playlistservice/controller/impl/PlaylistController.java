@@ -1,5 +1,6 @@
 package com.ironhack.playlistservice.controller.impl;
 
+import com.ironhack.playlistservice.controller.dto.MovieDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.controller.interfaces.IPlaylistController;
 import com.ironhack.playlistservice.dao.Playlist;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/playlists")
 public class PlaylistController implements IPlaylistController {
@@ -53,6 +55,14 @@ public class PlaylistController implements IPlaylistController {
     public Playlist updatePlaylist(@PathVariable(name = "id") long id,
                                    @RequestBody PlaylistRequestDTO playlistRequestDTO) {
         return playlistService.update(id, playlistRequestDTO);
+    }
+
+    @PutMapping("/addmovie/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Playlist updatePlaylist(@PathVariable(name = "id") long id,
+                                   @RequestBody MovieDTO movie) {
+        System.out.println(movie.toString());
+        return playlistService.addMovie(id, movie);
     }
 
     @PostMapping("/new")

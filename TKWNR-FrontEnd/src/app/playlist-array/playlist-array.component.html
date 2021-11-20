@@ -5,6 +5,10 @@
         <button type="submit" id="create" class="btn btn-success">Create Playlist</button>
       </div>
     </form>
-    <app-playlist-detail class="row" *ngFor="let playlist of playlists; let i = index" [playlist]="playlist">
-    </app-playlist-detail>
+    <!-- <app-playlist-detail class="row" *ngFor="let playlist of playlists; let i = index">
+    </app-playlist-detail>   -->
+    <div class="container dark" *ngFor="let playlist of playlists; let i = index">
+      <p>{{playlist.name}}</p> 
+      <mat-icon *ngIf="this.movie.title != null" (click)=addToPlaylist(i)>more_vert</mat-icon>
+    </div>
 </div>

@@ -1,3 +1,4 @@
+import { TitleSearchResult } from './models/title-search-result';
 import { HttpClient } from '@angular/common/http';
 import { Playlist } from 'src/playlist';
 import { Injectable } from '@angular/core';
@@ -32,8 +33,8 @@ export class PlaylistsService {
     return this.http.put(`${this.baseUrl}/update/${id}`, value);
   }
 
-  addNewMovie(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/update/${id}/add`, value);
+  addNewMovie(id: number, movie: TitleSearchResult): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/addmovie/${id}`, movie);
   }
 
   deletePlaylist(id: number): Observable<any> {

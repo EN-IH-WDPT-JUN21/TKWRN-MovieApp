@@ -1,9 +1,8 @@
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -26,6 +25,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthService } from './auth.service';
+
 
 
 @NgModule({
@@ -59,6 +59,8 @@ import { AuthService } from './auth.service';
     MatMenuModule,
     NgbModule
   ],
+
+  exports:[MatIconModule],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

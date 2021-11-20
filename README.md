@@ -1,15 +1,72 @@
-### Testing H2 Database 
+<p align="center">
+   <img src="https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp/blob/main/nullLogo.png?raw=true">
+</p>
+
+<i><b>Spring and Angular based Movie Search platform implementing IMDB API </b></i>
+
+### Features 
+- search for movies
+- view movie details, cast list and related movies
+- create and edit playlists
+- view playlist details
+- register and login 
+- view and update user details (Admin)
+
+### How to use
+
+1. Clone the repository
 ```
+git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
+```
+2. Run the main class of each service in the order:
+    - discovery-service
+    - gateway-service
+    - user-service
+    - search-service
+    - playlist-service
+    
+
+3. Navigate to TKWRN-FrontEnd folder and start the server 
+
+```
+   npm start 
+```
+
+4. Navigate to localhost/4200
+
+
+5. Database setup
+```
+
    JDBC URL: jdbc:h2:~/movies;AUTO_SERVER=TRUE
    username: knights
    password: ni
+   
+   ===================================================
+
+   create database ironhackhomework5;
+   use ironhackhomework5;
+   
+   CREATE USER 'ironhacker'@'localhost' IDENTIFIED BY '1r0nH@ck3r';
+   
+   GRANT ALL PRIVILEGES ON \*.\* TO 'ironhacker'@'localhost';
+   
+   FLUSH PRIVILEGES;
 ```
+
+4. Gateway security credentials:
+   
+   ```
+   name = Admin
+   password = admin
+   ```
+
+
 ### Service ports
 | Port | Service
 | :--- | :--- 
 | 8761 | discovery-service
 | 8000 | gateway-service
-| 8100 | movie-service
 | 8200 | playlist-service
 | 8300 | user-service
 | 8400 | search-service
@@ -17,17 +74,6 @@
 ### APIs
 
 - [IMDB](https://imdb-api.com/api)
-- [RandomUser](https://randomuser.me/api)
-
-### movie-service
-
-| Endpoint | Method | Description | Path Params
-| :--- | :--- | :--- | :--- 
-| /api/movies/get | `GET` | Get all movies | None
-| /api/movies/get/{id} | `GET` | Get movie by id | `id=[long]`
-| /api/movies/new | `POST` | Add new movie | None
-| /api/movies/update/{id} | `PUT` | Update movie | `id=[long]`
-| /api/movies/delete/{id} | `DELETE` | Delete movie | `id=[long]`
 
 ### playlist-service
 
@@ -43,24 +89,19 @@
 
 | Endpoint | Method | Description | Path Params
 | :--- | :--- | :--- | :--- 
-| /api/users/get | `GET` | Get all users | None
-| /api/users/get/{id} | `GET` | Get user by id | `id=[long]`
+| /api/users | `GET` | Get all users | None
+| /api/users/{username} | `GET` | Get user by username| `username=[String]`
 | /api/users/new | `POST` | Add new user | None
-| /api/users/update/{id} | `PUT` | Update user | `id=[long]`
-| /api/users/delete/{id} | `DELETE` | Delete user | `id=[long]`
+| /api/users/update/{username} | `PUT` | Update user | `username=[String]`
+| /api/users/delete/{username} | `DELETE` | Delete user | `username=[String]`
 
 ### search-service 
 
 | Endpoint | Method | Description | Path Params
 | :--- | :--- | :--- | :--- 
-| /api/search/get/{X} | `GET` | Get movie by X | None
-
-### Extra Resources
-1. Sending email & SMS from spring app
-- [Spring email](https://www.baeldung.com/spring-email)
-- [Mailtrap&Spring](https://mailtrap.io/blog/spring-send-email/)
-- [Twillio&Spring](https://www.baeldung.com/java-sms-twilio)
+| /api/search/title/{type}/{title:[a-zA-Z &+-]*} | `GET` | Get movies by title | `type=[String]`, `title=[String]`
+| /api/search/title/{id} | `GET` | Get title by titleId | `id=[String]`
+| /api/search/person/{name:[a-zA-Z &+-]*} | `GET` | Get person by name | `name=[String]`
+| /api/search/personId/{id} | `GET` | Get person by nameId | `id=[String]`
 
 
-
-# demoProject
