@@ -1,4 +1,4 @@
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -56,6 +56,7 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     MatMenuModule,
     NgbModule
   ],
+  exports:[MatIconModule],
   providers: [],
   bootstrap: [AppComponent]
 })

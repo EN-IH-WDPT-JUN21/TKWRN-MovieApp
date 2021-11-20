@@ -54,4 +54,5 @@ public class PlaylistService {
         foundPlaylist.setMovies(movieList);
         return playlistRepository.save(foundPlaylist);
     }
+
 }

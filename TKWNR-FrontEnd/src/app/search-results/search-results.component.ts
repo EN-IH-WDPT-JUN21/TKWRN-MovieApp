@@ -5,7 +5,7 @@ import { NameSearchResult } from './../models/name-search-result.model';
 import { Star } from './../models/star.model';
 import { Router } from '@angular/router';
 import { SearchService } from './../search.service';
-import { TitleSearchResult } from './../models/title-search-result.model';
+import { TitleSearchResult } from '../models/title-search-result';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlaylistArrayComponent } from '../playlist-array/playlist-array.component';
 
@@ -22,7 +22,7 @@ export class SearchResultsComponent implements OnInit {
   titleType: string;
   searchString: string;
 
-  constructor(private searchService: SearchService, private router: Router, private playListStorage:MovieStorageService) {
+  constructor(public searchService: SearchService, private router: Router, public playListStorage:MovieStorageService) {
     this.searchType = "";
     this.titleType = "";
     this.searchString = "";

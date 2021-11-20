@@ -1,4 +1,4 @@
-import { TitleSearchResult } from './../models/title-search-result.model';
+import { TitleSearchResult } from '../models/title-search-result';
 import { Component, OnInit, Input } from '@angular/core';
 import { Playlist } from 'src/playlist';
 import { PlaylistsService } from '../playlists.service';

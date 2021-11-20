@@ -3,7 +3,6 @@ package com.ironhack.playlistservice.controller.impl;
 import com.ironhack.playlistservice.controller.dto.MovieDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.controller.interfaces.IPlaylistController;
-import com.ironhack.playlistservice.dao.Movie;
 import com.ironhack.playlistservice.dao.Playlist;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
 import com.ironhack.playlistservice.service.PlaylistService;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/playlists")
 public class PlaylistController implements IPlaylistController {

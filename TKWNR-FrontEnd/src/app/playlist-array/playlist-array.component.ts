@@ -1,6 +1,6 @@
 import { MovieStorageService } from './../movie-storage.service';
 import { PlaylistDetailComponent } from './../playlist-detail/playlist-detail.component';
-import { TitleSearchResult } from './../models/title-search-result.model';
+import { TitleSearchResult } from '../models/title-search-result';
 import { Playlist } from 'src/playlist';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -24,7 +24,7 @@ export class PlaylistArrayComponent implements OnInit {
   @Input()
   movie!: TitleSearchResult;
 
-  constructor(private playlistService: PlaylistsService, private movieStorage:MovieStorageService) { 
+  constructor(public playlistService: PlaylistsService, public movieStorage:MovieStorageService) { 
       this.playlist = {
         id: 0,
         name: '',
@@ -79,8 +79,8 @@ export class PlaylistArrayComponent implements OnInit {
           console.log(data);
         }
       );
-      this.movie = new TitleSearchResult("null", "null", "null", "null");
-      console.log(this.movie.title);
+      this.movie = new TitleSearchResult("", "", "", "null");
+      console.log(this.movie);
   }
 
 }

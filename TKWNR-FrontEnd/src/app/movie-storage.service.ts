@@ -1,4 +1,4 @@
-import { TitleSearchResult } from './models/title-search-result.model';
+import { TitleSearchResult } from './models/title-search-result';
 import { Injectable } from '@angular/core';
 
 @Injectable({

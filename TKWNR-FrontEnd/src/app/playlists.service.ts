@@ -1,4 +1,4 @@
-import { TitleSearchResult } from './models/title-search-result.model';
+import { TitleSearchResult } from './models/title-search-result';
 import { HttpClient } from '@angular/common/http';
 import { Playlist } from 'src/playlist';
 import { Injectable } from '@angular/core';
