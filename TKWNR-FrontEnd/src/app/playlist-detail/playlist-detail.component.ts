@@ -16,22 +16,30 @@ export class PlaylistDetailComponent implements OnInit {
   @Input()
   movie!:TitleSearchResult;
   playlist!: Playlist;
-  playlists!: Observable<Playlist[]>;
+  playlists!: Playlist[];
   movies!: TitleSearchResult[];
   movieDTO!: TitleSearchResult;
 
   constructor(private playlistService: PlaylistsService) {
     this.movies = [];
+    this.playlists = [];
    }
 
   ngOnInit(): void {
+    this.showPlaylists();
   }
+
 
   delete(id: number) {
     this.playlistService.deletePlaylist(id).subscribe(data => {
       location.reload()
   },
     error => console.log(error));
+}
+showPlaylists() {
+  this.playlistService.getAllPlaylists().subscribe(data => {
+      this.playlists = data;
+  }) 
 }
 
 }

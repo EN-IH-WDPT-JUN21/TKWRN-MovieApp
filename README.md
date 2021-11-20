@@ -79,10 +79,13 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 
 | Endpoint | Method | Description | Path Params
 | :--- | :--- | :--- | :--- 
-| /api/playlists/get | `GET` | Get all playlists | None
-| /api/playlists/get/{id} | `GET` | Get playlist by id | `id=[long]`
+| /api/playlists| `GET` | Get all playlists | None
+| /api/playlists/{id} | `GET` | Get playlist by id | `id=[long]`
+| /api/playlists/{name} | `GET` | Get playlist by name | `name=[String]`
+| /api/playlists/{userId} | `GET` | Get playlist by userId | `userId=[long]`
 | /api/playlists/new | `POST` | Add new playlist | None
 | /api/playlists/update/{id} | `PUT` | Update playlist | `id=[long]`
+| /api/playlists/addmovie/{id}" | `PUT` | Add movie to playlist | `id=[long]`
 | /api/playlists/delete/{id} | `DELETE` | Delete playlist| `id=[long]`
 
 ### user-service
