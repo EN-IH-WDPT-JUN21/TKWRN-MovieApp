@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MovieStorageService } from './../movie-storage.service';
 import { PlaylistDetailComponent } from './../playlist-detail/playlist-detail.component';
 import { TitleSearchResult } from '../models/title-search-result';
@@ -24,7 +25,7 @@ export class PlaylistArrayComponent implements OnInit {
   @Input()
   movie!: TitleSearchResult;
 
-  constructor(public playlistService: PlaylistsService, public movieStorage:MovieStorageService) { 
+  constructor(public playlistService: PlaylistsService, public movieStorage:MovieStorageService, private router: Router) { 
       this.playlist = {
         id: 0,
         name: '',
@@ -81,6 +82,10 @@ export class PlaylistArrayComponent implements OnInit {
       );
       this.movie = new TitleSearchResult("", "", "", "null");
       console.log(this.movie);
+  }
+
+  showPlaylistDetails(id:number){
+    this.router.navigate(['playlists', id])
   }
 
 }
