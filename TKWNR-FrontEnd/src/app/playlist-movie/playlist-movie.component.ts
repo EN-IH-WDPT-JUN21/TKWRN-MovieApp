@@ -25,18 +25,23 @@ export class PlaylistMovieComponent implements OnInit {
     @ViewChild(SearchResultsComponent) moviesComponent!: SearchResultsComponent;
   
     ngOnInit(): void {
-      this.activatedRoute.snapshot.params['id'];
-      this.playlistService.getMoviesByPlaylistId(this.id)
+      const playlistId: number = this.activatedRoute.snapshot.params['id'];
+      this.playlistService.getMoviesByPlaylistId(playlistId)
       .subscribe(data => {
         this.moviesComponent.movieList = data;
+        // this.getPlaylist(id);
       }, error => console.log(error))
       
-      this.playlistService.getPlaylist(this.id)
+      this.playlistService.getPlaylist(playlistId)
       .subscribe(data => {
         this.playlist = data;
       }, error => console.log(error))
     }
   
+    // getPlaylist(id: number) {
+      
+    // }
+
     delete(id: number) {
       this.movieService.deleteMovie(id)
         .subscribe(
