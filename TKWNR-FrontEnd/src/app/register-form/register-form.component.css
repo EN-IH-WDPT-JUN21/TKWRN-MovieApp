@@ -1,32 +1,25 @@
 
 .bg {
-  /* The image used */
-  background-image: url("src/assets/images/powrot-krola.jpg");
 
   /* Full height */
   height: 100%;
   width: 100%;
 
   /* Center and scale the image nicely */
+  background-image: url(../../assets/images/powrot-krola.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
-  position: fixed;
 }
 
 .container{
-
-    background-color: #F6F7F8;
-    border: 1px solid #D6D9DC;
-    border-radius: 3px;
- 
-    padding: 20px;
-    
-    max-width: 500px;
-
-    height: 100%;
- 
+  background-color: #f6f7f8;
+  border: 1px solid #d6d9dc;
+  border-radius: 3px;
+  padding: 20px;
+  width: 50%;
+  height: 100%;
 }
 
 h1 {

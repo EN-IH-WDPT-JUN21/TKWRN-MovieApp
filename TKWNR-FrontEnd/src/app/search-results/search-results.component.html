@@ -2,14 +2,36 @@
     <div *ngIf="movieList.length > 0" class="grid">
         <div class="col" *ngFor = "let movie of movieList">
             <p>{{movie.title}} - {{movie.description}}</p>
-            <img id="result-image" src = "{{movie.imageURI}}">
+            <img id="result-image" src = "{{movie.imageURI}}"> 
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
+                    <mat-icon>remove_red_eye</mat-icon>
+                    <span>Movie Details</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>dialpad</mat-icon>
+                    <span>Add to Playlist</span>
+                </button>
+                </mat-menu>
         </div>
     </div>
 
-    <div *ngIf="personList.length > 0" class="container">
-        <div *ngFor="let person of personList">
-            <p>{{person.name}}</p>
+    <div *ngIf="personList.length > 0" class="grid">
+        <div class="col" *ngFor="let person of personList">
+            <p>{{person.title}}</p>
             <img id="result-image" src = "{{person.imageURI}}">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="showPersonDetails(person.nameId)">
+                    <mat-icon>remove_red_eye</mat-icon>
+                    <span>Details</span>
+                </button>
+                </mat-menu>
         </div>
     </div>
 </div>

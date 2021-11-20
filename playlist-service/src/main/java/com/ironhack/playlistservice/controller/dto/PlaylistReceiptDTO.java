@@ -22,4 +22,5 @@ public class PlaylistReceiptDTO {
     private String type;
 
     private List<MovieDetailDTO> playlistMovies;
+
 }

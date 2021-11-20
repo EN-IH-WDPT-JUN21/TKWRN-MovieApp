@@ -1,3 +1,5 @@
+import { MatIconModule} from '@angular/material/icon';
+import { MatMenuModule} from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,9 +15,16 @@ import { HeaderComponent } from './header/header.component';
 import { PlaylistArrayComponent } from './playlist-array/playlist-array.component';
 import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.component';
 import { PlaylistMovieComponent } from './playlist-movie/playlist-movie.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchComponent } from './search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 
 @NgModule({
@@ -29,16 +38,26 @@ import { SearchComponent } from './search/search.component';
     PlaylistArrayComponent,
     PlaylistDetailComponent,
     PlaylistMovieComponent,
+    NavigationComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    UserUpdateComponent,
     MovieDetailsComponent,
+    SearchComponent,
     SearchResultsComponent,
-    SearchComponent
+    PersonDetailsComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatMenuModule,
+    MatMenuModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

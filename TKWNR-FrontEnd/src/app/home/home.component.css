@@ -1,8 +1,53 @@
-h1{
-    background-color: rebeccapurple;
-    color: whitesmoke;
+@font-face {
+    font-family: middleAges;
+    src: url(../../assets/fonts/MiddleAges_PERSONAL_USE.ttf);
 }
 
-p {
-    color: olive;
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 90vh;
+}
+
+.main-container {
+    display: flex;
+    height: 100%;
+}
+
+header {
+    background-color: #131313;
+    padding: 10px 5px;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    align-items: center;
+}
+
+.logo {
+    max-width: 11%;
+}
+
+.navbar-left {
+    width: 15%;
+}
+
+.main {
+    display: flex;
+    height: 100%;
+}
+
+.each-word {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: middleAges;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-left: 5px;
+    margin-right: 3px;
+    padding-top: 2px;
+}
+
+.each-word::first-letter {
+    color: red;
+    font-size: 1.5em;
 }

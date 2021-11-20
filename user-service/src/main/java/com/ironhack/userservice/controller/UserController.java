@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -40,7 +40,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @PatchMapping("/update/{username}")
+    @PutMapping ("/update/{username}")
     @ResponseStatus(HttpStatus.OK)
     public UserDTO updateUser(@PathVariable String username, @RequestBody UserDTO userDTO) {
         return userService.updateUser(username, userDTO);

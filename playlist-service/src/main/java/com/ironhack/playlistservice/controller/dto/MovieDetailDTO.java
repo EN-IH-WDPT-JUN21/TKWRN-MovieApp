@@ -18,6 +18,8 @@ public class MovieDetailDTO {
 
     private URI imageURI;
 
+    private ResultType type;
+
     private String title;
 
     private String description;
@@ -27,3 +29,4 @@ public class MovieDetailDTO {
         this.title = title;
     }
 }
+

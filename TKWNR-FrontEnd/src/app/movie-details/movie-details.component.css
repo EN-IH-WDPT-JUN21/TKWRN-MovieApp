@@ -1,0 +1,18 @@
+.movie-details-container {
+    background-color: #222222;
+    color: #f0f0f0;
+}
+
+img {
+    max-width: 256px;
+}
+
+.movie-details-box {
+    display: flex;
+    column-gap: 20px;
+    padding: 20px;
+}
+
+.movie-details {
+    padding-right: 50px;
+}
