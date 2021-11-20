@@ -1,3 +1,8 @@
+.movie-details-container {
+    background-color: #222222;
+    color: #f0f0f0;
+}
+
 img {
     max-width: 256px;
 }
