@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="movie-service" />
-        <module name="playlist-service" />
         <module name="user-service" />
-        <module name="search-service" />
-        <module name="discovery-service" />
+        <module name="playlist-service" />
         <module name="gateway-service" />
+        <module name="discovery-service" />
+        <module name="search-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
