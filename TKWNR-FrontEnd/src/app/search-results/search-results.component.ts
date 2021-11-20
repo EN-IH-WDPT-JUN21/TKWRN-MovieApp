@@ -1,10 +1,13 @@
+import { MovieStorageService } from './../movie-storage.service';
+import { PlaylistDetailComponent } from './../playlist-detail/playlist-detail.component';
 import { NameSearchResult } from './../models/name-search-result.model';
 
 import { Star } from './../models/star.model';
 import { Router } from '@angular/router';
 import { SearchService } from './../search.service';
 import { TitleSearchResult } from './../models/title-search-result.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PlaylistArrayComponent } from '../playlist-array/playlist-array.component';
 
 @Component({
   selector: 'movie-list',
@@ -19,10 +22,13 @@ export class SearchResultsComponent implements OnInit {
   titleType: string;
   searchString: string;
 
-  constructor(private searchService: SearchService, private router: Router) {
+  constructor(private searchService: SearchService, private router: Router, private playListStorage:MovieStorageService) {
     this.searchType = "";
     this.titleType = "";
     this.searchString = "";
+  }
+
+  ngAfterViewInit() {
   }
 
   ngOnInit(): void {
@@ -57,6 +63,11 @@ export class SearchResultsComponent implements OnInit {
 
   showPersonDetails(id: string):void {
     this.router.navigate(['person', id])
+  }
+
+  addToPlaylist(movie:TitleSearchResult):void {
+    this.playListStorage.setMovie(movie);
+    this.router.navigate(['playlists']);
   }
 
 

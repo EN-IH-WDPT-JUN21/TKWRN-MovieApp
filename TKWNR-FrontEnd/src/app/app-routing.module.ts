@@ -35,7 +35,10 @@ const routes: Routes = [
   },
   {
     path: 'playlists',
-    component: PlaylistArrayComponent
+    component: HomeComponent,
+    children: [
+      { path: '', component: PlaylistArrayComponent }
+    ]
   },
     {
     path: 'playlists/:playlistId',

@@ -1,7 +1,9 @@
 package com.ironhack.playlistservice.controller.impl;
 
+import com.ironhack.playlistservice.controller.dto.MovieDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.controller.interfaces.IPlaylistController;
+import com.ironhack.playlistservice.dao.Movie;
 import com.ironhack.playlistservice.dao.Playlist;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
 import com.ironhack.playlistservice.service.PlaylistService;
@@ -53,6 +55,14 @@ public class PlaylistController implements IPlaylistController {
     public Playlist updatePlaylist(@PathVariable(name = "id") long id,
                                    @RequestBody PlaylistRequestDTO playlistRequestDTO) {
         return playlistService.update(id, playlistRequestDTO);
+    }
+
+    @PutMapping("/addmovie/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Playlist updatePlaylist(@PathVariable(name = "id") long id,
+                                   @RequestBody MovieDTO movie) {
+        System.out.println(movie.toString());
+        return playlistService.addMovie(id, movie);
     }
 
     @PostMapping("/new")
