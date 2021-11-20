@@ -9,6 +9,6 @@
     </app-playlist-detail>   -->
     <div class="container dark" *ngFor="let playlist of playlists; let i = index">
       <p>{{playlist.name}}</p> 
-      <mat-icon *ngIf="this.movie.title != null" (click)=addToPlaylist(i)>more_vert</mat-icon>
+      <mat-icon *ngIf="this.movie.title != ''" (click)=addToPlaylist(i)>more_vert</mat-icon>
     </div>
 </div>
