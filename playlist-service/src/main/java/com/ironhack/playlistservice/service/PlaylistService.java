@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlaylistService {
@@ -55,4 +56,17 @@ public class PlaylistService {
         return playlistRepository.save(foundPlaylist);
     }
 
+    public List<MovieDTO> getMoviesByPlaylist(long id) {
+        Playlist foundPlaylist = playlistRepository.findById(id).get();
+        List<MovieDTO> moviesList = new ArrayList<>();
+        for (var movie : foundPlaylist.getMovies()){
+            moviesList.add(new MovieDTO(
+                    movie.getTitleId(),
+                    movie.getImageURI(),
+                    movie.getTitle(),
+                    movie.getDescription()
+            ));
+        }
+        return moviesList;
+    }
 }

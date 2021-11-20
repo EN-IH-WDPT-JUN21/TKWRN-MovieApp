@@ -38,13 +38,19 @@ public class PlaylistController implements IPlaylistController {
         return playlistRepository.findById(id).orElse(null);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/movies/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<MovieDTO> getMoviesInPlaylist(@PathVariable(name = "id") long id) {
+        return playlistService.getMoviesByPlaylist(id);
+    }
+
+    @GetMapping("/user/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public List<Playlist> getByUserId(@PathVariable(name = "userId") long userId) {
         return playlistService.getByUser(userId);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     @ResponseStatus(HttpStatus.OK)
     public List<Playlist> getByName(@PathVariable(name = "name") String name) {
         return playlistService.getByName(name);

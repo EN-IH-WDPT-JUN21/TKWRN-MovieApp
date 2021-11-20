@@ -18,6 +18,7 @@ img {
 
 .movie-details {
     padding-right: 10%;
+    padding-top: 10px;
 }
 
 .stars-box,
@@ -25,6 +26,10 @@ img {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
+}
+
+.similar-box {
+    padding-bottom: 20px;
 }
 
 .stars,
@@ -36,6 +41,17 @@ img {
 .stars img,
 .similar img {
     max-height: 100px;
+}
+
+.stars a img,
+.similar a img {
+    display: block;
+    margin: 0 auto;
+}
+
+.stars img:hover,
+.similar img:hover {
+    box-shadow: 0 0 6px hsla(47, 92%, 53%);
 }
 
 .directors {
