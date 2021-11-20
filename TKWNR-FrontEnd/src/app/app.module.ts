@@ -26,6 +26,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { PersonDetailsComponent } from './person-details/person-details.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

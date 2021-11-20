@@ -21,6 +21,7 @@ public class UserController {
     
     @Autowired
     IUserService userService;
+    
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
