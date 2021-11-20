@@ -1,3 +1,4 @@
+import { SearchResultsComponent } from './../search-results/search-results.component';
 import { PlaylistsService } from './../playlists.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Playlist } from 'src/playlist';
@@ -13,32 +14,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./playlist-movie.component.css']
 })
 export class PlaylistMovieComponent implements OnInit {
-  playlist!: Playlist;
-  movies!: MovieDetail[];
-  movie!: MovieDetail;
-  
-    @ViewChild('form')
-    form!: NgForm;
-    submitted = false;
-    constructor(private playlistService: PlaylistsService,
-                private movieService: MovieService) {
 
-      this.movies = [];
+  id!:number;
+  playlist!: Playlist;
+  
+
+    constructor(private playlistService: PlaylistsService, private movieService: MovieService, private activatedRoute: ActivatedRoute) {
     }
+
+    @ViewChild(SearchResultsComponent) moviesComponent!: SearchResultsComponent;
   
     ngOnInit(): void {
+      this.activatedRoute.snapshot.params['id'];
+      this.playlistService.getMoviesByPlaylistId(this.id)
+      .subscribe(data => {
+        this.moviesComponent.movieList = data;
+      }, error => console.log(error))
       
+      this.playlistService.getPlaylist(this.id)
+      .subscribe(data => {
+        this.playlist = data;
+      }, error => console.log(error))
     }
   
-    showMovies() {
-      this.playlistService.getPlaylist(this.playlist.id).subscribe(
-        result => {
-          this.playlist = result;
-          // this.movies = this.playlist.movies!;
-        }
-      );
-    }
-
     delete(id: number) {
       this.movieService.deleteMovie(id)
         .subscribe(

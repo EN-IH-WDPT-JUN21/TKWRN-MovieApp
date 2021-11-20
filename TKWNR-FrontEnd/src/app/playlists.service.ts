@@ -14,7 +14,7 @@ export class PlaylistsService {
   constructor(private http: HttpClient) { }
 
   getPlaylist(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/get/${id}`, { responseType: 'text' });
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   getAllPlaylists(): Observable<Playlist[]> {
@@ -43,6 +43,10 @@ export class PlaylistsService {
 
   getMovieByTitleId(id: string): Observable<any> {
     return this.http.get(`/api/search/title/${id}`);
+  }
+
+  getMoviesByPlaylistId(id:number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/movies/{id}`);
   }
 
 }
