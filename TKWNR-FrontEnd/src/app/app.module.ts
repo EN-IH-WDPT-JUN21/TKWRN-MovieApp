@@ -11,6 +11,10 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { PlaylistArrayComponent } from './playlist-array/playlist-array.component';
+import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.component';
+import { PlaylistMovieComponent } from './playlist-movie/playlist-movie.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -22,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,10 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     RegisterFormComponent,
     HomeComponent,
     FooterComponent,
+    HeaderComponent,
+    PlaylistArrayComponent,
+    PlaylistDetailComponent,
+    PlaylistMovieComponent,
     NavigationComponent,
     UserListComponent,
     UserDetailsComponent,
@@ -37,7 +46,6 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     SearchComponent,
     SearchResultsComponent,
     PersonDetailsComponent
-
   ],
   imports: [
     BrowserModule,

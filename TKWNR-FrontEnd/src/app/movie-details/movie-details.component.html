@@ -2,60 +2,64 @@
     <div class="movie-details-box">
         <img [src] = "movie.imageURI" style="max-width: 256px;">
         <div class="movie-details">
-            <p>{{movie.title}}</p>
-            <p>{{movie.releaseDate}}</p>
-            <p>{{movie.runtime}}</p>
-            <p>{{movie.plot}}</p>
-            <p>{{movie.genres}}</p>
-            <p>{{movie.companies}}</p>
-            <p>{{movie.contentRating}}</p>
-            <p>{{movie.imdbRating}}</p>
-            <p>{{movie.imdbRatingVotes}}</p>
+            <p style="font-size:20px">{{movie.title}}</p>
+            <p>Release date: {{movie.releaseDate}}</p>
+            <p>Duration: {{movie.runtime}}</p>
+            <p>Description:<br>{{movie.plot}}</p>
+            <p>Genres: {{movie.genres}}</p>
+            <p>Produced by: {{movie.companies}}</p>
+            <p>Rating: {{movie.contentRating}}</p>
+            <p>IMDb rating: {{movie.imdbRating}} <img style="max-width: 17px; padding-bottom: 4px; margin-left: 2px" src="../../assets/images/star2.png"></p>
+            <p>Number of votes: {{movie.imdbRatingVotes}}</p>
+            <div class="directors">
+                <p>Directors: </p> 
+                <div class="director" *ngFor="let CD of movie.creatorDirectorList">
+                    <p>{{CD.name}}</p>
+                </div>
+            </div>
         </div>
     </div>
-    
-    
-
-    <ul> Directors
-        <li *ngFor="let CD of movie.creatorDirectorList">
-            <p>{{CD.name}}</p>
-        </li>
-    </ul>
-
-    <div> Stars
-        <div *ngFor="let star of movie.starList">
-            <img [src] = "star.imageURI">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
+    <br>
+    <div class="stars-box"> 
+        <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Stars</p>
+        <div class="stars">
+            <div *ngFor="let star of movie.starList">
+                <p>{{star.name}} - {{star.asCharacter}}</p>
+                <img [src] = "star.imageURI">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
                 </button>
-                <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showPersonDetails(star.personId)">
-                    <mat-icon>remove_red_eye</mat-icon>
-                    <span>Details</span>
-                </button>
-                </mat-menu>
-            <p>{{star.name}}</p>
-            <p>{{star.asCharacter}}</p>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showPersonDetails(star.personId)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                        <span>Details</span>
+                    </button>
+                    </mat-menu>
+                
+            </div>
         </div>
     </div>
-
-    <div> Similar Titles
-        <div *ngFor="let title of movie.similarList">
-            <img [src] = "title.titleImage">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showMovieDetails(title.titleId)">
-                    <mat-icon>remove_red_eye</mat-icon>
-                    <span>Movie Details</span>
-                </button>
-                <button mat-menu-item>
-                    <mat-icon>dialpad</mat-icon>
-                    <span>Add to Playlist</span>
-                </button>
-                </mat-menu>
-            <p>{{title.title}}</p>
+    <br><br>
+    <div class="similar-box"> 
+        <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Similar Titles</p>
+        <div class="similar">
+            <div *ngFor="let title of movie.similarList">
+                <p>{{title.title}}</p>
+                <img [src] = "title.titleImage">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showMovieDetails(title.titleId)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                        <span>Movie Details</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>dialpad</mat-icon>
+                        <span>Add to Playlist</span>
+                    </button>
+                    </mat-menu>
+            </div>
         </div>
     </div>
 </div>

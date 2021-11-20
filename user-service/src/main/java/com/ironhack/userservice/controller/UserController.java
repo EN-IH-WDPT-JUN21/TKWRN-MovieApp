@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/{username}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.)
     public UserDTO findUserByUsername (@PathVariable(name="username") String username){
         return userService.findUserByUsername(username);
     }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TKWRNmovieApp.iml" filepath="$PROJECT_DIR$/.idea/TKWRNmovieApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TKWRN-MovieApp.iml" filepath="$PROJECT_DIR$/.idea/TKWRN-MovieApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/discovery-service/discovery-service.iml" filepath="$PROJECT_DIR$/discovery-service/discovery-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway-service/gateway-service.iml" filepath="$PROJECT_DIR$/gateway-service/gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/movie-service/movie-service.iml" filepath="$PROJECT_DIR$/movie-service/movie-service.iml" />
