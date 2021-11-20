@@ -8,7 +8,8 @@
     <!-- <app-playlist-detail class="row" *ngFor="let playlist of playlists; let i = index">
     </app-playlist-detail>   -->
     <div class="container dark" *ngFor="let playlist of playlists; let i = index">
-      <p>{{playlist.name}}</p> 
+      <p>{{playlist.name}}</p>
+      <p (click)="showPlaylistDetails(i)">This is placeholder clickable, maybe some kind of image?</p>
       <mat-icon *ngIf="this.movie.title != ''" (click)=addToPlaylist(i)>more_vert</mat-icon>
     </div>
 </div>
