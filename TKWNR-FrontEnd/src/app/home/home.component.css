@@ -8,11 +8,12 @@
     flex-direction: column;
     padding: 0;
     height: 1000px;
+    width: 1600px;
 }
 
 .main-container {
     display: flex;
-    width: 100%;
+    width: 1600px;
     height: 100%;
 }
 
