@@ -48,10 +48,40 @@ export class RegisterFormComponent implements OnInit {
     error => console.log(error));
   }
 
+  /*checkUserExists(): boolean {
+    this.userService.getUser(this.form.value.username)
+    .subscribe(data => {
+      this.user = data;
+
+
+    }, error => console.log(error));
+    console.log(this.user);
+    if(this.user!=null){      
+      window.alert('user exists');
+      console.log((this.user.email))
+      return true;
+
+    }else{          
+      console.log('ok');
+      return false;
+    }
+    
+
+
+
+
+  }*/
+
+
   onSubmit(): void {
     this.submitted = true;
     console.log(this.form.value);
-    this.save();
+    /*if(this.checkUserExists()!=true){*/
+      this.save();
+    /*}else{
+      this.submitted = false;
+    }*/
+
   }
 
   goToLogin(): void {

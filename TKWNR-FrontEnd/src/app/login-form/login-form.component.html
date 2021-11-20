@@ -1,37 +1,40 @@
 <div class="bg">
-<div class="container">
-    <h1>Login page</h1>
-    <a href="#" class="image main"><img src="assets/images/black.jfif" alt="" width=100% /></a>
-    <!-- <div [hidden]="submitted" style="width: 400px;"> -->
-        <form class ="form" (ngSubmit)="onLogin()" #form="ngForm">
-
-            <div class="form-group">
-                <label for="name">Username: </label>
-                <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" [disabled]="submitted">
-                <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write your username</p>
-            </div>
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input ngModel required [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" [disabled]="submitted">
-                <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">The password must be between 4 and 20 characters</p>
-            </div>
- 
-            <div class="buttons">
-                <button class="btn btn-warning" (click)="sendToRegister()">Register</button>
-                <button type="submit" [disabled]="submitted" class="btn btn-success">Login</button>
-            </div>
-        </form>
-    <!-- </div> -->
-    <div [hidden]="submitted" [hidden]="!wrong">
-        <h4>Wrong credentials. Try again!</h4>  
+    <div class="container">
+        <h1>Login page</h1>
+        <a href="#" class="image main"><img src="assets/images/black.jfif" alt="" width=100% /></a>
+        <div *ngIf="isLogged()==false">
+            <form class ="form" (ngSubmit)="onLogin()" #form="ngForm">
+    
+                <div class="form-group">
+                    <label for="name">Username: </label>
+                    <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" >
+                    <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write your username</p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input ngModel required [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" >
+                    <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">The password must be between 4 and 20 characters</p>
+                </div>
+     
+                <div class="buttons">
+                    <button class="btn btn-warning" (click)="sendToRegister()">Register</button>
+                    <button type="submit" [disabled]="submitted" class="btn btn-success">Login</button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="wrong==true">
+            <h4>Wrong credentials. Try again!</h4>  
+        </div>
+        <div *ngIf="isLogged()==true">
+            <br>
+            <h4>You are already logged in. Do you want to logout?</h4>  
+            <button class="btn btn-danger" (click)="logout()">Go to Logout</button>
+        </div>
+        
     </div>
-    <div [hidden]="!submitted">
-        <h4>You logged on successfully!</h4>  
+    
+    
+    
+    
     </div>
-</div>
 
-
-
-
-
-</div>
