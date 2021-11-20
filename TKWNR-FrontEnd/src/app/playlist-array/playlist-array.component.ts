@@ -43,7 +43,7 @@ export class PlaylistArrayComponent implements OnInit {
     this.reloadData();
     document.body.classList.add('bg-img');
     this.movie = this.movieStorage.getMovie();
-    console.log(this.movie);
+    // console.log(this.movie);
   }
 
   reloadData(): void {

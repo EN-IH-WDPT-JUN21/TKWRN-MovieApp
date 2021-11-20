@@ -52,7 +52,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
     {
-    path: 'playlists/:playlistId',
+    path: 'playlists/:id',
     component: HomeComponent,
     children: [
       { path: '', component: PlaylistMovieComponent }
