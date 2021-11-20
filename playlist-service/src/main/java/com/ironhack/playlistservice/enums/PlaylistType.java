@@ -1,7 +1,2 @@
-package com.ironhack.playlistservice.enums;
-
-public enum PlaylistType {
-
-    PUBLIC, PRIVATE
-
+package com.ironhack.playlistservice.enums;public enum PlaylistType {
 }

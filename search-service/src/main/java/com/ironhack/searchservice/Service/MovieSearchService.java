@@ -38,7 +38,7 @@ public class MovieSearchService {
         String searchType = type.equals("movie") ? "SearchMovie" : "SearchSeries";
 
         var request = HttpRequest.newBuilder(
-                        URI.create(baseURL + searchType + apiKey + title.replace(" ", "%20")))
+                URI.create(baseURL + searchType + apiKey + title.replace(" ", "%20")))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
@@ -67,7 +67,7 @@ public class MovieSearchService {
 
     public TitleIdResult searchByTitleId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
         var request = HttpRequest.newBuilder(
-                        URI.create(baseURL + "Title" + apiKey + id))
+                URI.create(baseURL + "Title" + apiKey + id))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
