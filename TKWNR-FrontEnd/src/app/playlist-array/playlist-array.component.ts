@@ -1,8 +1,12 @@
+import { MovieStorageService } from './../movie-storage.service';
+import { PlaylistDetailComponent } from './../playlist-detail/playlist-detail.component';
+import { TitleSearchResult } from './../models/title-search-result.model';
 import { Playlist } from 'src/playlist';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PlaylistsService } from '../playlists.service';
 import { Movie } from '../movie';
+import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-playlist-array',
@@ -15,11 +19,12 @@ export class PlaylistArrayComponent implements OnInit {
   playlists!: Playlist[];
   playlist: Playlist;
   submitted = false;
-  movie!: Movie;
   movies!: Movie[];
 
-  constructor(
-    private playlistService: PlaylistsService) { 
+  @Input()
+  movie!: TitleSearchResult;
+
+  constructor(private playlistService: PlaylistsService, private movieStorage:MovieStorageService) { 
       this.playlist = {
         id: 0,
         name: '',
@@ -28,11 +33,16 @@ export class PlaylistArrayComponent implements OnInit {
         type: 'PUBLIC',
       }
     this.playlists = [];
+    
+    //debugging
+    this.playlists.push(new Playlist())
   }
 
   ngOnInit(): void {
     this.reloadData();
     document.body.classList.add('bg-img');
+    this.movie = this.movieStorage.getMovie();
+    console.log(this.movie);
   }
 
   reloadData(): void {
@@ -60,6 +70,17 @@ export class PlaylistArrayComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     this.save();
+  }
+
+  addToPlaylist(id:number){
+    console.log(this.movie)
+      this.playlistService.addNewMovie(id + 1, this.movie).subscribe(
+        data => {
+          console.log(data);
+        }
+      );
+      this.movie = new TitleSearchResult("null", "null", "null", "null");
+      console.log(this.movie.title);
   }
 
 }
