@@ -37,13 +37,6 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 
 5. Database setup
 ```
-
-   JDBC URL: jdbc:h2:~/movies;AUTO_SERVER=TRUE
-   username: knights
-   password: ni
-   
-   ===================================================
-
    create database ironhackhomework5;
    use ironhackhomework5;
    
@@ -54,10 +47,10 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
    FLUSH PRIVILEGES;
 ```
 
-4. Gateway security credentials:
+4. Admin credentials:
    
    ```
-   name = Admin
+   name = Anna
    password = admin
    ```
 
@@ -81,8 +74,6 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 | :--- | :--- | :--- | :--- 
 | /api/playlists| `GET` | Get all playlists | None
 | /api/playlists/{id} | `GET` | Get playlist by id | `id=[long]`
-| /api/playlists/{name} | `GET` | Get playlist by name | `name=[String]`
-| /api/playlists/{userId} | `GET` | Get playlist by userId | `userId=[long]`
 | /api/playlists/new | `POST` | Add new playlist | None
 | /api/playlists/update/{id} | `PUT` | Update playlist | `id=[long]`
 | /api/playlists/addmovie/{id}" | `PUT` | Add movie to playlist | `id=[long]`
