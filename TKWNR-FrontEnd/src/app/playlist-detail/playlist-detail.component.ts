@@ -1,8 +1,8 @@
 import { TitleSearchResult } from '../models/title-search-result';
 import { Component, OnInit, Input } from '@angular/core';
-import { Playlist } from 'src/playlist';
 import { PlaylistsService } from '../playlists.service';
 import { Observable } from 'rxjs';
+import { Playlist } from '../playlist';
 
 
 

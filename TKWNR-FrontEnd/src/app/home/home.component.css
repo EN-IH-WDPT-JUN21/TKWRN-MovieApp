@@ -39,6 +39,8 @@ header {
 .main {
     display: block;
     height: 100%;
+    flex: 2;
+    /* added for full width of child elements */
 }
 
 .each-word {

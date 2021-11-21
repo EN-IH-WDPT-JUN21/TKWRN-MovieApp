@@ -1,5 +1,6 @@
 package com.ironhack.playlistservice.dao;
 
+import com.ironhack.playlistservice.enums.PlaylistType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,11 +33,23 @@ public class Playlist {
     @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
     private List<Movie> movies;
 
-    public Playlist(String name, int length, long userId, String type) {
+    public Playlist(String name, int length, long userId) {
         this.name = name;
         this.length = length;
         this.userId = userId;
-        this.type = type;
+        this.type = "PUBLIC";
         this.movies = new ArrayList<Movie>();
+    }
+
+    public void setLength(int length) {
+        if(length <= 10) {
+            this.length = length;
+        }
+    }
+
+    public void setMovies(List<Movie> movies) {
+        if(movies.size() <= 10) {
+            this.movies = movies;
+        }
     }
 }

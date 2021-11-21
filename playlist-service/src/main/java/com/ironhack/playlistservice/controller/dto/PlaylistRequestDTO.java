@@ -1,6 +1,7 @@
 package com.ironhack.playlistservice.controller.dto;
 
 import com.ironhack.playlistservice.dao.Movie;
+import com.ironhack.playlistservice.enums.PlaylistType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,4 @@ public class PlaylistRequestDTO {
     private String type;
 
     private List<Movie> movies;
-
-
 }
