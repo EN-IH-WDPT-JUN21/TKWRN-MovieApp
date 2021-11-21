@@ -20,16 +20,14 @@ public class Movie {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "playlistId")
-    private Playlist playlist;
+    private long playlistId;
     private String titleId;
     private URI imageURI;
     private String title;
     private String description;
 
-    public Movie(Playlist playlist, String titleId, URI imageURI, String title, String description) {
-        this.playlist = playlist;
+    public Movie(long playlistId, String titleId, URI imageURI, String title, String description) {
+        this.playlistId = playlistId;
         this.titleId = titleId;
         this.imageURI = imageURI;
         this.title = title;

@@ -12,6 +12,7 @@ import java.net.URI;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieDTO {
+    private long playlistId;
     private String titleId;
     private URI imageURI;
     private String title;
@@ -20,6 +21,7 @@ public class MovieDTO {
     @Override
     public String toString() {
         return "MovieDTO{" +
+                "playlistId='" + playlistId + '\'' +
                 "titleId='" + titleId + '\'' +
                 ", imageURI=" + imageURI +
                 ", title='" + title + '\'' +
@@ -27,3 +29,4 @@ public class MovieDTO {
                 '}';
     }
 }
+

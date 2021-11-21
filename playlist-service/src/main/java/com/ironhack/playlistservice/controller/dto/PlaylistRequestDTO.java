@@ -24,4 +24,18 @@ public class PlaylistRequestDTO {
     private String type;
 
     private List<Movie> movies;
+
+    public PlaylistRequestDTO(String name, int length, long userId) {
+        this.name = name;
+        this.length = length;
+        this.userId = userId;
+    }
+
+    public PlaylistRequestDTO(String name, int length, long userId, List<Movie> movies) {
+        this.name = name;
+        this.length = length;
+        this.userId = userId;
+        this.type = "PUBLIC";
+        this.movies = movies;
+    }
 }

@@ -93,7 +93,7 @@ public class PlaylistControllerTest {
     void addNewMovie() throws Exception {
         Long id = playlist.getId();
         URI movieURI = URI.create("http://m.media-amazon.com/images/M/MV5BODllNWE0Mm…yXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg");
-        MovieDTO movie = new MovieDTO("tt2323", movieURI, "Kill Bill", "sdfdsasd" );
+        MovieDTO movie = new MovieDTO(1, "tt2323", movieURI, "Kill Bill", "sdfdsasd" );
         String body = objectMapper.writeValueAsString(movie);
         MvcResult result = mockMvc.perform(put("/api/playlists/addmovie/" + id).content(body)
                 .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isNoContent()).andReturn();
@@ -108,6 +108,5 @@ public class PlaylistControllerTest {
 //        ).andDo(print()).andExpect(status().isOk()).andReturn();
 //        assertTrue(result.getResponse().getContentAsString().contains("Kill Bill"));
 //    }
-
 
 }

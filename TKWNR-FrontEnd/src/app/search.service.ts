@@ -32,4 +32,12 @@ export class SearchService {
   getPersonSearchResult(name: string): Observable<any>{
     return this.http.get(`${this.baseURL}/person/${name}`);
   }
+
+  getPopularMovies(): Observable<any>{
+    return this.http.get(`${this.baseURL}/popular/movies`);
+  }
+
+  getPopularSeries(): Observable<any>{
+    return this.http.get(`${this.baseURL}/popular/series`);
+  }
 }

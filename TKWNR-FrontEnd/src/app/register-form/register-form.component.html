@@ -10,11 +10,6 @@
                 <label for="avatarURL">Avatar*: </label>
                 <input ngModel #file [(ngModel)]="user.avatarURL" name="avatarURL" type="file" accept='image/*' (change)="preview(file.files)" />
                 <img [src]="imgURL" height="200" *ngIf="imgURL">
-                <!-- <select ngModel name="avatar" required avatar [(ngModel)]="user.userType" #avatarInput="ngModel" [disabled]="form.submitted">
-                  <option value="1"><img src="../../assets/images/1.png"></option>
-                  <option value="2">Premium User</option>
-                </select>
-                <p class="error-msg" *ngIf="userTypeInput.invalid && userTypeInput.touched">Please select a user type</p> -->
             </div>
 
             <div class="form-group">
@@ -42,7 +37,7 @@
                 <label for="bio">Bio: </label>
                 <input ngModel bio [(ngModel)]="user.bio" name="bio" type="text" placeholder="Bio (not required)..." #bioInput="ngModel" [disabled]="submitted" class="heighttext">
                 <p class="error-msg" *ngIf="bioInput.invalid && bioInput.touched">Please write bio up to 100 characters</p>
-            </div>         
+            </div>
             <div class="form-group">
                 <label for="userType">User type*: </label>
                 <select ngModel name="userType" required userType [(ngModel)]="user.userType" #userTypeInput="ngModel" [disabled]="submitted">
