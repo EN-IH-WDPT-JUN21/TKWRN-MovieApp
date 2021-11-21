@@ -11,23 +11,17 @@ import { UserService } from '../user.service';
 export class HomeComponent implements OnInit {
 
   user!: User;
-  username: string;
+  username!: string;
   avatarURL!: string | null;
   
   constructor(private auth: AuthService, private userService: UserService) {
-    this.username = '';
-    // this.user = this.userService.getUser(this.username);
-
-  //   this.userService.getUser(this.username)
-  //   .subscribe(data => {
-  //     this.user = data;
-  //  }, error => console.log(error));
+ 
   }
   getAvatarURL():any {
     if(localStorage.getItem('avatarURL') != null) {
       this.avatarURL = localStorage.getItem('avatarURL')!.slice(localStorage.getItem('avatarURL')!.length -5);
     } else {
-      this.avatarURL = "7.png"
+      this.avatarURL = "0.png"
     }
     return this.avatarURL;
   }
