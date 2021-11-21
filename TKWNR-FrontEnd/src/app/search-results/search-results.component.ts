@@ -4,7 +4,7 @@ import { NameSearchResult } from './../models/name-search-result.model';
 import { Router } from '@angular/router';
 import { SearchService } from './../search.service';
 import { TitleSearchResult } from '../models/title-search-result';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'movie-list',
@@ -23,17 +23,21 @@ export class SearchResultsComponent implements OnInit {
     this.searchType = "";
     this.titleType = "";
     this.searchString = "";
+
+    this.searchService.searchSignal.subscribe(data => {
+      var arg: string = data;
+      var argList: string[] = arg.split("/");
+      this.performSearch(argList[0], argList[1], argList[2]);
+    }, error => console.log(error))
   }
 
-  ngAfterViewInit() {
-  }
 
   ngOnInit(): void {
     //For testing purposes
     this.movieList.push(new TitleSearchResult(
-      "tt0110413", 
+      "tt0110413",
       "https://m.media-amazon.com/images/M/MV5BODllNWE0MmEtYjUwZi00ZjY3LThmNmQtZjZlMjI2YTZjYmQ0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg",
-      "Léon: The Professional", 
+      "Léon: The Professional",
       "1994"))
   }
 
@@ -45,7 +49,6 @@ export class SearchResultsComponent implements OnInit {
         this.personList = [];
       }, error => console.log(error))
     } else {
-      console.log("here")
       this.searchService.getPersonSearchResult(searchString)
       .subscribe(data => {
         this.personList = data;

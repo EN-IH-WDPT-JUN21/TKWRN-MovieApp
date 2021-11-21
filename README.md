@@ -47,7 +47,9 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
    FLUSH PRIVILEGES;
 ```
 
-4. Login credentials:
+
+4. Admin login credentials:
+
    
    ```
    name = Anna
