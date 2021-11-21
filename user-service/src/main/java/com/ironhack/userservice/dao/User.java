@@ -17,6 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String avatarURL;
     private String username;
     private String email;
     private String password;
@@ -24,11 +25,13 @@ public class User {
     @Column(name = "user_type")
     private String userType;
 
-    public User(String username, String email, String password, String bio, String userType) {
+
+    public User(String avatarURL, String username, String email, String password, String bio, String userType) {
+        this.avatarURL = avatarURL;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.bio=bio;
+        this.bio = bio;
         this.userType = userType;
     }
 }
