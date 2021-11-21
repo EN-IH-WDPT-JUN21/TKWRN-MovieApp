@@ -19,28 +19,33 @@
 
             <div class="form-group">
                 <label for="name">Username*: </label>
-                <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" pattern="^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$" [disabled]="form.submitted">
-                <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write username that consists 5 to 20 characters: letters, numbers, dot (.), underscore (_), and hyphen (-).</p>
+                <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" pattern="^[a-zA-Z0-9]{5,10}$" [disabled]="submitted">
+                <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write username that consists 5 to 10 characters: letters & numbers only.</p>
             </div>
 
             <div class="form-group">
                 <label for="name">Email*: </label>
-                <input ngModel required email [(ngModel)]="user.email" name="email" type="text" placeholder="Email..." #emailInput="ngModel" [disabled]="form.submitted">
+                <input ngModel required email [(ngModel)]="user.email" name="email" type="text" placeholder="Email..." #emailInput="ngModel" [disabled]="submitted">
                 <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">Please use a proper email address</p>
             </div>
             <div class="form-group">
                 <label for="password">Password*: </label>
-                <input ngModel required password [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" [disabled]="form.submitted">
+                <input ngModel required password [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" [disabled]="submitted">
                 <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">The password must be between 4 and 20 characters</p>
             </div>
             <div class="form-group">
                 <label for="passwordConfirm">Password confirmation*: </label>
-                <input ngModel required passwordConfirm minlength="4" maxlength="20" value=form.password name="passwordConfirm" type="password" placeholder="Password confirmation..." #passwordConfirmInput="ngModel" pattern="{{ passwordInput.value }}" [disabled]="form.submitted">
+                <input ngModel required passwordConfirm minlength="4" maxlength="20" value=form.password name="passwordConfirm" type="password" placeholder="Password confirmation..." #passwordConfirmInput="ngModel" pattern="{{ passwordInput.value }}" [disabled]="submitted">
                 <p class="error-msg" *ngIf="passwordConfirmInput.invalid && passwordConfirmInput.touched">The password doesn't match</p>
             </div>
             <div class="form-group">
+                <label for="bio">Bio: </label>
+                <input ngModel bio [(ngModel)]="user.bio" name="bio" type="text" placeholder="Bio (not required)..." #bioInput="ngModel" [disabled]="submitted" class="heighttext">
+                <p class="error-msg" *ngIf="bioInput.invalid && bioInput.touched">Please write bio up to 100 characters</p>
+            </div>         
+            <div class="form-group">
                 <label for="userType">User type*: </label>
-                <select ngModel name="userType" required userType [(ngModel)]="user.userType" #userTypeInput="ngModel" [disabled]="form.submitted">
+                <select ngModel name="userType" required userType [(ngModel)]="user.userType" #userTypeInput="ngModel" [disabled]="submitted">
                   <option value="USER">Standard User</option>
                   <option value="PREMIUM">Premium User</option>
                   <!-- <option value="ADMIN">Admin</option> -->
@@ -50,7 +55,7 @@
 
 
             <div class="buttons">
-                <button type="submit" [disabled]="form.invalid" [disabled]="form.submitted" class="btn btn-success">Register</button>
+                <button type="submit" [disabled]="form.invalid" [disabled]="submitted" class="btn btn-success">Register</button>
                 <button class="btn btn-warning" (click)="goToLogin()">Back to Login</button>
             </div>
             <p>* fields required</p>

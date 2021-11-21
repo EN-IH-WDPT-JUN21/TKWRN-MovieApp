@@ -38,6 +38,7 @@ export class LoginFormComponent implements OnInit {
       username: '',
       email: '',
       password: '',
+      bio:'',
       userType: ''
 
     }
