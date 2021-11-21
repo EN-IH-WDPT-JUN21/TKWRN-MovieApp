@@ -1,24 +1,28 @@
-<div class="panel-heading">
-    <h2>User details</h2>
-</div>
-<div class="panel-body">
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Username</th>
-        <th>Email</th>
-        <th>User type</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>{{user.username}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.userType}}</td>
-       <td><button (click)="deleteUser(user.username)" class="btn btn-danger">Delete</button>
-             <button (click)="updateUser(user.username)" class="btn btn-info" style="margin-left: 10px">Update</button>
-       </td> 
-    </tr>
-    </tbody>
-</table>
+<div class="panel">
+    <div class="panel-heading">
+        <h2>User details</h2>
+    </div>
+    <div class="panel-body">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Avatar</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>User type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><img src="../../assets/images/{{user.avatarURL.slice(user.avatarURL.length -5)}}"></td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.userType}}</td>
+        <td><button (click)="deleteUser(user.username)" class="btn btn-danger">Delete</button>
+                <button (click)="updateUser(user.username)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td> 
+        </tr>
+        </tbody>
+    </table>
+    </div>
 </div>
