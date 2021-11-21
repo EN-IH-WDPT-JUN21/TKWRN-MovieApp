@@ -7,7 +7,7 @@ export class AuthService {
 
   constructor() { }
 
-  isLoggedIn(): Boolean{
+  isLoggedIn(): boolean{
     if (localStorage.getItem('username')) {
       return true;
 
@@ -17,7 +17,7 @@ export class AuthService {
 
   }
 
-  isAdmin(): Boolean{
+  isAdmin(): boolean{
     if (localStorage.getItem('role')=='ADMIN') {
       return true;
 
