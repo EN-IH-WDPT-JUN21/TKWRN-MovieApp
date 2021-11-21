@@ -80,7 +80,7 @@ export class PlaylistArrayComponent implements OnInit {
           console.log(data);
         }
       );
-      this.movie = new TitleSearchResult("", "", "", "null");
+      this.movie = new TitleSearchResult("", "", "null", "null");
       console.log(this.movie);
   }
 
