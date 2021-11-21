@@ -1,11 +1,19 @@
 <ul class="menu navbar-nav">
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a class="menu-item" routerLink="/">Home</a></li>
   <li routerLinkActive="active"><a class="menu-item" routerLink="/login" >Login</a></li>
-  <li routerLinkActive="active"><a class="menu-item" routerLink="/logout" >Logout</a></li>
+  <div *ngIf="isLoggedIn">
+    <li routerLinkActive="active"><a class="menu-item" routerLink="/logout" >Logout</a></li>
+  </div>
   <li routerLinkActive="active"><a class="menu-item" routerLink="/register" >Register</a></li>
-  <li routerLinkActive="active"><a class="menu-item" style="margin: 0 auto;" routerLink="/users" >User list</a></li>
-  <li routerLinkActive="active"><a class="menu-item" routerLink="/search-results">Search</a></li>
-  <li routerLinkActive="active"><a class="menu-item" routerLink="/playlists">Playlists</a></li>
+  <div *ngIf="isLoggedIn && isAdmin">
+    <li routerLinkActive="active"><a class="menu-item" style="margin: 0 auto;" routerLink="/users" >User list</a></li>
+  </div>
+  <div *ngIf="isLoggedIn">
+    <li routerLinkActive="active"><a class="menu-item" routerLink="/search-results">Search</a></li>
+  </div>
+  <div *ngIf="isLoggedIn">
+    <li routerLinkActive="active"><a class="menu-item" routerLink="/playlists">Playlists</a></li>
+  </div>
 </ul>
 
 
