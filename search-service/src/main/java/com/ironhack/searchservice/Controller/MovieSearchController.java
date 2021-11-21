@@ -3,10 +3,7 @@ package com.ironhack.searchservice.Controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ironhack.searchservice.Service.MovieSearchService;
 import com.ironhack.searchservice.Service.PersonSearchService;
-import com.ironhack.searchservice.dao.NameSearchResult;
-import com.ironhack.searchservice.dao.PersonIdResult;
-import com.ironhack.searchservice.dao.TitleIdResult;
-import com.ironhack.searchservice.dao.TitleSearchResult;
+import com.ironhack.searchservice.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +45,20 @@ public class MovieSearchController {
     public PersonIdResult getPersonByNameId(@PathVariable String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {
         return personSearchService.searchByNameId(id);
     }
+
+    // Special Searches
+    @GetMapping("/popular/movies")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PopularResults> getPopularMovies() throws ExecutionException, InterruptedException, JsonProcessingException {
+        return movieSearchService.searchPopular("Movies");
+    }
+
+    @GetMapping("/popular/series")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PopularResults> getPopularSeries() throws ExecutionException, InterruptedException, JsonProcessingException {
+        return movieSearchService.searchPopular("TVs");
+    }
+
 
 
 }
