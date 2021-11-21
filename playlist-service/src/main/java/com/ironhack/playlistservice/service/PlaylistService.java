@@ -37,6 +37,7 @@ public class PlaylistService {
         Playlist foundPlaylist = playlistRepository.findById(id).get();
         List<Movie> movieList = foundPlaylist.getMovies();
         movieList.add(new Movie(
+                foundPlaylist.getId(),
                 movie.getTitleId(),
                 movie.getImageURI(),
                 movie.getTitle(),
@@ -51,6 +52,7 @@ public class PlaylistService {
         List<MovieDTO> moviesList = new ArrayList<>();
         for (var movie : foundPlaylist.getMovies()){
             moviesList.add(new MovieDTO(
+                    foundPlaylist.getId(),
                     movie.getTitleId(),
                     movie.getImageURI(),
                     movie.getTitle(),
@@ -60,3 +62,4 @@ public class PlaylistService {
         return moviesList;
     }
 }
+
