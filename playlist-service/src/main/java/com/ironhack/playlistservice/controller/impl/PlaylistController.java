@@ -44,25 +44,6 @@ public class PlaylistController implements IPlaylistController {
         return playlistService.getMoviesByPlaylist(id);
     }
 
-    @GetMapping("/user/{userId}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Playlist> getByUserId(@PathVariable(name = "userId") long userId) {
-        return playlistService.getByUser(userId);
-    }
-
-    @GetMapping("/name/{name}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Playlist> getByName(@PathVariable(name = "name") String name) {
-        return playlistService.getByName(name);
-    }
-
-    @PutMapping("/update/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Playlist updatePlaylist(@PathVariable(name = "id") long id,
-                                   @RequestBody PlaylistRequestDTO playlistRequestDTO) {
-        return playlistService.update(id, playlistRequestDTO);
-    }
-
     @PutMapping("/addmovie/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Playlist updatePlaylist(@PathVariable(name = "id") long id,
