@@ -6,15 +6,11 @@
     background-color: #fff;
     border-radius: 35px;
     height: 70%;
-    display: grid;
     align-items: center;
-    margin-top: auto 0;
-    width: 60%;
-    flex: 1 1 auto;
+    width: 70%;
 }
 
 .input-group {
-    /* height: 100% */
     display: flex; 
 }
 

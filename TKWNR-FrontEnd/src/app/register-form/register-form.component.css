@@ -73,9 +73,9 @@ h1 {
     margin-bottom: 15px;
   }
 
-  textarea {
 
-    height: 200px;
+  .heighttext{
+    height:100px
   }
   
 

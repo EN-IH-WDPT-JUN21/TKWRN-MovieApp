@@ -45,8 +45,8 @@ export class PlaylistsService {
     return this.http.get(`/api/search/title/${id}`);
   }
 
-  getMoviesByPlaylistId(id:number): Observable<any>{
-    return this.http.get(`${this.baseUrl}/movies/{id}`);
+  getMoviesByPlaylistId(id: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/movies/${id}`);
   }
 
 }

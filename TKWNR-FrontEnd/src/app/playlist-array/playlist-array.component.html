@@ -1,37 +1,16 @@
-<div class="container">
-  <header>
-      <div class="logo-name">
-          <img class="logo" src="../../assets/images/medieval_knight_icon_white.svg">
-          <span class="each-word">Knights</span>
-          <span class="each-word">Who</span>
-          <span class="each-word">Return</span>
-          <span class="each-word">NULL</span><br>
+<div class="container dark">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="creation">
+        <input class="form-control form-control-lg" ngModel required minlength="1" maxlength="15" name="name" type="text" [(ngModel)]="playlist.name" placeholder="Playlist name..." #nameInput="ngModel">
+        <button type="submit" id="create" class="btn btn-success">Create Playlist</button>
       </div>
-      <div class="search-bar">
-          <app-search></app-search>
-      </div>
-  </header>
-  <div class="main-container"> 
-      <nav class="navbar-left">  
-          <app-navigation></app-navigation>
-      </nav>
-      <div class="main">
-        <div class="container dark">
-          <form (ngSubmit)="onSubmit()" #form="ngForm">
-            <div class="creation">
-              <input class="form-control form-control-lg" ngModel required minlength="1" maxlength="15" name="name" type="text" [(ngModel)]="playlist.name" placeholder="Playlist name..." #nameInput="ngModel">
-              <button type="submit" id="create" class="btn btn-success">Create Playlist</button>
-            </div>
-          </form>
-          <div class="container dark" *ngFor="let playlist of playlists; let i = index">
-            <p>{{playlist.name}}</p>
-            <p (click)="showPlaylistDetails(i)">This is placeholder clickable, maybe some kind of image?</p>
-            <mat-icon *ngIf="this.movie.title != ''" (click)=addToPlaylist(i)>more_vert</mat-icon>
-          </div>
-      </div>
-      </div>
-  </div>
-  <div class="footer">
-      <app-footer></app-footer>
-  </div>
+    </form>
+    <!-- <app-playlist-detail class="row" *ngFor="let playlist of playlists; let i = index">
+    </app-playlist-detail>   -->
+    <div class="container dark" *ngFor="let playlist of playlists; let i = index">
+      <p>{{playlist.id}}</p>
+      <p>{{playlist.name}}</p>
+      <p (click)="showPlaylistDetails(i+1)">This is placeholder clickable, maybe some kind of image?</p>
+      <mat-icon *ngIf="this.movie.title != ''" (click)=addToPlaylist(i+1)>more_vert</mat-icon>
+    </div>
 </div>

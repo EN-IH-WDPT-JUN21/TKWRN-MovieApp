@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
       if(this.auth.isLoggedIn()){
         return true;
       }
-      window.alert("You don't have permission to view this page")
+      window.alert("You have to log in to view this page")
         return false;
     
   
