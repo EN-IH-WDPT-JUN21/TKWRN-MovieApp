@@ -1,15 +1,22 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
+  @Output() public searchSignal = new EventEmitter();
+
   private baseURL = "http://localhost:8400/api/search";
 
   constructor(private http:HttpClient) { }
+
+  searchMade(searchType:string, titleType:string, searchString:string){
+    console.log("ping")
+    this.searchSignal.emit(searchType + "/" + titleType + "/" + searchString);
+  }
 
   getMovieDetail(id: number): Observable<any>{
     return this.http.get(`${this.baseURL}/title/${id}`);

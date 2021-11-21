@@ -1,3 +1,4 @@
+import { SearchService } from './../search.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchResultsComponent } from '../search-results/search-results.component';
 
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
   @ViewChild(SearchResultsComponent) searchComponent!: SearchResultsComponent;
 
 
-  constructor() {
+  constructor(public searchService: SearchService) {
     this.searchString = "";
     this.searchType = "";
     this.titleType = "";
