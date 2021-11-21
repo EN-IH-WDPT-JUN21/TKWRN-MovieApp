@@ -21,13 +21,12 @@
             <option value="person">Actor/Actress</option>
             <option value="movies">Title</option>
         </select>
-    
+
         <select [disabled]="this.searchType != 'movies'" class="form-select type" id="inline-dropdown" [(ngModel)] = "titleType">
             <option value="movie">Movie</option>
             <option value="series">Series</option>
         </select>
 
         <button class="btn btn-primary" [disabled]="this.searchType == '' || (this.searchType == 'movies' && this.titleType == '') || this.searchString == ''" (click)="searchService.searchMade(this.searchType, this.titleType, this.searchString)">Search</button>
-    </div>  
+    </div>
 </div>
-

@@ -16,14 +16,14 @@ export class PlaylistMovieComponent implements OnInit {
   id!:number;
   playlist!: Playlist;
   playlistId!:number;
-  
+
   constructor(private playlistService: PlaylistsService,
-             private movieService: MovieService, 
+             private movieService: MovieService,
              private activatedRoute: ActivatedRoute) {
   }
 
   @ViewChild(SearchResultsComponent) moviesComponent!: SearchResultsComponent;
-  
+
   ngOnInit(): void {
     this.playlistId = this.activatedRoute.snapshot.params['id'];
     this.playlist = new Playlist();
@@ -33,9 +33,10 @@ export class PlaylistMovieComponent implements OnInit {
       console.log("here")
       this.playlistService.getMoviesByPlaylistId(this.playlistId)
       .subscribe(data => {
+        console.log(data)
         this.moviesComponent.movieList = data;
       }, error => console.log(error))
-      
+
       this.playlistService.getPlaylist(this.playlistId)
       .subscribe(data => {
         this.playlist = data;

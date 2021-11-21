@@ -14,9 +14,13 @@ import java.util.List;
 public class PlaylistService {
 
     private PlaylistRepository playlistRepository;
+    
+    private MovieRepository movieRepository;
 
-    public PlaylistService(PlaylistRepository playlistRepository) {
+    public PlaylistService(PlaylistRepository playlistRepository,
+                          MovieRepository movieRepository) {
         this.playlistRepository = playlistRepository;
+        this.movieRepository = movieRepository;
     }
 
     public Playlist update(long id, PlaylistRequestDTO playlistRequestDTO) {
@@ -32,19 +36,24 @@ public class PlaylistService {
         return playlistRepository.save(newPlaylist);
     }
 
-    public Playlist addMovie(long id, MovieDTO movie) {
+     public Playlist addMovie(long id, MovieDTO movie) {
         System.out.println(movie.getTitle());
         Playlist foundPlaylist = playlistRepository.findById(id).get();
         List<Movie> movieList = foundPlaylist.getMovies();
-        movieList.add(new Movie(
+        Movie newMovie = new Movie(
                 foundPlaylist.getId(),
                 movie.getTitleId(),
                 movie.getImageURI(),
                 movie.getTitle(),
-                movie.getDescription()));
-        foundPlaylist.setMovies(movieList);
-        foundPlaylist.setLength(foundPlaylist.getLength() + 1);
-        return playlistRepository.save(foundPlaylist);
+                movie.getDescription());
+        if(!(movieRepository.getByTitleId(newMovie.getTitleId()) == null)) {
+            return playlistRepository.save(foundPlaylist);
+        } else {
+            movieList.add(newMovie);
+            foundPlaylist.setMovies(movieList);
+            foundPlaylist.setLength(foundPlaylist.getLength() + 1);
+            return playlistRepository.save(foundPlaylist);
+        }
     }
 
     public List<MovieDTO> getMoviesByPlaylist(String id) {
@@ -60,6 +69,11 @@ public class PlaylistService {
             ));
         }
         return moviesList;
+    }
+    
+    public Movie getByTitleId(String titleId) {
+        Movie movie = movieRepository.getByTitleId(titleId);
+        return movie;
     }
 }
 

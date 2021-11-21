@@ -1,3 +1,4 @@
+import { PopularSearchResult } from './../models/popular.model';
 import { MovieStorageService } from './../movie-storage.service';
 import { NameSearchResult } from './../models/name-search-result.model';
 
@@ -14,8 +15,10 @@ import { Subscription } from 'rxjs';
 })
 export class SearchResultsComponent implements OnInit {
 
-  movieList: TitleSearchResult[] = []
-  personList: NameSearchResult[] = []
+  movieList: TitleSearchResult[] = [];
+  personList: NameSearchResult[] = [];
+  popularMoviesList: PopularSearchResult[] = [];
+  popularSeriesList: PopularSearchResult[] = [];
   searchType: string;
   titleType: string;
   searchString: string;
