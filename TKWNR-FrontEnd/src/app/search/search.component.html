@@ -30,4 +30,3 @@
         <button class="btn btn-primary" [disabled]="this.searchType == '' || (this.searchType == 'movies' && this.titleType == '') || this.searchString == ''" (click)="searchService.searchMade(this.searchType, this.titleType, this.searchString)">Search</button>
     </div>  
 </div>
-
