@@ -8,7 +8,7 @@
     <div class="container dark playList" *ngFor="let playlist of playlists; let i = index">
       <p (click)="showPlaylistDetails(i+1)">{{playlist.name}}</p>
       <div class="icons">
-        <mat-icon *ngIf="movie.title !== 'null'" (click)=addToPlaylist(i+1)>library_add</mat-icon>
+        <mat-icon *ngIf="movie.title !== 'null'" (click)=addToPlaylist(playlist.id)>library_add</mat-icon>
         <mat-icon class="delete" (click)=deletePlaylist(playlist.id)>delete_sweep</mat-icon>
       </div>
     </div>
