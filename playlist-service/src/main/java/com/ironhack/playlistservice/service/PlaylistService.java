@@ -14,9 +14,13 @@ import java.util.List;
 public class PlaylistService {
 
     private PlaylistRepository playlistRepository;
+    
+    private MovieRepository movieRepository;
 
-    public PlaylistService(PlaylistRepository playlistRepository) {
+    public PlaylistService(PlaylistRepository playlistRepository,
+                          MovieRepository movieRepository) {
         this.playlistRepository = playlistRepository;
+        this.movieRepository = movieRepository;
     }
 
     public Playlist update(long id, PlaylistRequestDTO playlistRequestDTO) {
@@ -65,6 +69,11 @@ public class PlaylistService {
             ));
         }
         return moviesList;
+    }
+    
+    public Movie getByTitleId(String titleId) {
+        Movie movie = movieRepository.getByTitleId(titleId);
+        return movie;
     }
 }
 
