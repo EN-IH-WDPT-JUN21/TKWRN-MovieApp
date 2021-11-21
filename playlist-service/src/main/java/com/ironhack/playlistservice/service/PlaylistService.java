@@ -19,14 +19,6 @@ public class PlaylistService {
         this.playlistRepository = playlistRepository;
     }
 
-    public List<Playlist> getByUser(long userId) {
-        return null;
-    }
-
-    public List<Playlist> getByName(String name) {
-        return null;
-    }
-
     public Playlist update(long id, PlaylistRequestDTO playlistRequestDTO) {
         return null;
     }
