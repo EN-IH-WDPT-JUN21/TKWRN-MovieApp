@@ -10,9 +10,16 @@
         <div class="search-bar">
             <app-search></app-search>
         </div>
-        <div>
-            <img class="avatar" src="../../assets/images/{{getAvatarURL()}}">
+        <div class="avatar-box">
+            <label for="toggle"><img id="avatar" tabindex="1" class="avatar" src="../../assets/images/{{getAvatarURL()}}"></label>
+            <input type="checkbox" id="toggle" class="visually-hidden">
+            <div id="login-popup" >
+                <a class="menu-item" routerLink="/register" >Register</a>
+                <p>Login</p>
+                <p>Logout</p>
+            </div>
         </div>
+  
     </header>
     <div class="main-container"> 
         <nav class="navbar-left">  

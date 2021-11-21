@@ -59,3 +59,29 @@ header {
     color: red;
     font-size: 1.5em;
 }
+
+.avatar-box {
+    position: relative;
+}
+
+#login-popup {
+    background-color: #fff;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: -120px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 18px;
+    display: none;
+}
+
+#toggle:checked ~ #login-popup {
+    display: block;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -100vw;
+}

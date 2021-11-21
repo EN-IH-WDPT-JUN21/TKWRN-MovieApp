@@ -47,8 +47,8 @@ public class PlaylistService {
         return playlistRepository.save(foundPlaylist);
     }
 
-    public List<MovieDTO> getMoviesByPlaylist(long id) {
-        Playlist foundPlaylist = playlistRepository.findById(id).get();
+    public List<MovieDTO> getMoviesByPlaylist(String id) {
+        Playlist foundPlaylist = playlistRepository.findById(Long.parseLong(id)).get();
         List<MovieDTO> moviesList = new ArrayList<>();
         for (var movie : foundPlaylist.getMovies()){
             moviesList.add(new MovieDTO(

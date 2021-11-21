@@ -40,7 +40,7 @@ public class PlaylistController implements IPlaylistController {
 
     @GetMapping("/movies/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<MovieDTO> getMoviesInPlaylist(@PathVariable(name = "id") long id) {
+    public List<MovieDTO> getMoviesInPlaylist(@PathVariable(name = "id") String id) {
         return playlistService.getMoviesByPlaylist(id);
     }
 
