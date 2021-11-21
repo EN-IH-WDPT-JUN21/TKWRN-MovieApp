@@ -6,6 +6,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>Avatar URL</th>
             <th>Username</th>
             <th>Email</th>
             <th>User type</th>
@@ -13,6 +14,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of users | async">
+            <td>{{user.avatarURL}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
             <td>{{user.userType}}</td>

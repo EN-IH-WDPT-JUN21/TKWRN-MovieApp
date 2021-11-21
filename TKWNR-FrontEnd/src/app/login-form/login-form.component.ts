@@ -34,6 +34,7 @@ export class LoginFormComponent implements OnInit {
 
   ) {
     this.user = {
+      avatarURL: '',
       username: '',
       email: '',
       password: '',
@@ -69,6 +70,10 @@ export class LoginFormComponent implements OnInit {
         this.wrong=false;
         this.submitted=true;
         localStorage.setItem(
+          'avatarURL',
+          (this.user.avatarURL)
+        );
+        localStorage.setItem(
           'username',
           (this.user.username)
         );
@@ -81,6 +86,7 @@ export class LoginFormComponent implements OnInit {
       }else{
         this.submitted=false;
         this.wrong=true;
+        this.form.value.avatarURL='';
         this.form.value.username='';
         this.form.value.password='';
         this.user = new User();

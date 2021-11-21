@@ -24,6 +24,7 @@ export class LogoutComponent implements OnInit {
     private router: Router
   ) {
     this.user = {
+      avatarURL: '',
       username: '',
       email: '',
       password: '',
@@ -46,6 +47,7 @@ export class LogoutComponent implements OnInit {
   }
 
   logout(): void {
+    localStorage.removeItem('avatarURL');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
     this.isLogged();
