@@ -69,10 +69,18 @@ export class LoginFormComponent implements OnInit {
       if(this.form.value.password  === this.user.password){
         this.wrong=false;
         this.submitted=true;
-        localStorage.setItem(
-          'avatarURL',
-          (this.user.avatarURL)
-        );
+        if(this.user.avatarURL != null) {
+          localStorage.setItem(
+            'avatarURL',
+            (this.user.avatarURL)
+          )
+        } else {
+          localStorage.setItem(
+            'avatarURL',
+            ("0.png")
+          )
+        }
+        
         localStorage.setItem(
           'username',
           (this.user.username)
