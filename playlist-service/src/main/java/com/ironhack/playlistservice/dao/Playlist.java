@@ -30,7 +30,7 @@ public class Playlist {
 
     private String type;
 
-    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "playlistId", cascade = CascadeType.ALL)
     private List<Movie> movies;
 
     public Playlist(String name, int length, long userId) {
