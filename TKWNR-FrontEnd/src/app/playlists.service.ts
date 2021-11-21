@@ -1,6 +1,6 @@
 import { TitleSearchResult } from './models/title-search-result';
 import { HttpClient } from '@angular/common/http';
-import { Playlist } from 'src/playlist';
+import { Playlist } from 'src/app/playlist';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 

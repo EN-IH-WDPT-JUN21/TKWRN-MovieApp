@@ -1,4 +1,4 @@
-import { MovieDetail } from './app/models/movie-detail.model';
+import { MovieDetail } from './models/movie-detail.model';
 
 
 export class Playlist {

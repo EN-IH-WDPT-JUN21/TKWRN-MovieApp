@@ -10,3 +10,8 @@
 img {
     max-width: 256px !important;
 }
+
+p {
+    color: white;
+    /* added for visibility */
+}

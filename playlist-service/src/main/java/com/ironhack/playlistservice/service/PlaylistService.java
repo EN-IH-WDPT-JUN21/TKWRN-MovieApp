@@ -8,9 +8,7 @@ import com.ironhack.playlistservice.repository.PlaylistRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PlaylistService {
@@ -37,8 +35,7 @@ public class PlaylistService {
         Playlist newPlaylist = new Playlist(
                 playlistRequestDTO.getName(),
                 playlistRequestDTO.getLength(),
-                playlistRequestDTO.getUserId(),
-                playlistRequestDTO.getType()
+                playlistRequestDTO.getUserId()
         );
         return playlistRepository.save(newPlaylist);
     }
@@ -53,6 +50,7 @@ public class PlaylistService {
                 movie.getTitle(),
                 movie.getDescription()));
         foundPlaylist.setMovies(movieList);
+        foundPlaylist.setLength(foundPlaylist.getLength() + 1);
         return playlistRepository.save(foundPlaylist);
     }
 

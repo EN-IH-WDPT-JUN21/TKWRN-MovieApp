@@ -1,13 +1,11 @@
 import { Router } from '@angular/router';
 import { MovieStorageService } from './../movie-storage.service';
-import { PlaylistDetailComponent } from './../playlist-detail/playlist-detail.component';
 import { TitleSearchResult } from '../models/title-search-result';
-import { Playlist } from 'src/playlist';
+import { Playlist } from 'src/app/playlist';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PlaylistsService } from '../playlists.service';
 import { Movie } from '../movie';
-import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-playlist-array',
@@ -35,37 +33,31 @@ export class PlaylistArrayComponent implements OnInit {
       }
     this.playlists = [];
     
-    //debugging
     this.playlists.push(new Playlist())
   }
 
   ngOnInit(): void {
     this.reloadData();
-    document.body.classList.add('bg-img');
     this.movie = this.movieStorage.getMovie();
-    // console.log(this.movie);
   }
 
   reloadData(): void {
-  //  this.playlists = this.playlistService.getAllPlaylists();
   this.playlistService.getAllPlaylists().subscribe(
     result => {
       this.playlists = result;
-    }
-  );
+    });
   }
 
   save() {
-    if(this.playlists.length <= 10) {
-      this.playlistService
-    .createPlaylist(this.playlist).subscribe(data => {
-      this.playlist = new Playlist();
-      this.reloadData();
-    },
-    error => console.log(error));
+    if(this.playlists.length <= 9) {
+      this.playlistService.createPlaylist(this.playlist).subscribe(data => {
+          this.playlist = new Playlist();
+          this.reloadData();
+      });
     } else {
-      console.log("Can't add to playlist!")
-    }
+        console.log("Can't add to playlist!");
+        return;
+      }
   }
 
   onSubmit(): void {
@@ -73,9 +65,17 @@ export class PlaylistArrayComponent implements OnInit {
     this.save();
   }
 
+  showPlaylist(id: number) {
+    this.playlistService.getPlaylist(id).subscribe(
+      data => {
+        this.playlist = data;
+      }
+    )
+  }
+
   addToPlaylist(id:number){
     console.log(this.movie)
-      this.playlistService.addNewMovie(id + 1, this.movie).subscribe(
+      this.playlistService.addNewMovie(id, this.movie).subscribe(
         data => {
           console.log(data);
         }
@@ -84,8 +84,16 @@ export class PlaylistArrayComponent implements OnInit {
       console.log(this.movie);
   }
 
+  deletePlaylist(id: number) {
+    this.playlistService.deletePlaylist(id).subscribe(
+      data => {
+        console.log(data);
+        this.reloadData();
+      }
+    )
+  }
+
   showPlaylistDetails(id:number){
     this.router.navigate(['playlists', id])
   }
-
 }

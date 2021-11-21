@@ -1,13 +1,10 @@
 import { MovieStorageService } from './../movie-storage.service';
-import { PlaylistDetailComponent } from './../playlist-detail/playlist-detail.component';
 import { NameSearchResult } from './../models/name-search-result.model';
 
-import { Star } from './../models/star.model';
 import { Router } from '@angular/router';
 import { SearchService } from './../search.service';
 import { TitleSearchResult } from '../models/title-search-result';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PlaylistArrayComponent } from '../playlist-array/playlist-array.component';
 
 @Component({
   selector: 'movie-list',
