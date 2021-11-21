@@ -80,14 +80,14 @@ public class PlaylistControllerTest {
         assertTrue(result.getResponse().getContentAsString().contains("Playlist 2"));
     }
 
-    @Test
-    void create() throws Exception {
-        PlaylistRequestDTO playlistRequestDTO = new PlaylistRequestDTO("Playlist3", 0, 3);
-        String body = objectMapper.writeValueAsString(playlistRequestDTO);
-        MvcResult result = mockMvc.perform(post("/api/playlists/new").content(body)
-                .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isCreated()).andReturn();
-        assertTrue(result.getResponse().getContentAsString().contains("Playlist3"));
-    }
+//    @Test
+//    void create() throws Exception {
+//        PlaylistRequestDTO playlistRequestDTO = new PlaylistRequestDTO("Playlist3", 0, 3);
+//        String body = objectMapper.writeValueAsString(playlistRequestDTO);
+//        MvcResult result = mockMvc.perform(post("/api/playlists/new").content(body)
+//                .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isCreated()).andReturn();
+//        assertTrue(result.getResponse().getContentAsString().contains("Playlist3"));
+//    }
 
     @Test
     void addNewMovie() throws Exception {

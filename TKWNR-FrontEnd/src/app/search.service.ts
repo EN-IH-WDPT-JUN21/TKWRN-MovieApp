@@ -14,7 +14,6 @@ export class SearchService {
   constructor(private http:HttpClient) { }
 
   searchMade(searchType:string, titleType:string, searchString:string){
-    console.log("ping")
     this.searchSignal.emit(searchType + "/" + titleType + "/" + searchString);
   }
 

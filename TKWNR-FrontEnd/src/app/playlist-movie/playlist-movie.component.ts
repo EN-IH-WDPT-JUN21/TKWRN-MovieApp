@@ -15,6 +15,7 @@ export class PlaylistMovieComponent implements OnInit {
 
   id!:number;
   playlist!: Playlist;
+  playlistId!:number;
   
   constructor(private playlistService: PlaylistsService,
              private movieService: MovieService, 
@@ -24,19 +25,24 @@ export class PlaylistMovieComponent implements OnInit {
   @ViewChild(SearchResultsComponent) moviesComponent!: SearchResultsComponent;
   
   ngOnInit(): void {
-      const playlistId: number = this.activatedRoute.snapshot.params['id'];
-      this.playlistService.getMoviesByPlaylistId(playlistId)
+    this.playlistId = this.activatedRoute.snapshot.params['id'];
+    this.playlist = new Playlist();
+    }
+
+  ngAfterViewInit(): void{
+      console.log("here")
+      this.playlistService.getMoviesByPlaylistId(this.playlistId)
       .subscribe(data => {
         this.moviesComponent.movieList = data;
       }, error => console.log(error))
       
-      this.playlistService.getPlaylist(playlistId)
+      this.playlistService.getPlaylist(this.playlistId)
       .subscribe(data => {
         this.playlist = data;
         console.log(data);
         this.playlist.name = this.playlist.name.toUpperCase();
       }, error => console.log(error))
-    }
+  }
 
   delete(id: number) {
       this.movieService.deleteMovie(id)

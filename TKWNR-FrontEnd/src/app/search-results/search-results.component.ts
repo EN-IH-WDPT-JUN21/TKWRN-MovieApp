@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { SearchService } from './../search.service';
 import { TitleSearchResult } from '../models/title-search-result';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'movie-list',
@@ -19,12 +20,14 @@ export class SearchResultsComponent implements OnInit {
   titleType: string;
   searchString: string;
 
+  private subscription!: Subscription;
+
   constructor(public searchService: SearchService, private router: Router, public playListStorage:MovieStorageService) {
     this.searchType = "";
     this.titleType = "";
     this.searchString = "";
 
-    this.searchService.searchSignal.subscribe(data => {
+    this.subscription = this.searchService.searchSignal.subscribe(data => {
       var arg: string = data;
       var argList: string[] = arg.split("/");
       this.performSearch(argList[0], argList[1], argList[2]);
@@ -39,6 +42,10 @@ export class SearchResultsComponent implements OnInit {
       "https://m.media-amazon.com/images/M/MV5BODllNWE0MmEtYjUwZi00ZjY3LThmNmQtZjZlMjI2YTZjYmQ0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg",
       "Léon: The Professional",
       "1994"))
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   performSearch(searchType: string, titleType: string, searchString:string): void {
