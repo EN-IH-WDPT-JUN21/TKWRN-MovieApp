@@ -27,6 +27,7 @@ export class LogoutComponent implements OnInit {
       username: '',
       email: '',
       password: '',
+      bio:'',
       userType: '',
     };
   }

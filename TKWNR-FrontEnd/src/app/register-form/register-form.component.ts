@@ -27,6 +27,7 @@ export class RegisterFormComponent implements OnInit {
       username: '',
       email: '',
       password: '',
+      bio:'',
       userType: ''
     }
   }
@@ -48,39 +49,28 @@ export class RegisterFormComponent implements OnInit {
     error => console.log(error));
   }
 
-  /*checkUserExists(): boolean {
+  checkUserExists(): boolean {
+    let exist=false;
     this.userService.getUser(this.form.value.username)
     .subscribe(data => {
-      this.user = data;
-
-
-    }, error => console.log(error));
-    console.log(this.user);
-    if(this.user!=null){      
-      window.alert('user exists');
-      console.log((this.user.email))
-      return true;
-
-    }else{          
-      console.log('ok');
-      return false;
-    }
-    
-
-
-
-
-  }*/
+      console.log(data);
+      exist=true;
+      this.submitted = false;
+      window.alert('Username exists. Try register with different username');
+    }, error => {
+      console.log(error);
+      exist=false;
+      this.save();
+      this.submitted = true;
+    });
+    return exist;
+  }
 
 
   onSubmit(): void {
-    this.submitted = true;
+    this.submitted = false;
     console.log(this.form.value);
-    /*if(this.checkUserExists()!=true){*/
-      this.save();
-    /*}else{
-      this.submitted = false;
-    }*/
+    this.checkUserExists();
 
   }
 

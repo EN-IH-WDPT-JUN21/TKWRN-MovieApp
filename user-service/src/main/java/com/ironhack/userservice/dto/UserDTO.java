@@ -14,6 +14,7 @@ public class UserDTO {
     private String username;
     private String email;
     private String password;
+    private String bio;
     private String userType;
 
     public UserDTO(String username, String password) {

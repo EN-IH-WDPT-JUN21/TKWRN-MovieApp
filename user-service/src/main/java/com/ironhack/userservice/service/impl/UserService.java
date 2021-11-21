@@ -57,7 +57,7 @@ public class UserService implements IUserService {
     }
 
     private UserDTO convertUserToDTO(User user) {
-        return new UserDTO(user.getUsername(), user.getEmail(), user.getPassword(), user.getUserType());
+        return new UserDTO(user.getUsername(), user.getEmail(), user.getPassword(), user.getBio(), user.getUserType());
     }
 
     //fallback
