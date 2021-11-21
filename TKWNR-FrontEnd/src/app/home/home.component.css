@@ -30,6 +30,7 @@ header {
 
 .avatar {
     max-width: 30px;
+    background-color: #fff;
 }
 
 .navbar-left {
