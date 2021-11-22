@@ -3,11 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs";
 import { UserService } from '../user.service'
 import { User } from '../user'
-import { UserUpdateComponent } from '../user-update/user-update.component';
-import { UserListComponent } from '../user-list/user-list.component';
 
 @Component({
-  // providers:[UserUpdateComponent, UserListComponent],
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
@@ -20,9 +17,7 @@ export class UserDetailsComponent implements OnInit {
   constructor(
     private userService: UserService, 
     private router: Router, 
-    private route: ActivatedRoute, 
-    /* private compDet: UserDetailsComponent,
-    private compList: UserListComponent */) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = new User();

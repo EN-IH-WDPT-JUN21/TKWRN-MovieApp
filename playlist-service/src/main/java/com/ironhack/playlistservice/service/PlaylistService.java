@@ -4,6 +4,7 @@ import com.ironhack.playlistservice.controller.dto.MovieDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.dao.Movie;
 import com.ironhack.playlistservice.dao.Playlist;
+import com.ironhack.playlistservice.repository.MovieRepository;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
 import org.springframework.stereotype.Service;
 
