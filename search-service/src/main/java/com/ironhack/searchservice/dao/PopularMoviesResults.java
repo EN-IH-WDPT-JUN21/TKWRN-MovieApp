@@ -20,24 +20,24 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PopularResults {
+public class PopularMoviesResults {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Calendar dateOfLastSearch;
-    private String rank;
+    private String titleRank;
     private String rankUpDown;
     private String titleId;
     private URI imageURI;
     private String title;
 
 
-    public PopularResults(JsonNode movieObj) {
+    public PopularMoviesResults(JsonNode movieObj) {
         this.titleId = movieObj.get("id").asText();
-        this.rank = movieObj.get("rank").asText();
-        this.rankUpDown = movieObj.get("rankupdown").asText();
+        this.titleRank = movieObj.get("rank").asText();
+        this.rankUpDown = movieObj.get("rankUpDown").asText();
         this.imageURI = URI.create(movieObj.get("image").asText());
         this.title = movieObj.get("title").asText();
         this.dateOfLastSearch = Calendar.getInstance();

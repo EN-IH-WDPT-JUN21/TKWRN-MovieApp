@@ -6,7 +6,8 @@ import com.ironhack.searchservice.Repository.PopularMoviesRepository;
 import com.ironhack.searchservice.Repository.PopularSeriesRepository;
 import com.ironhack.searchservice.Repository.TitleSearchResultRepository;
 import com.ironhack.searchservice.Utils.UncheckedObjectMapper;
-import com.ironhack.searchservice.dao.PopularResults;
+import com.ironhack.searchservice.dao.PopularMoviesResults;
+import com.ironhack.searchservice.dao.PopularSeriesResults;
 import com.ironhack.searchservice.dao.TitleIdResult;
 import com.ironhack.searchservice.dao.TitleSearchResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import java.time.DayOfWeek;
 import java.util.ArrayList;
 
 import java.util.Calendar;
@@ -40,6 +40,7 @@ public class MovieSearchService {
 
     @Autowired
     PopularSeriesRepository popularSeriesRepository;
+
 
     private final String baseURL = "https://imdb-api.com/en/API/";
     private final String apiKey = "/k_j0n3xy71/";
@@ -93,23 +94,19 @@ public class MovieSearchService {
 
     }
 
-    public List<PopularResults> searchPopular(String type) throws ExecutionException, InterruptedException, JsonProcessingException {
+    public List<PopularMoviesResults> searchPopularMovies() throws ExecutionException, InterruptedException, JsonProcessingException {
 
-        Optional<PopularResults> foundResult = popularMoviesRepository.findById(0L);
+        Optional<PopularMoviesResults> foundResult = popularMoviesRepository.findById(0L);
         if (foundResult.isPresent()){
+            System.out.println("ping");
             Calendar now = Calendar.getInstance();
             if (foundResult.get().getDateOfLastSearch().get(Calendar.DAY_OF_WEEK) == now.get(Calendar.DAY_OF_WEEK)){
-                if(type.equals("Movies")){
-                    return popularMoviesRepository.findAll();
-                }
-                else if (type.equals("TVs")){
-                    return popularSeriesRepository.findAll();
-                }
+                return popularMoviesRepository.findAll();
             }
         }
 
         var request = HttpRequest.newBuilder(
-                URI.create(baseURL + "MostPopular" + type + apiKey))
+                URI.create(baseURL + "MostPopularMovies" + apiKey))
                 .build();
 
         CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
@@ -121,21 +118,51 @@ public class MovieSearchService {
 
         JsonNode responseNodeTree = objectMapper.readTree(searchResultJSON);
 
-        List<PopularResults> popularResultList = new ArrayList<>();
+        List<PopularMoviesResults> popularMoviesResultList = new ArrayList<>();
 
-        for (JsonNode movieObj : responseNodeTree.get("results")) {
-            popularResultList.add(new PopularResults(movieObj));
+
+        for (JsonNode movieObj : responseNodeTree.get("items")) {
+            popularMoviesResultList.add(new PopularMoviesResults(movieObj));
         }
 
-        if(type.equals("Movies")){
-            popularMoviesRepository.saveAll(popularResultList);
-        }
-        else if (type.equals("TVs")){
-            popularSeriesRepository.saveAll(popularResultList);
-        }
+        popularMoviesRepository.saveAll(popularMoviesResultList);
 
-        return popularResultList;
+        return popularMoviesResultList;
 
     }
 
+    public List<PopularSeriesResults> searchPopularSeries() throws ExecutionException, InterruptedException, JsonProcessingException {
+
+        Optional<PopularSeriesResults> foundResult = popularSeriesRepository.findById(0L);
+        if (foundResult.isPresent()){
+            System.out.println("ping");
+            Calendar now = Calendar.getInstance();
+            if (foundResult.get().getDateOfLastSearch().get(Calendar.DAY_OF_WEEK) == now.get(Calendar.DAY_OF_WEEK)){
+                return popularSeriesRepository.findAll();
+            }
+        }
+
+        var request = HttpRequest.newBuilder(
+                URI.create(baseURL + "MostPopularTvs" + apiKey))
+                .build();
+
+        CompletableFuture<String> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body);
+
+        String searchResultJSON = response.get();
+
+        UncheckedObjectMapper objectMapper = new UncheckedObjectMapper();
+
+        JsonNode responseNodeTree = objectMapper.readTree(searchResultJSON);
+
+        List<PopularSeriesResults> popularSeriesResultList = new ArrayList<>();
+
+        for (JsonNode movieObj : responseNodeTree.get("items")) {
+            popularSeriesResultList.add(new PopularSeriesResults(movieObj));
+        }
+
+        popularSeriesRepository.saveAll(popularSeriesResultList);
+
+        return popularSeriesResultList;
+    }
 }
