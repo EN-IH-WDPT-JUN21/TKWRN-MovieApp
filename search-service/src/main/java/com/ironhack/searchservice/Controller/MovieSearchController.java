@@ -49,14 +49,14 @@ public class MovieSearchController {
     // Special Searches
     @GetMapping("/popular/movies")
     @ResponseStatus(HttpStatus.OK)
-    public List<PopularResults> getPopularMovies() throws ExecutionException, InterruptedException, JsonProcessingException {
-        return movieSearchService.searchPopular("Movies");
+    public List<PopularMoviesResults> getPopularMovies() throws ExecutionException, InterruptedException, JsonProcessingException {
+        return movieSearchService.searchPopularMovies();
     }
 
     @GetMapping("/popular/series")
     @ResponseStatus(HttpStatus.OK)
-    public List<PopularResults> getPopularSeries() throws ExecutionException, InterruptedException, JsonProcessingException {
-        return movieSearchService.searchPopular("TVs");
+    public List<PopularSeriesResults> getPopularSeries() throws ExecutionException, InterruptedException, JsonProcessingException {
+        return movieSearchService.searchPopularSeries();
     }
 
 

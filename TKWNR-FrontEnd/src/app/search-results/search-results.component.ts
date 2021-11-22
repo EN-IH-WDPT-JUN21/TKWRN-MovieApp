@@ -39,12 +39,19 @@ export class SearchResultsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //For testing purposes
-    this.movieList.push(new TitleSearchResult(
-      "tt0110413",
-      "https://m.media-amazon.com/images/M/MV5BODllNWE0MmEtYjUwZi00ZjY3LThmNmQtZjZlMjI2YTZjYmQ0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg",
-      "Léon: The Professional",
-      "1994"))
+    this.searchService.getPopularMovies()
+      .subscribe(data => {
+        this.movieList = [];
+        this.personList = [];
+        this.popularMoviesList = data;
+      }, error => console.log(error))
+
+      this.searchService.getPopularSeries()
+      .subscribe(data => {
+        this.movieList = [];
+        this.personList = [];
+        this.popularSeriesList = data;
+      }, error => console.log(error))
   }
 
   ngOnDestroy() {
@@ -75,7 +82,7 @@ export class SearchResultsComponent implements OnInit {
     this.router.navigate(['person', id])
   }
 
-  addToPlaylist(movie:TitleSearchResult):void {
+  addToPlaylist(movie:any):void {
     this.playListStorage.setMovie(movie);
     this.router.navigate(['playlists']);
   }
