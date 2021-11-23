@@ -25,7 +25,7 @@ export class SearchResultsComponent implements OnInit {
 
   private subscription!: Subscription;
 
-  constructor(public searchService: SearchService, private router: Router, public playListStorage:MovieStorageService) {
+  constructor(public searchService: SearchService, public router: Router, public playListStorage:MovieStorageService) {
     this.searchType = "";
     this.titleType = "";
     this.searchString = "";
@@ -39,17 +39,16 @@ export class SearchResultsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.isHomeRoute());
     this.searchService.getPopularMovies()
       .subscribe(data => {
-        this.movieList = [];
-        this.personList = [];
+
         this.popularMoviesList = data;
       }, error => console.log(error))
 
       this.searchService.getPopularSeries()
       .subscribe(data => {
-        this.movieList = [];
-        this.personList = [];
+
         this.popularSeriesList = data;
       }, error => console.log(error))
   }
@@ -91,5 +90,18 @@ export class SearchResultsComponent implements OnInit {
     this.router.navigate(['playlists']);
   }
 
+  isHomeRoute() {
+    return this.router.url === '/' ;
+  }
+
+  isPlaylistRoute() {
+    return this.router.url === '/playlist';
+  }
+
+  getRouter() {
+    return this.router.url;
+  }
+
+  routerUrl = this.router;
 
 }

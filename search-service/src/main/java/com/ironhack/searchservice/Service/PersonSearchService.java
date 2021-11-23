@@ -22,7 +22,7 @@ public class PersonSearchService {
 
 
     private final String baseURL = "https://imdb-api.com/en/API/";
-    private final String apiKey = "/k_316sm88p/";
+    private final String apiKey = "/k_oi455lub/";
     private HttpClient client = HttpClient.newHttpClient();
 
     public PersonIdResult searchByNameId(String id) throws ExecutionException, InterruptedException, JsonProcessingException, URISyntaxException {

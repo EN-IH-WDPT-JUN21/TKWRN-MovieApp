@@ -34,3 +34,7 @@ p {
 .col img:hover {
     box-shadow: 0 0 6px hsla(47, 92%, 53%);
 }
+
+mat-icon {
+    color: white;
+}
