@@ -10,9 +10,17 @@
         <div class="search-bar">
             <app-search></app-search>
         </div>
-        <div>
-            <img class="avatar" src="../../assets/images/{{getAvatarURL()}}">
+        <div class="avatar-box">
+            <label for="toggle"><img id="avatar" tabindex="1" class="avatar" src="../../assets/images/{{getAvatarURL()}}"></label>
+            <input type="checkbox" id="toggle" class="visually-hidden">
+            <div id="login-popup" >
+                <a class="menu-item" routerLink="/user-details/{{username}}" routerLinkActive="active">My account</a>
+                <a class="menu-item" routerLink="/register" >Register</a>
+                <a class="menu-item" routerLink="/login" >Login</a>
+                <a class="menu-item" routerLink="/logout" >Logout</a>
+            </div>
         </div>
+  
     </header>
     <div class="main-container"> 
         <nav class="navbar-left">  
@@ -22,7 +30,7 @@
             <router-outlet></router-outlet>
         </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
         <app-footer></app-footer>
-    </div>
+    </div> -->
 </div>

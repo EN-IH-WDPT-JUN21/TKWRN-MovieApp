@@ -39,7 +39,7 @@ header {
 
 .main {
     display: block;
-    height: 100%;
+    height: 95%;
     flex: 2;
     /* added for full width of child elements */
 }
@@ -48,7 +48,7 @@ header {
     display: inline-block;
     vertical-align: middle;
     font-family: middleAges;
-    color: #fff;
+    color: #f0f0f0;;
     letter-spacing: 2px;
     margin-left: 5px;
     margin-right: 3px;
@@ -58,4 +58,40 @@ header {
 .each-word::first-letter {
     color: red;
     font-size: 1.5em;
+}
+
+.avatar-box {
+    position: relative;
+}
+
+#login-popup {
+    background-color: #fff;
+    width: 120px;
+    height: 150px;
+    position: absolute;
+    left: -90px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    visibility: hidden;
+}
+
+#login-popup a {
+    text-decoration: none;
+}
+
+#toggle:checked ~ #login-popup {
+    visibility: visible;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -100vw;
 }

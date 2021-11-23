@@ -3,15 +3,32 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Create 2 columns and auto-place rows */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; Create 3 columns and auto-place rows */
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.popular-box {
+    display: flex;
+    gap: 20px;
 }
 
 img {
-    max-width: 256px !important;
+    max-width: 100px;
 }
 
 p {
     color: white;
     /* added for visibility */
+}
+
+.col a img {
+    display: block;
+    margin: 0 5px;
+}
+
+.col img:hover {
+    box-shadow: 0 0 6px hsla(47, 92%, 53%);
 }

@@ -3,11 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs";
 import { UserService } from '../user.service'
 import { User } from '../user'
-import { UserUpdateComponent } from '../user-update/user-update.component';
-import { UserListComponent } from '../user-list/user-list.component';
 
 @Component({
-  // providers:[UserUpdateComponent, UserListComponent],
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
@@ -16,13 +13,12 @@ export class UserDetailsComponent implements OnInit {
 
   username!: string;
   user!: User;
+  avatarURL!: string | null;
 
   constructor(
     private userService: UserService, 
     private router: Router, 
-    private route: ActivatedRoute, 
-    /* private compDet: UserDetailsComponent,
-    private compList: UserListComponent */) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = new User();
@@ -52,6 +48,15 @@ export class UserDetailsComponent implements OnInit {
 
   updateUser(username: string) {
     this.router.navigate(['user-update', username])
+  }
+
+  getAvatarURL():any {
+    if(localStorage.getItem('avatarURL') !== null) {
+      this.avatarURL = localStorage.getItem('avatarURL')!.slice(localStorage.getItem('avatarURL')!.length -5);
+    } else {
+      this.avatarURL = "0.png"
+    }
+    return this.avatarURL;
   }
 
 }

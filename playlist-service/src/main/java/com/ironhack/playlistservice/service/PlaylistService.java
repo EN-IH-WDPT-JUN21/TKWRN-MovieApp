@@ -4,6 +4,7 @@ import com.ironhack.playlistservice.controller.dto.MovieDTO;
 import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.dao.Movie;
 import com.ironhack.playlistservice.dao.Playlist;
+import com.ironhack.playlistservice.repository.MovieRepository;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
 import org.springframework.stereotype.Service;
 
@@ -56,8 +57,8 @@ public class PlaylistService {
         }
     }
 
-    public List<MovieDTO> getMoviesByPlaylist(long id) {
-        Playlist foundPlaylist = playlistRepository.findById(id).get();
+    public List<MovieDTO> getMoviesByPlaylist(String id) {
+        Playlist foundPlaylist = playlistRepository.findById(Long.parseLong(id)).get();
         List<MovieDTO> moviesList = new ArrayList<>();
         for (var movie : foundPlaylist.getMovies()){
             moviesList.add(new MovieDTO(

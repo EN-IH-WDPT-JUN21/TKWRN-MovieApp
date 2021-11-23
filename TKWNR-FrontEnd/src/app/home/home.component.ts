@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -11,14 +12,13 @@ import { UserService } from '../user.service';
 export class HomeComponent implements OnInit {
 
   user!: User;
-  username!: string;
+  // username!: string;
   avatarURL!: string | null;
   
-  constructor(private auth: AuthService, private userService: UserService) {
- 
-  }
+  constructor(private auth: AuthService, private userService: UserService, private router: Router) {}
+
   getAvatarURL():any {
-    if(localStorage.getItem('avatarURL') != null) {
+    if(localStorage.getItem('avatarURL') !== null) {
       this.avatarURL = localStorage.getItem('avatarURL')!.slice(localStorage.getItem('avatarURL')!.length -5);
     } else {
       this.avatarURL = "0.png"
@@ -26,16 +26,7 @@ export class HomeComponent implements OnInit {
     return this.avatarURL;
   }
 
-  // checkIfNull() {
-  //   if(this.getAvatarURL()!.slice(this.getAvatarURL()!.length -5) != null) {
-  //     this.avatarURL = this.getAvatarURL()!.slice(this.getAvatarURL()!.length -5);
-  //     return this.avatarURL;
-  //   } else {
-  //     this.avatarURL = "src/assets/images/7.png" 
-  //   }
-  //   return this.avatarURL;
-  // }
-  // avatarURL = this.getAvatarURL()!.slice(this.getAvatarURL()!.length -5);
+  username = localStorage.getItem('username')!;
   
   ngOnInit(): void {
   }

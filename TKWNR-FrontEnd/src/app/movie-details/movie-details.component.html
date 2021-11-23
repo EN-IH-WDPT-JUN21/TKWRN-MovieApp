@@ -23,7 +23,7 @@
     <div class="stars-box"> 
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Stars</p>
         <div class="stars">
-            <div *ngFor="let star of movie.starList">
+            <div *ngFor="let star of movie.starList | slice:0:5">
                 <p>{{star.name}} - {{star.asCharacter}}</p>
                 <a (click)="showPersonDetails(star.personId)"><img [src] = "star.imageURI" ></a>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -42,7 +42,7 @@
     <div class="similar-box"> 
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Similar Titles</p>
         <div class="similar">
-            <div *ngFor="let title of movie.similarList">
+            <div *ngFor="let title of movie.similarList | slice:0:5">
                 <p>{{title.title}}</p>
                 <a (click)="showMovieDetails(title.titleId)"><img [src] = "title.titleImage"></a>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
