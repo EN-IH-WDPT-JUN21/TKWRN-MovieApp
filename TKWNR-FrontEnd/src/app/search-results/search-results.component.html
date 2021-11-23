@@ -1,40 +1,46 @@
 <div class="container">
     <div *ngIf="movieList.length > 0" class="grid">
-        <div class="col" *ngFor = "let movie of movieList | slice:1:5; let i=index">
-            <p>{{movie.title}} - {{movie.description}}</p>
-            <img id="result-image" src = "{{movie.imageURI}}">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
-                <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
-                    <mat-icon>remove_red_eye</mat-icon>
-                    <span>Movie Details</span>
-                </button>
-                <button mat-menu-item (click)="addToPlaylist(movie)">
-                    <mat-icon>dialpad</mat-icon>
-                    <span>Add to Playlist</span>
-                </button>
-                </mat-menu>
+        <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Movies</p>
+        <div class="movie-box">
+            <div class="col" *ngFor = "let movie of movieList">
+                <p>{{movie.title}} - {{movie.description}}</p>
+                <a (click) = "showMovieDetails(movie.titleId)"><img id="result-image" src = "{{movie.imageURI}}"></a>
+                <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
+                    <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                        <span>Movie Details</span>
+                    </button>
+                    <button mat-menu-item (click)="addToPlaylist(movie)">
+                        <mat-icon>dialpad</mat-icon>
+                        <span>Add to Playlist</span>
+                    </button>
+                    </mat-menu> -->
+            </div>
         </div>
     </div>
-
+    <br>
     <div *ngIf="personList.length > 0" class="grid">
-        <div class="col" *ngFor="let person of personList">
-            <p>{{person.title}}</p>
-            <img id="result-image" src = "{{person.imageURI}}">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
-                <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showPersonDetails(person.nameId)">
-                    <mat-icon>remove_red_eye</mat-icon>
-                    <span>Details</span>
-                </button>
-                </mat-menu>
+        <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Series</p>
+        <div class="person-box">
+            <div class="col" *ngFor="let person of personList | slice:0:5">
+                <p>{{person.title}}</p>
+                <a (click) = "showPersonDetails(person.nameId)"><img id="result-image" src = "{{person.imageURI}}"></a>
+                <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
+                    <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showPersonDetails(person.nameId)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                        <span>Details</span>
+                    </button>
+                    </mat-menu> -->
+            </div>
         </div>
     </div>
-
+    <br>
     <div *ngIf="popularMoviesList.length > 0" class="grid">
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Popular movies</p>
         <div class="popular-box">

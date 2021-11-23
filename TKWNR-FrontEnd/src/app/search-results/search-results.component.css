@@ -10,7 +10,9 @@
     padding-left: 20px;
 }
 
-.popular-box {
+.popular-box,
+.movie-box,
+.person-box {
     display: flex;
     gap: 20px;
 }
