@@ -14,7 +14,7 @@
             <label for="toggle"><img id="avatar" tabindex="1" class="avatar" src="../../assets/images/{{getAvatarURL()}}"></label>
             <input type="checkbox" id="toggle" class="visually-hidden">
             <div id="login-popup" >
-                <a class="menu-item" routerLink="/user-details/Sebastian" routerLinkActive="active">My account</a>
+                <a class="menu-item" routerLink="/user-details/{{username}}" routerLinkActive="active">My account</a>
                 <a class="menu-item" routerLink="/register" >Register</a>
                 <a class="menu-item" routerLink="/login" >Login</a>
                 <a class="menu-item" routerLink="/logout" >Logout</a>
@@ -30,7 +30,7 @@
             <router-outlet></router-outlet>
         </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
         <app-footer></app-footer>
-    </div>
+    </div> -->
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngIf="movieList.length > 0" class="grid">
-        <div class="col" *ngFor = "let movie of movieList">
+        <div class="col" *ngFor = "let movie of movieList | slice:1:5; let i=index">
             <p>{{movie.title}} - {{movie.description}}</p>
             <img id="result-image" src = "{{movie.imageURI}}">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
@@ -36,42 +36,48 @@
     </div>
 
     <div *ngIf="popularMoviesList.length > 0" class="grid">
-        <div class="col" *ngFor="let movie of popularMoviesList">
-            <p>{{movie.title}}</p>
-            <img id="result-image" src = "{{movie.imageURI}}">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
-                <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
-                    <mat-icon>remove_red_eye</mat-icon>
-                    <span>Movie Details</span>
-                </button>
-                <button mat-menu-item (click)="addToPlaylist(movie)">
-                    <mat-icon>dialpad</mat-icon>
-                    <span>Add to Playlist</span>
-                </button>
-                </mat-menu>
+        <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Popular movies</p>
+        <div class="popular-box">
+            <div class="col" *ngFor="let movie of popularMoviesList | slice:0:5">
+                <p>{{movie.title}}</p>
+                <a (click)="showMovieDetails(movie.titleId)"><img src = "{{movie.imageURI}}"></a>
+                <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
+                    <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                        <span>Movie Details</span>
+                    </button>
+                    <button mat-menu-item (click)="addToPlaylist(movie)">
+                        <mat-icon>dialpad</mat-icon>
+                        <span>Add to Playlist</span>
+                    </button>
+                    </mat-menu> -->
+            </div>
         </div>
     </div>
-
+    <br><br>
     <div *ngIf="popularSeriesList.length > 0" class="grid">
-        <div class="col" *ngFor="let movie of popularSeriesList">
-            <p>{{movie.title}}</p>
-            <img id="result-image" src = "{{movie.imageURI}}">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
-                <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
-                    <mat-icon>remove_red_eye</mat-icon>
-                    <span>Movie Details</span>
-                </button>
-                <button mat-menu-item (click)="addToPlaylist(movie)">
-                    <mat-icon>dialpad</mat-icon>
-                    <span>Add to Playlist</span>
-                </button>
-                </mat-menu>
+        <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Popular series</p>
+        <div class="popular-box">
+            <div class="col" *ngFor="let movie of popularSeriesList | slice:0:5">
+                <p>{{movie.title}}</p>
+                <a (click)="showMovieDetails(movie.titleId)"><img src = "{{movie.imageURI}}"></a>
+                <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
+                    <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showMovieDetails(movie.titleId)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                        <span>Movie Details</span>
+                    </button>
+                    <button mat-menu-item (click)="addToPlaylist(movie)">
+                        <mat-icon>dialpad</mat-icon>
+                        <span>Add to Playlist</span>
+                    </button>
+                    </mat-menu> -->
+            </div>
         </div>
     </div>
 </div>

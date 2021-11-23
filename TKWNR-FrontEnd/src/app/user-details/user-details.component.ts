@@ -13,6 +13,7 @@ export class UserDetailsComponent implements OnInit {
 
   username!: string;
   user!: User;
+  avatarURL!: string | null;
 
   constructor(
     private userService: UserService, 
@@ -47,6 +48,15 @@ export class UserDetailsComponent implements OnInit {
 
   updateUser(username: string) {
     this.router.navigate(['user-update', username])
+  }
+
+  getAvatarURL():any {
+    if(localStorage.getItem('avatarURL') !== null) {
+      this.avatarURL = localStorage.getItem('avatarURL')!.slice(localStorage.getItem('avatarURL')!.length -5);
+    } else {
+      this.avatarURL = "0.png"
+    }
+    return this.avatarURL;
   }
 
 }

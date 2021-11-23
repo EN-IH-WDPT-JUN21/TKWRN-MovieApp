@@ -39,7 +39,7 @@ header {
 
 .main {
     display: block;
-    height: 100%;
+    height: 95%;
     flex: 2;
     /* added for full width of child elements */
 }
@@ -48,7 +48,7 @@ header {
     display: inline-block;
     vertical-align: middle;
     font-family: middleAges;
-    color: #fff;
+    color: #f0f0f0;;
     letter-spacing: 2px;
     margin-left: 5px;
     margin-right: 3px;

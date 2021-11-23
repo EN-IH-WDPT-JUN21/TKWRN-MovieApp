@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
 export class HomeComponent implements OnInit {
 
   user!: User;
-  username!: string;
+  // username!: string;
   avatarURL!: string | null;
   
   constructor(private auth: AuthService, private userService: UserService, private router: Router) {}
@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
     }
     return this.avatarURL;
   }
+
+  username = localStorage.getItem('username')!;
   
   ngOnInit(): void {
   }

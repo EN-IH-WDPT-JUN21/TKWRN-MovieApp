@@ -11,18 +11,20 @@
             <th>Email</th>
             <th>User type</th>
             <th>BIO</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td><img src="../../assets/images/{{user.avatarURL.slice(user.avatarURL.length -5)}}"></td>
+            <td><img src="../../assets/images/{{getAvatarURL()}}"></td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
             <td>{{user.userType}}</td>
             <td>{{user.bio}}</td>
-        <td><button (click)="deleteUser(user.username)" class="btn btn-danger">Delete</button>
+            <td>
+                <button (click)="deleteUser(user.username)" class="btn btn-danger">Delete</button>
                 <button (click)="updateUser(user.username)" class="btn btn-info" style="margin-left: 10px">Update</button>
-        </td> 
+            </td> 
         </tr>
         </tbody>
     </table>
