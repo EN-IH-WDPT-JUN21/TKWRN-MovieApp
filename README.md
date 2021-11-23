@@ -38,6 +38,7 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 5. Database setup
 ```
    create database ironhackhomework5;
+   
    use ironhackhomework5;
    
    CREATE USER 'ironhacker'@'localhost' IDENTIFIED BY '1r0nH@ck3r';
@@ -52,7 +53,7 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 
    
    ```
-   name = Anna
+   name = Anna or Shaun or Sebastian or Ula
    password = admin
    ```
 
