@@ -30,7 +30,6 @@ export class PlaylistMovieComponent implements OnInit {
     }
 
   ngAfterViewInit(): void{
-      console.log("here")
       this.playlistService.getMoviesByPlaylistId(this.playlistId)
       .subscribe(data => {
         console.log(data)

@@ -1,9 +1,9 @@
 <div class="container">
-    <div *ngIf="movieList.length > 0" class="grid">
+    <div *ngIf="(isHomeRoute() && movieList.length > 0) || (!isHomeRoute() && movieList.length > 0)" class="grid">
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Movies</p>
         <div class="movie-box">
             <div class="col" *ngFor = "let movie of movieList | slice:0:5">
-                <p>{{movie.title}} - {{movie.description}}</p>
+                <p>{{movie.title}} - {{movie.description}}</p><mat-icon (click)=addToPlaylist(movie)>library_add</mat-icon>
                 <a (click) = "showMovieDetails(movie.titleId)"><img id="result-image" src = "{{movie.imageURI}}"></a>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
                     <mat-icon>more_vert</mat-icon>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <br>
-    <div *ngIf="personList.length > 0" class="grid">
+    <div *ngIf="(isHomeRoute() && personList.length > 0) || (!isHomeRoute() && personList.length > 0)" class="grid">
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Series</p>
         <div class="person-box">
             <div class="col" *ngFor="let person of personList | slice:0:5">
@@ -41,11 +41,11 @@
         </div>
     </div>
     <br>
-    <div *ngIf="popularMoviesList.length > 0" class="grid">
+    <div *ngIf="isHomeRoute() && popularMoviesList.length > 0" class="grid">
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Popular movies</p>
         <div class="popular-box">
             <div class="col" *ngFor="let movie of popularMoviesList | slice:0:5">
-                <p>{{movie.title}}</p>
+                <p>{{movie.title}}</p><mat-icon (click)=addToPlaylist(movie)>library_add</mat-icon>
                 <a (click)="showMovieDetails(movie.titleId)"><img src = "{{movie.imageURI}}"></a>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
                     <mat-icon>more_vert</mat-icon>
@@ -64,11 +64,11 @@
         </div>
     </div>
     <br><br>
-    <div *ngIf="popularSeriesList.length > 0" class="grid">
+    <div *ngIf="isHomeRoute() && popularSeriesList.length > 0" class="grid">
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Popular series</p>
         <div class="popular-box">
             <div class="col" *ngFor="let movie of popularSeriesList | slice:0:5">
-                <p>{{movie.title}}</p>
+                <p>{{movie.title}}</p><mat-icon (click)=addToPlaylist(movie)>library_add</mat-icon>
                 <a (click)="showMovieDetails(movie.titleId)"><img src = "{{movie.imageURI}}"></a>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">
                     <mat-icon>more_vert</mat-icon>
