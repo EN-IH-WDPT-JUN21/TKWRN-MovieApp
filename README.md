@@ -10,7 +10,7 @@
 - create and edit playlists
 - view playlist details
 - register and login 
-- view and update user details (Admin)
+- view and update user details
 
 ### How to use
 
@@ -93,7 +93,6 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 | /api/users/{username} | `GET` | Get user by username| `username=[String]`
 | /api/users/new | `POST` | Add new user | None
 | /api/users/update/{username} | `PUT` | Update user | `username=[String]`
-| /api/users/delete/{username} | `DELETE` | Delete user | `username=[String]`
 
 ### search-service 
 
