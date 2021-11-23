@@ -2,7 +2,7 @@
     <div *ngIf="movieList.length > 0" class="grid">
         <p style="font-size: 1.2em; color: hsla(47, 92%, 53%)">Movies</p>
         <div class="movie-box">
-            <div class="col" *ngFor = "let movie of movieList">
+            <div class="col" *ngFor = "let movie of movieList | slice:0:5">
                 <p>{{movie.title}} - {{movie.description}}</p>
                 <a (click) = "showMovieDetails(movie.titleId)"><img id="result-image" src = "{{movie.imageURI}}"></a>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open Menu">

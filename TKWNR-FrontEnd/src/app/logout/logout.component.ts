@@ -34,8 +34,9 @@ export class LogoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user = new User();
-    this.isLogged();
+    // this.user = new User();
+    // this.isLogged();
+    this.logout();
   }
 
   isLogged(): boolean {

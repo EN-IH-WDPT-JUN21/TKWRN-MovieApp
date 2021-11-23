@@ -65,7 +65,7 @@ header {
 }
 
 #login-popup {
-    background-color: #fff;
+    background-color: #131313;
     width: 120px;
     height: 150px;
     position: absolute;
@@ -77,10 +77,16 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 10px;
     padding: 20px;
     visibility: hidden;
+    border: 1px solid #f0f0f0;
+    color:#f0f0f0;
+}
+
+a.menu-item {
+    color: #f0f0f0;
 }
 
 #login-popup a {
