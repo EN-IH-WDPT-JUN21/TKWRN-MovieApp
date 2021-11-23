@@ -20,7 +20,10 @@ import { Auth2Guard } from './auth2.guard';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      { path: '', component: SearchResultsComponent }
+    ]
   },
   {
     path: 'login',
