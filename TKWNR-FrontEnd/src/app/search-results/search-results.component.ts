@@ -64,12 +64,16 @@ export class SearchResultsComponent implements OnInit {
       .subscribe(data => {
         this.movieList = data;
         this.personList = [];
+        this.popularMoviesList = [];
+        this.popularSeriesList = [];
       }, error => console.log(error))
     } else {
       this.searchService.getPersonSearchResult(searchString)
       .subscribe(data => {
         this.personList = data;
         this.movieList = [];
+        this.popularMoviesList = [];
+        this.popularSeriesList = [];
       }, error => console.log(error))
     }
   }
