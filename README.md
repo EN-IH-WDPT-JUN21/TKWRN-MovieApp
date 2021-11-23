@@ -56,6 +56,9 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
    name = Anna or Shaun or Sebastian or Ula
    password = admin
    ```
+   
+5. Avatars
+   Please only use files with names 1.png to 7.png
 
 
 ### Service ports
