@@ -1,25 +1,27 @@
-<h3>Update User</h3>
-<div style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+<div class="update-box">
+  <h2>Update User</h2>
+  <div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
-    </div>
-
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
-    </div>
-
-    <div class="form-group">
-        <label for="userType">User type*: </label>
-        <select class="form-control" id="userType" required userType [(ngModel)]="user.userType" name="userType">
-          <option value="USER">Standard User</option>
-          <option value="PREMIUM">Premium User</option>
-        </select>
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="userType">User type*: </label>
+          <select class="form-control" id="userType" required userType [(ngModel)]="user.userType" name="userType">
+            <option value="USER">Standard User</option>
+            <option value="PREMIUM">Premium User</option>
+          </select>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
 </div>

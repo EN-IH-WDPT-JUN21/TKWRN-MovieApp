@@ -43,7 +43,7 @@ public class MovieSearchService {
 
 
     private final String baseURL = "https://imdb-api.com/en/API/";
-    private final String apiKey = "/k_316sm88p/";
+    private final String apiKey = "/k_nqs3pkmh/";
     private HttpClient client = HttpClient.newHttpClient();
 
     public List<TitleSearchResult> searchByMovieTitle(String type, String title) throws ExecutionException, InterruptedException, JsonProcessingException {

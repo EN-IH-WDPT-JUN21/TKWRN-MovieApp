@@ -36,15 +36,15 @@ export class UserDetailsComponent implements OnInit {
     this.router.navigate(['users']);
   }
 
-  deleteUser(username: string) {
-    this.userService.deleteUser(username)
-    .subscribe(
-      data => {
-        console.log(data);
-        this.list();
-      }
-    )
-  }
+  // deleteUser(username: string) {
+  //   this.userService.deleteUser(username)
+  //   .subscribe(
+  //     data => {
+  //       console.log(data);
+  //       this.list();
+  //     }
+  //   )
+  // }
 
   updateUser(username: string) {
     this.router.navigate(['user-update', username])

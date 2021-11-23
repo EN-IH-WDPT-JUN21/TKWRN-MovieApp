@@ -48,7 +48,7 @@ export class UserUpdateComponent implements OnInit {
   }
  
   goToList() {
-    this.router.navigate(['users'])
+    this.router.navigate(['user-details', this.username])
   }
 
 }

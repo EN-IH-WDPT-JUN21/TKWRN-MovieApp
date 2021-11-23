@@ -85,6 +85,7 @@ export class RegisterFormComponent implements OnInit {
       exist=false;
       this.save();
       this.submitted = true;
+      this.goToLogin();
     });
     return exist;
   }

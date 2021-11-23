@@ -14,8 +14,13 @@ export class HomeComponent implements OnInit {
   user!: User;
   // username!: string;
   avatarURL!: string | null;
+  isLoggedIn = false;
+  isAdmin = false;
   
-  constructor(private auth: AuthService, private userService: UserService, private router: Router) {}
+  constructor(private auth: AuthService, private userService: UserService, private router: Router) {
+    this.isLoggedIn = auth.isLoggedIn();
+    this.isAdmin = auth.isAdmin();
+  }
 
   getAvatarURL():any {
     if(localStorage.getItem('avatarURL') !== null) {
