@@ -96,9 +96,8 @@ public class MovieSearchService {
 
     public List<PopularMoviesResults> searchPopularMovies() throws ExecutionException, InterruptedException, JsonProcessingException {
 
-        Optional<PopularMoviesResults> foundResult = popularMoviesRepository.findById(0L);
+        Optional<PopularMoviesResults> foundResult = popularMoviesRepository.findById(1L);
         if (foundResult.isPresent()){
-            System.out.println("ping");
             Calendar now = Calendar.getInstance();
             if (foundResult.get().getDateOfLastSearch().get(Calendar.DAY_OF_WEEK) == now.get(Calendar.DAY_OF_WEEK)){
                 return popularMoviesRepository.findAll();
@@ -133,9 +132,8 @@ public class MovieSearchService {
 
     public List<PopularSeriesResults> searchPopularSeries() throws ExecutionException, InterruptedException, JsonProcessingException {
 
-        Optional<PopularSeriesResults> foundResult = popularSeriesRepository.findById(0L);
+        Optional<PopularSeriesResults> foundResult = popularSeriesRepository.findById(1L);
         if (foundResult.isPresent()){
-            System.out.println("ping");
             Calendar now = Calendar.getInstance();
             if (foundResult.get().getDateOfLastSearch().get(Calendar.DAY_OF_WEEK) == now.get(Calendar.DAY_OF_WEEK)){
                 return popularSeriesRepository.findAll();
