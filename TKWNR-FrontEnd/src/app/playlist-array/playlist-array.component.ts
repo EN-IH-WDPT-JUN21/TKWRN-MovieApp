@@ -28,7 +28,7 @@ export class PlaylistArrayComponent implements OnInit {
         id: 0,
         name: '',
         length: 0,
-        userName: localStorage.getItem('username')!,
+        username: localStorage.getItem('username')!,
         type: 'PUBLIC',
       }
     this.playlists = [];
@@ -37,22 +37,22 @@ export class PlaylistArrayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reloadData();
+    this.reloadData(this.playlist.username);
     this.movie = this.movieStorage.getMovie();
   }
 
-  reloadData(): void {
-  this.playlistService.getAllPlaylists().subscribe(
+  reloadData(username:string): void {
+  this.playlistService.getPlaylistsByUsername(username).subscribe(
     result => {
       this.playlists = result;
     });
   }
 
-  save() {
+  save(username:string) {
     if(this.playlists.length <= 9) {
       this.playlistService.createPlaylist(this.playlist).subscribe(data => {
           this.playlist = new Playlist();
-          this.reloadData();
+          this.reloadData(username);
       });
     } else {
         console.log("Can't add to playlist!");
@@ -62,7 +62,7 @@ export class PlaylistArrayComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.save();
+    this.save(this.playlist.username);
   }
 
   showPlaylist(id: number) {
@@ -88,7 +88,7 @@ export class PlaylistArrayComponent implements OnInit {
     this.playlistService.deletePlaylist(id).subscribe(
       data => {
         console.log(data);
-        this.reloadData();
+        this.reloadData(this.playlist.username);
       }
     )
   }
