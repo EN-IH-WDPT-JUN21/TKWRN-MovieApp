@@ -6,6 +6,6 @@ export class Playlist {
     name!: string;
     length!: number;
     type!: any;
-    userName!: string;
+    username!: string;
     movies?: MovieDetail[];
   }
