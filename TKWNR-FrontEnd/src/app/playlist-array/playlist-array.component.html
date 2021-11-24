@@ -6,7 +6,7 @@
       </div>
     </form>
     <div class="container dark playList" *ngFor="let playlist of playlists; let i = index">
-      <p (click)="showPlaylistDetails(i+1)">{{playlist.name}}</p>
+      <p (click)="showPlaylistDetails(playlist.id)">{{playlist.name}}</p>
       <div class="icons">
         <mat-icon *ngIf="movie.title !== 'null'" (click)=addToPlaylist(playlist.id)>library_add</mat-icon>
         <mat-icon class="delete" (click)=deletePlaylist(playlist.id)>delete_sweep</mat-icon>
