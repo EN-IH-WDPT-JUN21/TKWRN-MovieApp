@@ -1,0 +1,23 @@
+.panel {
+    background-color: #131313;
+    color: #f0f0f0;
+    padding: 10px;
+}
+
+.panel-heading, 
+.panel-body,
+.table td, 
+.table-striped {
+    color: #f0f0f0;
+}
+
+button {
+    margin: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+img {
+    background-color: #f0f0f0;
+}

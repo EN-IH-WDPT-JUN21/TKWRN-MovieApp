@@ -1,0 +1,103 @@
+@font-face {
+    font-family: middleAges;
+    src: url(../../assets/fonts/MiddleAges_PERSONAL_USE.ttf);
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 95vw;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    background-color: #131313;
+    padding: 10px 5px;
+    display: grid;
+    grid-template-columns: 2fr 4fr 0.2fr;
+    align-items: center;
+}
+
+.logo {
+    max-width: 11%;
+}
+
+.avatar {
+    max-width: 30px;
+    background-color: #fff;
+}
+
+.navbar-left {
+    width: 25vw;
+}
+
+.main {
+    display: block;
+    height: 95%;
+    flex: 2;
+    /* added for full width of child elements */
+}
+
+.each-word {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: middleAges;
+    color: #f0f0f0;;
+    letter-spacing: 2px;
+    margin-left: 5px;
+    margin-right: 3px;
+    padding-top: 2px;
+}
+
+.each-word::first-letter {
+    color: red;
+    font-size: 1.5em;
+}
+
+.avatar-box {
+    position: relative;
+}
+
+#login-popup {
+    background-color: #131313;
+    width: 120px;
+    height: 150px;
+    position: absolute;
+    left: -90px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+    visibility: hidden;
+    border: 1px solid #f0f0f0;
+    color:#f0f0f0;
+}
+
+a.menu-item {
+    color: #f0f0f0;
+}
+
+#login-popup a {
+    text-decoration: none;
+}
+
+#toggle:checked ~ #login-popup {
+    visibility: visible;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -100vw;
+}

@@ -1,0 +1,66 @@
+<div class="bg">
+<div class="container">
+    <h1>Register form</h1>
+    <a href="#" class="image main"><img src="../../assets/images/black.jfif" alt="" width=100% /></a>
+
+    <!-- <div [hidden]="submitted" style="width: 400px;"> -->
+        <form class="form" (ngSubmit)="onSubmit()" #form="ngForm">
+
+            <div class="form-group">
+                <label for="avatarURL">Avatar*: </label>
+                <input ngModel #file [(ngModel)]="user.avatarURL" name="avatarURL" type="file" accept='image/*' (change)="preview(file.files)" />
+                <img [src]="imgURL" height="200" *ngIf="imgURL">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Username*: </label>
+                <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" pattern="^[a-zA-Z0-9]{5,10}$" [disabled]="submitted">
+                <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write username that consists 5 to 10 characters: letters & numbers only.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Email*: </label>
+                <input ngModel required email [(ngModel)]="user.email" name="email" type="text" placeholder="Email..." #emailInput="ngModel" [disabled]="submitted">
+                <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">Please use a proper email address</p>
+            </div>
+            <div class="form-group">
+                <label for="password">Password*: </label>
+                <input ngModel required password [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" [disabled]="submitted">
+                <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">The password must be between 4 and 20 characters</p>
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirm">Password confirmation*: </label>
+                <input ngModel required passwordConfirm minlength="4" maxlength="20" value=form.password name="passwordConfirm" type="password" placeholder="Password confirmation..." #passwordConfirmInput="ngModel" pattern="{{ passwordInput.value }}" [disabled]="submitted">
+                <p class="error-msg" *ngIf="passwordConfirmInput.invalid && passwordConfirmInput.touched">The password doesn't match</p>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio: </label>
+                <input ngModel bio [(ngModel)]="user.bio" name="bio" type="text" placeholder="Bio (not required)..." #bioInput="ngModel" [disabled]="submitted" class="heighttext">
+                <p class="error-msg" *ngIf="bioInput.invalid && bioInput.touched">Please write bio up to 100 characters</p>
+            </div>
+            <div class="form-group">
+                <label for="userType">User type*: </label>
+                <select ngModel name="userType" required userType [(ngModel)]="user.userType" #userTypeInput="ngModel" [disabled]="submitted">
+                  <option value="USER">Standard User</option>
+                  <option value="PREMIUM">Premium User</option>
+                  <!-- <option value="ADMIN">Admin</option> -->
+                </select>
+                <p class="error-msg" *ngIf="userTypeInput.invalid && userTypeInput.touched">Please select a user type</p>
+            </div>
+
+
+            <div class="buttons">
+                <button type="submit" [disabled]="form.invalid" [disabled]="submitted" class="btn btn-success">Register</button>
+                <button class="btn btn-warning" (click)="goToLogin()">Back to Login</button>
+            </div>
+            <p>* fields required</p>
+        </form>
+    <!-- </div> -->
+
+    <div [hidden]="!submitted">
+        <h4>You submitted successfully!</h4>
+    </div>
+</div>
+
+
+</div>

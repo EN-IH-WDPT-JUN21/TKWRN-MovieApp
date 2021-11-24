@@ -1,0 +1,79 @@
+#create {
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    position: relative;
+    top: 20px;
+}
+
+.dark {
+    border: 2px solid #161B22;
+}
+
+input {
+    width: 50%;
+    display: inline;
+    margin-right: 15px;
+    margin-top: 30px;
+    margin-bottom: 3%;
+} 
+
+button {
+    height: 45px;
+}
+
+.creation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: inline-flex;
+}
+
+.playList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+
+.playList p {
+    font-family: middleAges;
+    src: url(../../assets/fonts/MiddleAges_PERSONAL_USE.ttf);
+    margin: 5px;
+    justify-content: center;
+    padding: 15px;
+    color: white;
+    font-size: 1.5em;
+}
+
+button:hover,
+p:hover,
+mat-icon:hover {
+    cursor: pointer;
+}
+
+mat-icon {
+    color: white;
+    font-size: 1.5em;
+}
+
+mat-icon.delete {
+    color: red;
+}
+
+.icons {
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+}
+
+
+  
+
+
+
+

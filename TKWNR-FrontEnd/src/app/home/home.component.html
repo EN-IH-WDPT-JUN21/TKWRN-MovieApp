@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <header>
+        <div class="logo-name">
+            <img class="logo" src="../../assets/images/medieval_knight_icon_white.svg">
+            <span class="each-word">Knights</span>
+            <span class="each-word">Who</span>
+            <span class="each-word">Return</span>
+            <span class="each-word">NULL</span><br>
+        </div>
+        <div class="search-bar">
+            <app-search></app-search>
+        </div>
+        <div class="avatar-box">
+            <label for="toggle"><img id="avatar" tabindex="1" class="avatar" src="../../assets/images/{{getAvatarURL()}}"></label>
+            <input type="checkbox" id="toggle" class="visually-hidden">
+            <div id="login-popup" >
+                <a *ngIf="isLoggedIn" class="menu-item" routerLink="/user-details/{{username}}" routerLinkActive="active">My account</a>
+                <a *ngIf="isLoggedIn==false" class="menu-item" routerLink="/register" >Register</a>
+                <a *ngIf="isLoggedIn==false" class="menu-item" routerLink="/login" >Login</a>
+                <a *ngIf="isLoggedIn" class="menu-item" routerLink="/logout" >Logout</a>
+            </div>
+        </div>
+  
+    </header>
+    <div class="main-container"> 
+        <nav class="navbar-left">  
+            <app-navigation></app-navigation>
+        </nav>
+        <div class="main">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- <div class="footer">
+        <app-footer></app-footer>
+    </div> -->
+</div>
