@@ -70,7 +70,6 @@ export class SearchResultsComponent implements OnInit {
       this.searchService.getPersonSearchResult(searchString)
       .subscribe(data => {
         this.personList = data;
-        this.movieList = [];
         this.popularMoviesList = [];
         this.popularSeriesList = [];
       }, error => console.log(error))
