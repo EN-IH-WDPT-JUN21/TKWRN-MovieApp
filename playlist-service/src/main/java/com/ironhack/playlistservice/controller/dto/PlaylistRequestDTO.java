@@ -19,22 +19,22 @@ public class PlaylistRequestDTO {
 
     private int length;
 
-    private long userId;
+    private String username;
 
     private String type;
 
     private List<Movie> movies;
 
-    public PlaylistRequestDTO(String name, int length, long userId) {
+    public PlaylistRequestDTO(String name, int length, String username) {
         this.name = name;
         this.length = length;
-        this.userId = userId;
+        this.username = username;
     }
 
-    public PlaylistRequestDTO(String name, int length, long userId, List<Movie> movies) {
+    public PlaylistRequestDTO(String name, int length, String username, List<Movie> movies) {
         this.name = name;
         this.length = length;
-        this.userId = userId;
+        this.username = username;
         this.type = "PUBLIC";
         this.movies = movies;
     }
