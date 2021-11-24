@@ -6,6 +6,7 @@ import com.ironhack.playlistservice.controller.dto.PlaylistRequestDTO;
 import com.ironhack.playlistservice.dao.Movie;
 import com.ironhack.playlistservice.dao.Playlist;
 import com.ironhack.playlistservice.repository.PlaylistRepository;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -41,6 +44,7 @@ public class PlaylistControllerTest {
 
     private Playlist playlist;
     private Playlist playlist1;
+    private Playlist playlist2;
     private List<Playlist> playlists;
 
     @BeforeEach
@@ -48,6 +52,7 @@ public class PlaylistControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
         playlist = new Playlist("Playlist 1", 0, "user1");
         playlist1 = new Playlist("Playlist 2", 0, "user2");
+        playlist2 = new Playlist("Playlist 3", 0, "user2");
         URI movieURI = URI.create("http://m.media-amazon.com/images/M/MV5BODllNWE0Mm…yXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg");
         Movie movie = new Movie("tt2323", movieURI, "Kill Bill", "sdfdsasd" );
         Movie movie1 = new Movie("tt1111", movieURI, "Weekend at Bernie's", "i don't have time for this" );
@@ -61,8 +66,8 @@ public class PlaylistControllerTest {
     }
 
     @AfterEach
-    public void tearDown() {
-//        playlistRepository.deleteAll();
+    public  void tearDown() {
+        playlistRepository.deleteAll();
     }
 
     @Test
@@ -80,33 +85,35 @@ public class PlaylistControllerTest {
         assertTrue(result.getResponse().getContentAsString().contains("Playlist 2"));
     }
 
-//    @Test
-//    void create() throws Exception {
-//        PlaylistRequestDTO playlistRequestDTO = new PlaylistRequestDTO("Playlist3", 0, 3);
-//        String body = objectMapper.writeValueAsString(playlistRequestDTO);
-//        MvcResult result = mockMvc.perform(post("/api/playlists/new").content(body)
-//                .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isCreated()).andReturn();
-//        assertTrue(result.getResponse().getContentAsString().contains("Playlist3"));
-//    }
+    @Test
+    void create() throws Exception {
+        PlaylistRequestDTO playlistRequestDTO = new PlaylistRequestDTO("Playlist4", 0, "newUser");
+        String body = objectMapper.writeValueAsString(playlistRequestDTO);
+        MvcResult result = mockMvc.perform(post("/api/playlists/new").content(body)
+                .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isCreated()).andReturn();
+        assertTrue(result.getResponse().getContentAsString().contains("Playlist4"));
+    }
 
     @Test
     void addNewMovie() throws Exception {
         Long id = playlist.getId();
+        int movielistLength = playlist.getMovies().size();
         URI movieURI = URI.create("http://m.media-amazon.com/images/M/MV5BODllNWE0Mm…yXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg");
-        MovieDTO movie = new MovieDTO(1, "tt2323", movieURI, "Kill Bill", "sdfdsasd" );
+        MovieDTO movie = new MovieDTO(1, "tt2377", movieURI, "Pulp Fiction", "sdfdsasd" );
         String body = objectMapper.writeValueAsString(movie);
         MvcResult result = mockMvc.perform(put("/api/playlists/addmovie/" + id).content(body)
                 .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isNoContent()).andReturn();
-        assertTrue(result.getResponse().getContentAsString().contains("Kill Bill"));
+        int newMovieListLength = playlist.getMovies().size();
+        assertEquals(movielistLength++, newMovieListLength);
     }
 
-//    @Test
-//    void getMoviesByPlaylist() throws Exception {
-//        Long id = playlist1.getId();
-//        MvcResult result = mockMvc.perform(
-//                get("/api/playlists/movies/" + id)
-//        ).andDo(print()).andExpect(status().isOk()).andReturn();
-//        assertTrue(result.getResponse().getContentAsString().contains("Kill Bill"));
-//    }
+    @Test
+    void getPlaylistsByUser() throws Exception {
+        List<Playlist> userPlaylists = new ArrayList<>();
+        MvcResult result = mockMvc.perform(
+                get("/api/playlists/get/" + "user2")
+        ).andDo(print()).andExpect(status().isOk()).andReturn();
+        assertTrue(result.getResponse().getContentAsString().contains("Playlist 2"));
+    }
 
 }
