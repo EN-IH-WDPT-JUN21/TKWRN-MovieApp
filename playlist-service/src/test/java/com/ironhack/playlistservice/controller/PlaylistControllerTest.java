@@ -46,8 +46,8 @@ public class PlaylistControllerTest {
     @BeforeEach
     public void setUp() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-        playlist = new Playlist("Playlist 1", 0, 1);
-        playlist1 = new Playlist("Playlist 2", 0, 2);
+        playlist = new Playlist("Playlist 1", 0, "user1");
+        playlist1 = new Playlist("Playlist 2", 0, "user2");
         URI movieURI = URI.create("http://m.media-amazon.com/images/M/MV5BODllNWE0Mm…yXkFqcGdeQXVyNTc1NTQxODI@._V1_Ratio0.6791_AL_.jpg");
         Movie movie = new Movie("tt2323", movieURI, "Kill Bill", "sdfdsasd" );
         Movie movie1 = new Movie("tt1111", movieURI, "Weekend at Bernie's", "i don't have time for this" );
