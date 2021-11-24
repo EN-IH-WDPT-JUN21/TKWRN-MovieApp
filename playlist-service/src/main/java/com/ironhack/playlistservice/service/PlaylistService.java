@@ -32,7 +32,7 @@ public class PlaylistService {
         Playlist newPlaylist = new Playlist(
                 playlistRequestDTO.getName(),
                 playlistRequestDTO.getLength(),
-                playlistRequestDTO.getUserId()
+                playlistRequestDTO.getUsername()
         );
         return playlistRepository.save(newPlaylist);
     }
