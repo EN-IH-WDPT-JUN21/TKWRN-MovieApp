@@ -26,17 +26,17 @@ public class Playlist {
 
     private int length;
 
-    private long userId;
+    private String username;
 
     private String type;
 
     @OneToMany(mappedBy = "playlistId", cascade = CascadeType.ALL)
     private List<Movie> movies;
 
-    public Playlist(String name, int length, long userId) {
+    public Playlist(String name, int length, String username) {
         this.name = name;
         this.length = length;
-        this.userId = userId;
+        this.username = username;
         this.type = "PUBLIC";
         this.movies = new ArrayList<Movie>();
     }
