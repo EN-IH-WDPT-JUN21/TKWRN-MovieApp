@@ -80,6 +80,7 @@ git clone https://github.com/EN-IH-WDPT-JUN21/TKWRN-MovieApp.git
 | :--- | :--- | :--- | :--- 
 | /api/playlists| `GET` | Get all playlists | None
 | /api/playlists/{id} | `GET` | Get playlist by id | `id=[long]`
+| /api/playlists/get/{username} | `GET` | Get playlist by username | `username=[String]`
 | /api/playlists/new | `POST` | Add new playlist | None
 | /api/playlists/update/{id} | `PUT` | Update playlist | `id=[long]`
 | /api/playlists/addmovie/{id}" | `PUT` | Add movie to playlist | `id=[long]`
