@@ -76,5 +76,10 @@ public class PlaylistService {
         Movie movie = movieRepository.getByTitleId(titleId);
         return movie;
     }
+    
+     public List<Playlist> getPlaylistsByUser(String username) {
+        List<Playlist> userPlaylists = playlistRepository.getByUsername(username);
+        return userPlaylists;
+    }
 }
 
