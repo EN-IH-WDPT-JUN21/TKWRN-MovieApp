@@ -24,6 +24,11 @@ export class PlaylistsService {
   getPlaylistByName(name: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/get?name=name`, { responseType: 'text' });
   }
+  
+   getPlaylistsByUsername(username: string): Observable<Playlist[]> {
+    return this.http.get<Playlist[]>(`${this.baseUrl}/get/${username}`);
+  }
+
 
   createPlaylist(playlist: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}/new`, playlist);
