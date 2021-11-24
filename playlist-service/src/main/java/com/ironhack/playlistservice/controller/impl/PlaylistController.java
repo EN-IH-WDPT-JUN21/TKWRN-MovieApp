@@ -37,6 +37,12 @@ public class PlaylistController implements IPlaylistController {
     public Playlist getPlaylistById(@PathVariable(name = "id") long id) {
         return playlistRepository.findById(id).orElse(null);
     }
+    
+    @GetMapping("/get/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Playlist> getUserPlaylists(@PathVariable(name = "username") String username) {
+        return playlistService.getPlaylistsByUser(username);
+    }
 
     @GetMapping("/movies/{id}")
     @ResponseStatus(HttpStatus.OK)
